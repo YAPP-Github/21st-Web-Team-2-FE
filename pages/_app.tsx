@@ -1,8 +1,6 @@
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
-import '../styles/globals.css';
-
 function MyApp({ Component, pageProps }: AppProps) {
   /*
   // DELETE-GYU: 주석을 제거하고 ESLint 및 prettier 가 적용되는지 확인해주세요! (모두 확인되면 지울 예정!)
