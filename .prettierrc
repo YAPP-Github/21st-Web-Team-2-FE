@@ -5,5 +5,8 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "printWidth": 120,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "importOrder": ["^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

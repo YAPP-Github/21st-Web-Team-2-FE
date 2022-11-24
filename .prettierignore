@@ -1,2 +1,4 @@
 *.md
 LICENSE
+node_modules
+.next
