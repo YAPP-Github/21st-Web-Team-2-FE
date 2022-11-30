@@ -17,5 +17,13 @@
   },
   "plugins": ["@typescript-eslint"],
   "ignorePatterns": ["dist/", "node_modules/"],
-  "rules": {}
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.stories.*"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    }
+  ]
 }
