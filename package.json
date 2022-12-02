@@ -10,8 +10,8 @@
     "test": "jest --watch",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
-    "e2e": "start-server-and-test start http://localhost:3000 cypress",
-    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless"
+    "e2e": "npm run build && start-server-and-test start http://localhost:3000 cypress",
+    "e2e:headless": "npm run build && start-server-and-test start http://localhost:3000 cypress:headless"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
