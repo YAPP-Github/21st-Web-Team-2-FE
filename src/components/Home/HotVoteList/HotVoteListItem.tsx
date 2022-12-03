@@ -1,19 +1,8 @@
 import React from 'react';
 
+import { HotVote } from '@src/types/vote';
+
 import * as S from './HotVoteListItem.styles';
-
-interface User {
-  profile: string;
-  nickname: string;
-}
-
-interface HotVote {
-  badge: string;
-  title: string;
-  user: User;
-  participants: number;
-  comments: number;
-}
 
 export interface VoteListItemProps {
   hotVote: HotVote;

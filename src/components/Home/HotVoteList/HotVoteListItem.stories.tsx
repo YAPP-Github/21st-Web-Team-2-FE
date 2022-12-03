@@ -1,6 +1,8 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { HotVote } from '@src/types/vote';
+
 import HotVoteListItem from './HotVoteListItem';
 
 export default {
@@ -10,7 +12,7 @@ export default {
 
 const Template: ComponentStory<typeof HotVoteListItem> = (args) => <HotVoteListItem {...args} />;
 
-const DEFAULT_HOT_VOTE = {
+const DEFAULT_HOT_VOTE: HotVote = {
   badge: '참여율 TOP',
   title: '연협때 20% 질러봐도 될까요?',
   user: {
