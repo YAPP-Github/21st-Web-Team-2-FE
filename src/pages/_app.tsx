@@ -6,6 +6,20 @@ import { RecoilRoot } from 'recoil';
 import queryClient from '../configs/queryClient';
 import '../styles/reset.css';
 
+if (process.env.NODE_ENV === 'development') {
+  if (typeof window === 'undefined') {
+    (async () => {
+      const { server } = await import('../../__mocks__/apis/server');
+      server.listen();
+    })();
+  } else {
+    (async () => {
+      const { worker } = await import('../../__mocks__/apis/browser');
+      await worker.start();
+    })();
+  }
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
