@@ -246,6 +246,15 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,nextjs,webstorm
 
+### CypressIO ###
+# gitignore template for the CypressIO, browser test framework
+# website: https://www.cypress.io/
+
+cypress/results/*
+cypress/reports/*
+cypress/screenshots/*
+cypress/videos/*
+
 # Created by https://www.toptal.com/developers/gitignore/api/storybookjs
 # Edit at https://www.toptal.com/developers/gitignore?templates=storybookjs
 
