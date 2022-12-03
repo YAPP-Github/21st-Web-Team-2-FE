@@ -13,7 +13,7 @@ const HotVoteListItem: React.FC<VoteListItemProps> = (props) => {
   const { badge, title, user, participants, comments } = hotVote;
 
   return (
-    <S.VoteListItem>
+    <S.Container>
       <S.Badge>{badge}</S.Badge>
       <S.Title>{title}</S.Title>
       <S.VoteInfo>
@@ -25,7 +25,7 @@ const HotVoteListItem: React.FC<VoteListItemProps> = (props) => {
           {participants}명 참여 ·{comments}개 댓글
         </div>
       </S.VoteInfo>
-    </S.VoteListItem>
+    </S.Container>
   );
 };
 

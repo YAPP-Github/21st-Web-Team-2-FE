@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
 
-export const VoteListItem = styled.article`
+export const Container = styled.article`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
