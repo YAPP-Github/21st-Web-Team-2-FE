@@ -1,13 +1,13 @@
 import React from 'react';
 
-import * as S from './VoteListItem.styles';
+import * as S from './HotVoteListItem.styles';
 
 interface User {
   profile: string;
   nickname: string;
 }
 
-export interface VoteListItemProps {
+interface HotVote {
   badge: string;
   title: string;
   user: User;
@@ -15,8 +15,13 @@ export interface VoteListItemProps {
   comments: number;
 }
 
-const VoteListItem: React.FC<VoteListItemProps> = (props) => {
-  const { badge, title, user, participants, comments } = props;
+export interface VoteListItemProps {
+  hotVote: HotVote;
+}
+
+const HotVoteListItem: React.FC<VoteListItemProps> = (props) => {
+  const { hotVote } = props;
+  const { badge, title, user, participants, comments } = hotVote;
 
   return (
     <S.VoteListItem>
@@ -35,4 +40,4 @@ const VoteListItem: React.FC<VoteListItemProps> = (props) => {
   );
 };
 
-export default VoteListItem;
+export default HotVoteListItem;
