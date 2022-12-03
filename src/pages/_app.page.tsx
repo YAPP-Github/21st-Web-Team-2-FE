@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
 import queryClient from '../configs/queryClient';
+import '../styles/reset.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
