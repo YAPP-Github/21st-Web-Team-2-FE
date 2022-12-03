@@ -8,8 +8,6 @@ module.exports = {
     builder: '@storybook/builder-webpack5',
   },
   webpackFinal: async (config) => {
-    // https://storybook.js.org/docs/react/builders/webpack#typescript-module-resolution
-    // Apply storybook path alias
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
       new TsconfigPathsPlugin({
