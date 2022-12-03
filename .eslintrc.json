@@ -17,6 +17,7 @@
   ],
   "plugins": ["@typescript-eslint", "testing-library"],
   "ignorePatterns": ["dist/", "node_modules/"],
+  "rules": {},
   "overrides": [
     {
       "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
@@ -27,7 +28,12 @@
       "files": ["cypress/**/?(*.)+(spec|test).[jt]s?(x)", "cypress/support/*"],
       "extends": ["plugin:cypress/recommended"],
       "env": { "cypress/globals": true }
+    },
+    {
+      "files": ["**/*.stories.*"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
     }
-  ],
-  "rules": {}
+  ]
 }
