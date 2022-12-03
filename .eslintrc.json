@@ -17,7 +17,9 @@
   ],
   "plugins": ["@typescript-eslint", "testing-library"],
   "ignorePatterns": ["dist/", "node_modules/"],
-  "rules": {},
+  "rules": {
+    "prettier/prettier": false
+  },
   "overrides": [
     {
       "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],

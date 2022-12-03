@@ -6,7 +6,7 @@
   "trailingComma": "all",
   "printWidth": 120,
   "arrowParens": "always",
-  "importOrder": ["^[./]"],
+  "importOrder": ["^@mocks/(.*)$", "^@src/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }
