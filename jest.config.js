@@ -13,6 +13,9 @@ const customJestConfig = {
     '^@mocks/(.*)$': '<rootDir>/__mocks__/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
+  transform: {
+    '\\.svg$': '<rootDir>/__mocks__/svg.js',
+  },
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
