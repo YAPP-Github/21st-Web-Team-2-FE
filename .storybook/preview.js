@@ -1,15 +1,16 @@
+import { initialize, mswDecorator } from 'msw-storybook-addon';
 import * as NextImage from 'next/image';
 
+import mockApis from '../__mocks__/apis';
 import '../src/styles/reset.css';
 
+initialize();
+
+export const decorators = [mswDecorator];
+
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
+  msw: mockApis,
+  actions: { argTypesRegex: '^on.*' },
 };
 
 const OriginalNextImage = NextImage.default;
