@@ -1,23 +1,23 @@
-import { RenderResult, render, screen } from '@testing-library/react';
+import { RenderResult, render as defaultRender, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import HashTag, { HashTagProps } from '.';
+import TagListITem, { TagListItemProps } from './TagListItem';
 
-const DEFAULT_ARGS: HashTagProps = {
+const DEFAULT_ARGS: TagListItemProps = {
   value: 'React',
   onClick: jest.fn(),
 };
 
-const renderHashTag = (props: Partial<HashTagProps>): RenderResult => {
-  return render(<HashTag {...DEFAULT_ARGS} {...props} />);
+const render = (props: Partial<TagListItemProps>): RenderResult => {
+  return defaultRender(<TagListITem {...DEFAULT_ARGS} {...props} />);
 };
 
 describe('with value', () => {
   test('render value', async () => {
     const value = 'TEST';
 
-    renderHashTag({ value });
+    render({ value });
 
     await screen.findByText(value);
   });
@@ -28,7 +28,7 @@ describe('with onClick', () => {
     const value = 'TEST';
     const onClick = jest.fn();
 
-    renderHashTag({ value, onClick });
+    render({ value, onClick });
     const dom = await screen.findByText(value);
     await userEvent.click(dom);
 

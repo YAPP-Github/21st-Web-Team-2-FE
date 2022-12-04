@@ -1,13 +1,13 @@
 import React from 'react';
 
-import * as S from './HashTag.styles';
+import * as S from './TagListItem.styles';
 
-export interface HashTagProps {
+export interface TagListItemProps {
   value: string;
   onClick: (value: string) => void;
 }
 
-const HashTag: React.FC<HashTagProps> = (props) => {
+const TagListItem: React.FC<TagListItemProps> = (props) => {
   const { value, onClick } = props;
 
   const handleClick = () => {
@@ -17,4 +17,4 @@ const HashTag: React.FC<HashTagProps> = (props) => {
   return <S.Container onClick={handleClick}>{value}</S.Container>;
 };
 
-export default HashTag;
+export default TagListItem;
