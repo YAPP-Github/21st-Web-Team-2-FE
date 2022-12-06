@@ -13,7 +13,7 @@ const theme = {
     bold: 700,
   },
   fontSize: {
-    small: '12px',
+    sm: '12px',
     md: '14px',
     lg: '16px',
   },
