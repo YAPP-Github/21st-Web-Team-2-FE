@@ -11,7 +11,6 @@ const MyButton = ({ title, ...props }: IMyButton) => {
   return (
     <div>
       <StyledButton>{title}</StyledButton>
-      <Image src={''} alt={''} {...props} />
     </div>
   );
 };
