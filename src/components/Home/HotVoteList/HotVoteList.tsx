@@ -12,6 +12,7 @@ interface HotVoteListProps {
 
 const HotVoteList: React.FC<HotVoteListProps> = (props) => {
   const { title, hotVotes } = props;
+
   return (
     <S.Container>
       <S.Title>{title}</S.Title>
