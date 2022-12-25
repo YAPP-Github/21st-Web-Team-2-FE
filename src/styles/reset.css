@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -89,6 +96,7 @@ video {
   border: 0;
   font-size: 100%;
   font: inherit;
+  font-family: 'Pretendard-Regular', 'Noto Sans CJK KR', syne;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -107,6 +115,8 @@ section {
 }
 body {
   line-height: 1;
+  background-color: #101012;
+  color: #f1f3f5;
 }
 ol,
 ul {
@@ -126,4 +136,20 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+h1 {
+  font-size: 20pt;
+  font-weight: bold;
+}
+h2 {
+  font-size: 18pt;
+  font-weight: medium;
+}
+h3 {
+  font-size: 16pt;
+  font-weight: regular;
+}
+p {
+  font-size: 14pt;
+  font-weight: regular;
 }

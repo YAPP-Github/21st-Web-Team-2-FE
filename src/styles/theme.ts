@@ -1,11 +1,34 @@
 const theme = {
   color: {
-    bgPrimary: '#000000',
-    bgSecondary: '#00dd00',
-    txtPrimary: '#FFFFFF',
-    txtDanger: '#dd0d0d',
-    txtTertiary: '#999999',
-    borderPrimary: '#666666',
+    // common color
+    dark0: '#c1c2c5',
+    dark1: '#a6a7ab',
+    dark2: '#909296',
+    dark3: '#5c5f66',
+    dark4: '#373a40',
+    dark5: '#2c2e33',
+    dark6: '#25262b',
+    dark7: '#1a1b1e',
+    dark8: '#141517',
+    dark9: '#101113',
+    primaryLight: '#d2fa64',
+    primaryDark: '#b2dd3c',
+    secondaryLight: '#ff3d60',
+    secondaryDark: '#e02d4d',
+    // specialized color
+    bgPrimary: '#101012',
+    bgSecondary: '#212529',
+    bgThird: '#2c2e33',
+    topicPrimary: '#ff7991',
+    topicSecondary: '#aef19d',
+    txtPrimary: '#f1f3f5',
+    txtSecondary: '#6E7178',
+    txtDanger: '#ff0000',
+    borderPrimary: '#f8f9fa',
+  },
+  fontFamily: {
+    basic: 'Pretendard',
+    mainTitle: 'Syne',
   },
   fontWeight: {
     light: 300,
@@ -13,34 +36,29 @@ const theme = {
     bold: 700,
   },
   fontSize: {
-    sm: '12px',
-    md: '14px',
+    xxsm: '8px',
+    xsm: '12px',
+    sm: '14px',
+    md: '15px',
     lg: '16px',
+    xlg: '18px',
+    xxlg: '20px',
+    xxxlg: '24px',
   },
   lineHeight: {
-    sm: '16px',
-    md: '20px',
-    lg: '24px',
+    md: '130%',
+    lg: '150%',
   },
-  spacing: {
-    sm: '4px',
-    md: '8px',
-    lg: '16px',
-  },
+  // TODO: 반응형 도입시 재정의 필요. (임시로 기준값 설정한 상태)
   responsive: {
     sm: '480px',
     md: '768px',
     lg: '1024px',
   },
   borderRadius: {
-    sm: '4px',
-    md: '8px',
-    lg: '16px',
-  },
-  shadow: {
-    sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-    md: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    lg: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    sm: '10px', // card item
+    md: '20px', // card
+    lg: '16px', // hashtag
   },
 } as const;
 
