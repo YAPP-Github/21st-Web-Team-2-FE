@@ -7,7 +7,7 @@ interface IMyButton {
   title: string;
 }
 
-const MyButton = ({ title, ...props }: IMyButton) => {
+const MyButton = ({ title }: IMyButton) => {
   return (
     <div>
       <StyledButton>{title}</StyledButton>
