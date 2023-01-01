@@ -52,11 +52,6 @@ const theme = {
     md: '768px',
     lg: '1024px',
   },
-  borderRadius: {
-    sm: '10px', // card item
-    md: '16px', // card
-    lg: '100px', // hashtag
-  },
 } as const;
 
 export default theme;
