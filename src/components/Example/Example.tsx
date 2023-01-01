@@ -7,11 +7,7 @@ interface MyButtonProps {
 }
 
 const MyButton = ({ title }: MyButtonProps) => {
-  return (
-    <>
-      <StyledButton>{title}</StyledButton>
-    </>
-  );
+  return <StyledButton>{title}</StyledButton>;
 };
 
 export default MyButton;
