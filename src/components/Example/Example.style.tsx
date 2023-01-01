@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 import theme from '../../styles/theme';
 
 const StyledButton = styled.button`
-  background-color: ${theme.color.bgSecondary};
-  color: ${theme.color.primaryLight};
+  background-color: ${theme.color.G8};
+  color: ${theme.color.Primary1};
   border: 1px solid ${theme.color.borderPrimary};
   border-radius: ${theme.borderRadius.sm};
   padding: 8px 16px;
-  line-height: ${theme.lineHeight.lg};
-  font-size: ${theme.fontSize.md};
+  line-height: ${theme.lineHeight.B};
+  font-size: ${theme.textSize.B2};
   font-weight: ${theme.fontWeight.bold};
   font-family: ${theme.fontFamily.mainTitle};
   cursor: pointer;
@@ -17,8 +17,8 @@ const StyledButton = styled.button`
   margin: 10px;
 
   &:hover {
-    background-color: ${theme.color.bgThird};
-    color: ${theme.color.primaryDark};
+    background-color: ${theme.color.Primary2};
+    color: ${theme.color.G8};
   }
 `;
 

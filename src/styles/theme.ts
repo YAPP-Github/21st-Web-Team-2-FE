@@ -1,24 +1,19 @@
 const theme = {
   color: {
     // common color
-    dark0: '#c1c2c5',
-    dark1: '#a6a7ab',
-    dark2: '#909296',
-    dark3: '#5c5f66',
-    dark4: '#373a40',
-    dark5: '#2c2e33',
-    dark6: '#25262b',
-    dark7: '#1a1b1e',
-    dark8: '#141517',
-    dark9: '#101113',
-    primaryLight: '#d2fa64',
-    primaryDark: '#b2dd3c',
-    secondaryLight: '#ff3d60',
-    secondaryDark: '#e02d4d',
+    G8: '#F8F9FA',
+    G7: '#9C9EA7',
+    G6: '#6E7178',
+    G5: '#4E5259',
+    G4: '#373a40',
+    G3: '#1E1D23',
+    G2: '#141517',
+    G1: '#101012',
+    Primary1: '#D2FA64',
+    Primary2: '#b2dd3c',
+    Secondary1: '#ff3d60',
+    Secondary2: '#e02d4d',
     // specialized color
-    bgPrimary: '#101012',
-    bgSecondary: '#212529',
-    bgThird: '#2c2e33',
     topicPrimary: '#ff7991',
     topicSecondary: '#aef19d',
     txtPrimary: '#f1f3f5',
@@ -35,19 +30,21 @@ const theme = {
     regular: 400,
     bold: 700,
   },
-  fontSize: {
-    xxsm: '8px',
-    xsm: '12px',
-    sm: '14px',
-    md: '15px',
-    lg: '16px',
-    xlg: '18px',
-    xxlg: '20px',
-    xxxlg: '24px',
+  textSize: {
+    H1: '40px',
+    H2: '24px',
+    H3: '20px',
+    T1: '18px',
+    T2: '16px', // B1과 동일
+    T3: '15px',
+    B2: '14px',
+    B3: '12px',
+    B4: '8px',
+    code: '16px',
   },
   lineHeight: {
-    md: '130%',
-    lg: '150%',
+    H: '130%',
+    B: '150%',
   },
   // TODO: 반응형 도입시 재정의 필요. (임시로 기준값 설정한 상태)
   responsive: {
@@ -57,8 +54,8 @@ const theme = {
   },
   borderRadius: {
     sm: '10px', // card item
-    md: '20px', // card
-    lg: '16px', // hashtag
+    md: '16px', // card
+    lg: '100px', // hashtag
   },
 } as const;
 
