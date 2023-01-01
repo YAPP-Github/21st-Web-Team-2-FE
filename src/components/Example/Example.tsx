@@ -1,13 +1,12 @@
-import Image from 'next/image';
 import React from 'react';
 
 import StyledButton from './Example.style';
 
-interface IMyButton {
+interface MyButtonProps {
   title: string;
 }
 
-const MyButton = ({ title }: IMyButton) => {
+const MyButton = ({ title }: MyButtonProps) => {
   return (
     <>
       <StyledButton>{title}</StyledButton>
