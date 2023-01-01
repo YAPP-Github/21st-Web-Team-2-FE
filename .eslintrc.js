@@ -17,14 +17,7 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint', 'testing-library'],
   ignorePatterns: ['dist/', 'node_modules/'],
-  rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
-  },
+  rules: {},
   overrides: [
     {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
