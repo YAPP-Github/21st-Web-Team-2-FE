@@ -9,9 +9,9 @@ interface IMyButton {
 
 const MyButton = ({ title }: IMyButton) => {
   return (
-    <div>
+    <>
       <StyledButton>{title}</StyledButton>
-    </div>
+    </>
   );
 };
 
