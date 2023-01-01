@@ -1,10 +1,11 @@
+import '@/styles/common.css';
+import '@/styles/reset.css';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
 import queryClient from '../configs/queryClient';
-import '../styles/reset.css';
 
 if (process.env.NODE_ENV === 'development') {
   if (typeof window === 'undefined') {
