@@ -7,6 +7,10 @@ import '@src/styles/reset.css';
 
 import '@src/styles/common.css';
 
+import '@src/styles/reset.css';
+
+import '@src/styles/common.css';
+
 import queryClient from '../configs/queryClient';
 
 if (process.env.NODE_ENV === 'development') {
