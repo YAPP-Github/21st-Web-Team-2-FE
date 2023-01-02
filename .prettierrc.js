@@ -6,7 +6,7 @@ module.exports = {
   trailingComma: 'all',
   printWidth: 120,
   arrowParens: 'always',
-  importOrder: ['^@mocks/(.*)$', '^@src/(.*)$', '^[./]'],
+  importOrder: ['^@mocks/(.*)$', '@src/styles/reset.css', '@src/styles/common.css', '^@src/(.*)$', '^[./]'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 };

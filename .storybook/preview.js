@@ -3,8 +3,11 @@ import { initialize, mswDecorator } from 'msw-storybook-addon';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 import * as NextImage from 'next/image';
 
+import '@src/styles/reset.css';
+
+import '@src/styles/common.css';
+
 import mockApis from '../__mocks__/apis';
-import '../src/styles/reset.css';
 
 initialize();
 

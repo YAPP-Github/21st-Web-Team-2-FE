@@ -3,8 +3,11 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
+import '@src/styles/reset.css';
+
+import '@src/styles/common.css';
+
 import queryClient from '../configs/queryClient';
-import '../styles/reset.css';
 
 if (process.env.NODE_ENV === 'development') {
   if (typeof window === 'undefined') {
