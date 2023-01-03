@@ -1,7 +1,7 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import Home from './index.page';
+import Home from '.';
 
 export default {
   component: Home,
