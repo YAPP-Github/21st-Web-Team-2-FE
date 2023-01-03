@@ -2,8 +2,8 @@
 import { css } from '@emotion/react';
 import { SVGProps } from 'react';
 
-import * as icon from '../../../assets/icon';
-import theme from '../../../styles/theme';
+import * as icon from '@src/assets/icon';
+import theme from '@src/styles/theme';
 
 export type IconNameType = keyof typeof icon;
 type Color = keyof typeof theme.color;
