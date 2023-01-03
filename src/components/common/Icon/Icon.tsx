@@ -3,10 +3,9 @@ import { css } from '@emotion/react';
 import { SVGProps } from 'react';
 
 import * as icon from '@src/assets/icon';
-import theme from '@src/styles/theme';
+import theme, { ThemeColor } from '@src/styles/theme';
 
 export type IconNameType = keyof typeof icon;
-type Color = keyof typeof theme.color;
 
 const colors = theme.color;
 const DEFAULT_SIZE = 24;
@@ -18,7 +17,7 @@ interface SVGIconProps extends SVGProps<SVGSVGElement> {
   width?: string;
   height?: string;
   /** 디자인 시스템 기반 컬러 Name */
-  color?: Color;
+  color?: ThemeColor;
 }
 
 const Icon = ({ name, size = DEFAULT_SIZE, width, height, color, style, ...props }: SVGIconProps) => {
