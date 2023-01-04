@@ -2,7 +2,7 @@ import { RenderResult, render as defaultRender, screen } from '@testing-library/
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import TagListITem, { TagListItemProps } from './TagListItem';
+import TagListITem, { TagListItemProps } from '.';
 
 const DEFAULT_ARGS: TagListItemProps = {
   value: 'React',
