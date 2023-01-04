@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import theme from '@src/styles/theme';
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -8,12 +10,12 @@ export const Container = styled.div`
 
   width: fit-content;
 
-  border: 1px solid #2d2b35;
+  border: 1px solid ${theme.color.G5};
   border-radius: 100px;
 
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
+  font-weight: ${theme.fontWeight.regular};
+  font-size: ${theme.textSize.B3};
+  line-height: ${theme.lineHeight.B};
 
-  color: #e4e4e4;
+  color: ${theme.color.G8};
 `;
