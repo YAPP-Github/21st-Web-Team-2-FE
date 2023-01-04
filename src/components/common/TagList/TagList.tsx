@@ -1,8 +1,7 @@
 import React from 'react';
 
-import TagListItem from '@src/components/common/TagList/TagListItem';
-
 import * as S from './TagList.styles';
+import TagListItem from './TagListItem';
 
 export interface Tag {
   value: string;
