@@ -9,7 +9,7 @@ export interface Tag {
 
 export interface TagListProps {
   tags: Tag[];
-  onClick: (value: string) => void;
+  onClick?: (value: string) => void;
 }
 
 const TagList: React.FC<TagListProps> = (props) => {
