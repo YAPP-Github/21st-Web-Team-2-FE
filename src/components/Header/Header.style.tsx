@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
 
 import Icon from '@src/components/common/Icon';
+import theme from '@src/styles/theme';
 
 export const HeaderWrapper = styled.header`
   width: 100vw;
   height: 5rem;
-  color: #d2fa64;
-  background-color: #101012;
-  border-bottom: 1px solid #d2fa64;
+  color: ${theme.color.Primary1};
+  background-color: ${theme.color.G1};
+  border-bottom: 1px solid ${theme.color.Primary1};
 `;
 
 export const HeaderContents = styled.div`
