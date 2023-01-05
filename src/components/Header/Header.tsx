@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FC } from 'react';
 
 import Icon from '@src/components/common/Icon';
@@ -8,7 +9,9 @@ const Header: FC = () => {
   return (
     <S.HeaderWrapper>
       <S.HeaderContents>
-        <S.LogoIcon name="Logo" width="189px" height="35px" />
+        <Link href="/">
+          <S.LogoIcon name="Logo" width="189px" height="35px" />
+        </Link>
         <S.Menus>
           <S.Menu>
             <Icon name="Search" size={35} />
