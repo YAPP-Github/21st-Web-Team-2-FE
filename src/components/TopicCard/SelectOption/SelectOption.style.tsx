@@ -13,4 +13,10 @@ export const SelectOption = styled.div`
 
   background-color: ${theme.color.G5};
   border-radius: 4px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${theme.color.G6};
+  }
 `;
