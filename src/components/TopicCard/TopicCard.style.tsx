@@ -17,6 +17,11 @@ export const TopicTop = styled.div`
   border-bottom: 1px solid ${theme.color.G4};
 `;
 
+export const TopicHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Title = styled.h3`
   margin-bottom: 8px;
 

@@ -16,7 +16,10 @@ const TopicCard = (props: TopicCardProps) => {
   return (
     <S.Container>
       <S.TopicTop>
-        <S.Title>{title}</S.Title>
+        <S.TopicHeader>
+          <S.Title>{title}</S.Title>
+          <Icon name="Share" />
+        </S.TopicHeader>
         <S.Contents>{contents}</S.Contents>
         <S.SelectOptionContainer $odd={options.length % 2 === 1}>
           {options.map((option) => (
