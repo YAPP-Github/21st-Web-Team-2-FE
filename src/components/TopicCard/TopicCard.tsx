@@ -73,7 +73,7 @@ const TopicCard = (props: TopicCardProps) => {
           ·
           <S.TopicInfo>
             <Icon name="Bubble" size={16} />
-            {('00' + comments).slice(-3)}명 참여
+            {('00' + comments).slice(-3)}개 댓글
           </S.TopicInfo>
         </S.TopicInfoContainer>
       </S.TopicBottom>
