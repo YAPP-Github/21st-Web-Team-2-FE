@@ -106,3 +106,14 @@ nav,
 section {
   display: block;
 }
+
+li {
+  list-style: none;
+  font-family: 'Pretendard-Regular', 'Noto Sans CJK KR', syne;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-family: 'Pretendard-Regular', 'Noto Sans CJK KR', syne;
+}
