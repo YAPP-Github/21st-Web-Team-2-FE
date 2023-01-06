@@ -6,14 +6,12 @@ import Icon from '../common/Icon';
 import SelectOption from './SelectOption';
 import * as S from './TopicCard.style';
 
-interface TopicCardProps {
-  topic: Topic;
+interface TopicCardProps extends Topic {
   badge?: string;
 }
 
 const TopicCard = (props: TopicCardProps) => {
-  const { topic } = props;
-  const { title, contents, options, member, participation, comments } = topic;
+  const { title, contents, options, member, participation, comments } = props;
 
   return (
     <S.Container>
