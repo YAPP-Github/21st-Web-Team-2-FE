@@ -14,6 +14,8 @@ export const Container = styled.div<ContainerProps>`
   background-color: ${theme.color.G5};
   border-radius: 4px;
 
+  font-size: ${theme.textSize.T2};
+
   cursor: pointer;
   ${({ $result }) =>
     $result &&
