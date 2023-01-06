@@ -10,7 +10,7 @@ export interface Tag {
 
 export interface TagListProps {
   tags: Tag[];
-  type: TagType;
+  type?: TagType;
   onClick?: (value: string) => void;
   onDelete?: (value: string) => void;
 }
