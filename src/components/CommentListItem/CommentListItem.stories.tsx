@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { commentArr } from '__mocks__/data/comment';
 
 import CommentListItem from './CommentListItem';
 
@@ -11,4 +12,6 @@ export default {
 const Template: ComponentStory<typeof CommentListItem> = ({ ...args }) => <CommentListItem {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  comment: commentArr[0],
+};
