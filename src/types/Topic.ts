@@ -6,7 +6,6 @@ export default interface Topic {
   contents: string;
   options: TopicOption[];
   member: Member;
-  participant: number;
   comments: number;
 }
 

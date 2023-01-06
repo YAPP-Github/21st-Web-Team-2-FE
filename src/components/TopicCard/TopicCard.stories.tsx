@@ -23,7 +23,6 @@ Default.args = {
     nickname: '닉네임',
     profileImage: '',
   },
-  participant: 0,
   comments: 0,
 };
 

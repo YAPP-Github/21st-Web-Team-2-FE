@@ -11,10 +11,11 @@ interface TopicCardProps extends Topic {
 }
 
 const TopicCard = (props: TopicCardProps) => {
-  const { title, contents, options: defaultOptions, member, participant: defaultParticipant, comments } = props;
+  const { title, contents, options: defaultOptions, member, comments } = props;
   const [options, setOptions] = useState<TopicOption[]>(defaultOptions);
-  const [participant, setParticipant] = useState<number>(defaultParticipant);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null); // TODO: 초기 선택 여부 확인해야함
+
+  const participant = options.reduce((prev, option) => prev + option.voters, 0);
 
   const handleClickOption = (id: number) => {
     const changed = options.map((option) => {
@@ -31,11 +32,7 @@ const TopicCard = (props: TopicCardProps) => {
     setSelectedOptionId(id);
 
     if (selectedOptionId === id) {
-      setParticipant((prev) => prev - 1);
       setSelectedOptionId(null);
-    }
-    if (selectedOptionId === null) {
-      setParticipant((prev) => prev + 1);
     }
   };
 
