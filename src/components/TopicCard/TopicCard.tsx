@@ -22,7 +22,7 @@ const TopicCard = (props: TopicCardProps) => {
         <S.Contents>{contents}</S.Contents>
         <S.SelectOptionContainer>
           {options.map((option) => (
-            <SelectOption key={option.id} option={option} />
+            <SelectOption key={option.id} {...option} />
           ))}
         </S.SelectOptionContainer>
       </S.TopicTop>

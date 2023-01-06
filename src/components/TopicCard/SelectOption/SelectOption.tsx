@@ -5,15 +5,13 @@ import { TopicOption } from '@src/types/Topic';
 
 import * as S from './SelectOption.style';
 
-interface SelectOptionProps {
-  option: TopicOption;
+interface SelectOptionProps extends TopicOption {
   result?: boolean;
   selected?: boolean;
 }
 
 const SelectOption = (props: SelectOptionProps) => {
-  const { option, result = false, selected = false } = props;
-  const { text, rate = 0 } = option;
+  const { text, rate = 0, result = false, selected = false } = props;
 
   return (
     <S.Container $result={result}>
