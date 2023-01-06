@@ -25,6 +25,8 @@ export const Container = styled.div<ContainerProps>`
 
   color: ${theme.color.G8};
 
+  cursor: pointer;
+
   ${({ type }) =>
     type === 'delete' &&
     css`
@@ -36,5 +38,10 @@ export const Container = styled.div<ContainerProps>`
       gap: 4px;
 
       border-radius: 100px;
+
+      cursor: default;
+      & svg {
+        cursor: pointer;
+      }
     `}
 `;
