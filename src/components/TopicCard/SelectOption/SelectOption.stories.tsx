@@ -16,3 +16,22 @@ Default.args = {
     text: 'Text',
   },
 };
+
+export const 선택한_결과 = Template.bind({});
+선택한_결과.args = {
+  option: {
+    text: 'Text',
+    rate: 0.86,
+  },
+  result: true,
+  selected: true,
+};
+
+export const 선택안된_결과 = Template.bind({});
+선택안된_결과.args = {
+  option: {
+    text: 'Text',
+    rate: 0.24,
+  },
+  result: true,
+};

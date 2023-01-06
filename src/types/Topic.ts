@@ -13,4 +13,5 @@ export default interface Topic {
 export interface TopicOption {
   id?: number;
   text: string;
+  rate?: number;
 }
