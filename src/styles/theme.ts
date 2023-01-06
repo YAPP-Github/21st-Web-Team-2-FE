@@ -22,7 +22,7 @@ const theme = {
     borderPrimary: '#f8f9fa',
   },
   fontFamily: {
-    basic: 'Pretendard',
+    basic: 'Pretendard-Regular',
     mainTitle: 'Syne',
   },
   fontWeight: {
