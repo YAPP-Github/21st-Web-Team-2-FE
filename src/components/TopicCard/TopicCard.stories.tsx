@@ -30,9 +30,9 @@ export const ThreeOptions = Template.bind({});
 ThreeOptions.args = {
   ...Default.args,
   options: [
-    { id: 0, text: 'text', voters: 0 },
-    { id: 1, text: 'text', voters: 0 },
-    { id: 2, text: 'text', voters: 0 },
+    { id: 0, text: 'text', voters: 10 },
+    { id: 1, text: 'text', voters: 20 },
+    { id: 2, text: 'text', voters: 4 },
   ],
 };
 
@@ -40,9 +40,9 @@ export const FourOptions = Template.bind({});
 FourOptions.args = {
   ...Default.args,
   options: [
-    { id: 0, text: 'text', voters: 0 },
-    { id: 1, text: 'text', voters: 0 },
-    { id: 2, text: 'text', voters: 0 },
-    { id: 3, text: 'text', voters: 0 },
+    { id: 0, text: 'text', voters: 10 },
+    { id: 1, text: 'text', voters: 2 },
+    { id: 2, text: 'text', voters: 34 },
+    { id: 3, text: 'text', voters: 3 },
   ],
 };
