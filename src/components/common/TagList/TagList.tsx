@@ -12,15 +12,16 @@ export interface TagListProps {
   tags: Tag[];
   type: TagType;
   onClick?: (value: string) => void;
+  onDelete?: (value: string) => void;
 }
 
 const TagList: React.FC<TagListProps> = (props) => {
-  const { tags, onClick } = props;
+  const { tags, onClick, onDelete } = props;
 
   return (
     <S.Container>
       {tags.map((tag, index) => (
-        <TagListItem key={index} value={tag.value} onClick={onClick} />
+        <TagListItem key={index} value={tag.value} onClick={onClick} onDelete={onDelete} />
       ))}
     </S.Container>
   );
