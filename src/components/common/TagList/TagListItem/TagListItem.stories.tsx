@@ -14,3 +14,9 @@ export const Default = Template.bind({});
 Default.args = {
   value: 'React',
 };
+
+export const Delete = Template.bind({});
+Delete.args = {
+  value: 'React',
+  type: 'delete',
+};

@@ -1,8 +1,14 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import theme from '@src/styles/theme';
 
-export const Container = styled.div`
+export type TagType = 'delete';
+interface ContainerProps {
+  type?: TagType;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,4 +24,17 @@ export const Container = styled.div`
   line-height: ${theme.lineHeight.B};
 
   color: ${theme.color.G8};
+
+  ${({ type }) =>
+    type === 'delete' &&
+    css`
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 4px 8px 4px 12px;
+      gap: 4px;
+
+      border-radius: 100px;
+    `}
 `;

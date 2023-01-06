@@ -2,6 +2,7 @@ import React from 'react';
 
 import * as S from './TagList.styles';
 import TagListItem from './TagListItem';
+import { TagType } from './TagListItem/TagListItem.styles';
 
 export interface Tag {
   value: string;
@@ -9,6 +10,7 @@ export interface Tag {
 
 export interface TagListProps {
   tags: Tag[];
+  type: TagType;
   onClick?: (value: string) => void;
 }
 
