@@ -6,16 +6,20 @@ import Icon from '../common/Icon';
 import SelectOption from './SelectOption';
 import * as S from './TopicCard.style';
 
+export type TopicCardType = 'feed' | 'detail';
+
 interface TopicCardProps extends Topic {
   badge?: string;
+  type: TopicCardType;
 }
 
 const TopicCard = (props: TopicCardProps) => {
-  const { title, contents, options: defaultOptions, member, comments } = props;
+  const { title, contents, options: defaultOptions, member, comments, type } = props;
   const [options, setOptions] = useState<TopicOption[]>(defaultOptions);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null); // TODO: 초기 선택 여부 확인해야함
 
   const participant = options.reduce((prev, option) => prev + option.voters, 0);
+  const isFeed = type === 'feed';
 
   const handleClickOption = (id: number) => {
     const changed = options.map((option) => {
@@ -41,7 +45,7 @@ const TopicCard = (props: TopicCardProps) => {
       <S.TopicTop>
         <S.TopicHeader>
           <S.Title>{title}</S.Title>
-          <Icon name="Share" />
+          {isFeed && <Icon name="Share" />}
         </S.TopicHeader>
         <S.Contents>{contents}</S.Contents>
         <S.SelectOptionContainer $odd={options.length % 2 === 1}>
@@ -58,10 +62,17 @@ const TopicCard = (props: TopicCardProps) => {
         </S.SelectOptionContainer>
       </S.TopicTop>
       <S.TopicBottom>
-        <S.AuthorInfo>
-          <S.Profile src={member.profileImage} alt={member.nickname} />
-          <span>{member.nickname}</span>
-        </S.AuthorInfo>
+        {isFeed ? (
+          <S.AuthorInfo>
+            <S.Profile src={member.profileImage} alt={member.nickname} />
+            <span>{member.nickname}</span>
+          </S.AuthorInfo>
+        ) : (
+          <S.LikeBtn>
+            <Icon name="Clap" color="G7" size={24} />
+            <span>좋아요</span>
+          </S.LikeBtn>
+        )}
         <S.TopicInfoContainer>
           <S.TopicInfo>
             <Icon name="HandsUp" size={16} />

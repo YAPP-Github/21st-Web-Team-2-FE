@@ -80,6 +80,22 @@ export const Profile = styled(Image)`
   border-radius: 50%;
 `;
 
+export const LikeBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 12px;
+  gap: 2px;
+
+  height: 36px;
+
+  background-color: transparent;
+  color: ${theme.color.G7};
+
+  border: 1px solid ${theme.color.G5};
+  border-radius: 100px;
+`;
+
 export const TopicInfoContainer = styled.div`
   display: flex;
   align-items: center;

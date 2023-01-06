@@ -24,6 +24,13 @@ Default.args = {
     profileImage: '',
   },
   comments: 0,
+  type: 'feed',
+};
+
+export const Detail = Template.bind({});
+Detail.args = {
+  ...Default.args,
+  type: 'detail',
 };
 
 export const ThreeOptions = Template.bind({});
