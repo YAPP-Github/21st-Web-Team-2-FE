@@ -21,7 +21,7 @@ Default.args = {
   member: {
     jobCategory: '개발자',
     nickname: '닉네임',
-    profileImage: '',
+    profileImage: 'https://avatars.githubusercontent.com/u/45786387?v=4',
   },
   comments: 0,
   type: 'feed',

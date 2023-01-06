@@ -74,7 +74,7 @@ const TopicCard = (props: TopicCardProps) => {
       <S.TopicBottom>
         {isFeed ? (
           <S.AuthorInfo>
-            <S.Profile src={member.profileImage} alt={member.nickname} />
+            <S.Profile src={member.profileImage} alt={member.nickname} width="28" height="28" />
             <span>{member.nickname}</span>
           </S.AuthorInfo>
         ) : (
