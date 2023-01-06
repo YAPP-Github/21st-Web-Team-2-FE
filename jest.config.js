@@ -9,6 +9,7 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
+    '@src/components/common/Icon': '<rootDir>/__mocks__/MockIcon.jsx',
     '^@src/(.*)$': '<rootDir>/src/$1',
     '^@mocks/(.*)$': '<rootDir>/__mocks__/$1',
   },
