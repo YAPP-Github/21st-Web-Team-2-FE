@@ -5,7 +5,7 @@ import TopicCard from '.';
 
 export default {
   component: TopicCard,
-  title: 'Components/TopicCard',
+  title: 'Components/topic/TopicCard',
 };
 
 const Template: ComponentStory<typeof TopicCard> = (args) => <TopicCard {...args} />;
@@ -24,7 +24,7 @@ Default.args = {
       nickname: '닉네임',
       profileImage: '',
     },
-    participations: 0,
+    participation: 0,
     comments: 0,
   },
 };

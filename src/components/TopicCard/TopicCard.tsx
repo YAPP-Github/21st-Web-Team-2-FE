@@ -3,6 +3,7 @@ import React from 'react';
 import Topic from '@src/types/Topic';
 
 import Icon from '../common/Icon';
+import SelectOption from './SelectOption';
 import * as S from './TopicCard.style';
 
 interface TopicCardProps {
@@ -12,7 +13,7 @@ interface TopicCardProps {
 
 const TopicCard = (props: TopicCardProps) => {
   const { topic } = props;
-  const { title, contents, options, member, participations, comments } = topic;
+  const { title, contents, options, member, participation, comments } = topic;
 
   return (
     <S.Container>
@@ -21,10 +22,7 @@ const TopicCard = (props: TopicCardProps) => {
         <S.Contents>{contents}</S.Contents>
         <S.SelectOptionContainer>
           {options.map((option) => (
-            <S.SelectOption key={option.id}>
-              <Icon name="Vote" />
-              {option.text}
-            </S.SelectOption>
+            <SelectOption key={option.id} option={option} />
           ))}
         </S.SelectOptionContainer>
       </S.TopicTop>
@@ -36,7 +34,7 @@ const TopicCard = (props: TopicCardProps) => {
         <S.TopicInfoContainer>
           <S.TopicInfo>
             <Icon name="HandsUp" size={16} />
-            {('00' + participations).slice(-3)}명 참여
+            {('00' + participation).slice(-3)}명 참여
           </S.TopicInfo>
           ·
           <S.TopicInfo>
