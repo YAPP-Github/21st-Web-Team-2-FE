@@ -35,3 +35,25 @@ describe('with onClick', () => {
     expect(onClick).toBeCalledWith(value);
   });
 });
+
+describe('with delete type', () => {
+  test('render delete icon', async () => {
+    const value = 'TEST';
+
+    render({ value, type: 'delete' });
+    await screen.findByTestId('delete');
+  });
+});
+
+describe('with onDelete', () => {
+  test('called with value', async () => {
+    const value = 'TEST';
+    const onDelete = jest.fn();
+
+    render({ value, onDelete, type: 'delete' });
+    const dom = await screen.findByTestId('delete');
+    await userEvent.click(dom);
+
+    expect(onDelete).toBeCalledWith(value);
+  });
+});

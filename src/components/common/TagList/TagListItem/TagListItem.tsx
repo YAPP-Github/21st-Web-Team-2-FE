@@ -27,7 +27,7 @@ const TagListItem: React.FC<TagListItemProps> = (props) => {
   return (
     <S.Container type={type} onClick={handleClick}>
       {value}
-      {type === 'delete' && <Icon data-testid="onDelete" name="X" size={18} onClick={handleDelete} />}
+      {type === 'delete' && <Icon data-testid="delete" name="X" size={18} onClick={handleDelete} />}
     </S.Container>
   );
 };
