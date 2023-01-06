@@ -9,7 +9,6 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
   position: relative;
-  width: 386px;
   height: 68px;
 
   background-color: ${theme.color.G5};
@@ -31,7 +30,7 @@ export interface ProgressBarProps {
 }
 
 export const ProgressBar = styled.div<ProgressBarProps>`
-  width: calc(${({ $rate }) => $rate} * 386px);
+  width: calc(${({ $rate }) => $rate} * 100%);
   height: 100%;
 
   position: absolute;
@@ -53,7 +52,7 @@ export const Info = styled.div`
   gap: 4px;
 
   position: absolute;
-  width: 386px;
+  width: 100%;
 `;
 
 export const Rate = styled.div`
