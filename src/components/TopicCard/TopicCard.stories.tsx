@@ -26,3 +26,24 @@ Default.args = {
   participation: 0,
   comments: 0,
 };
+
+export const ThreeOptions = Template.bind({});
+ThreeOptions.args = {
+  ...Default.args,
+  options: [
+    { id: 0, text: 'text' },
+    { id: 1, text: 'text' },
+    { id: 2, text: 'text' },
+  ],
+};
+
+export const FourOptions = Template.bind({});
+FourOptions.args = {
+  ...Default.args,
+  options: [
+    { id: 0, text: 'text' },
+    { id: 1, text: 'text' },
+    { id: 2, text: 'text' },
+    { id: 3, text: 'text' },
+  ],
+};

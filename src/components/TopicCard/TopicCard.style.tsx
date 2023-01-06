@@ -33,9 +33,13 @@ export const Contents = styled.div`
   color: ${theme.color.G8};
 `;
 
-export const SelectOptionContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
+interface SelectOptionContainerProps {
+  $odd?: boolean;
+}
+
+export const SelectOptionContainer = styled.div<SelectOptionContainerProps>`
+  display: grid;
+  grid-template-columns: 1fr 1fr ${({ $odd }) => $odd && '1fr'};
   padding: 0;
   gap: 20px;
 `;

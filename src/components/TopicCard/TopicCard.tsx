@@ -18,7 +18,7 @@ const TopicCard = (props: TopicCardProps) => {
       <S.TopicTop>
         <S.Title>{title}</S.Title>
         <S.Contents>{contents}</S.Contents>
-        <S.SelectOptionContainer>
+        <S.SelectOptionContainer $odd={options.length % 2 === 1}>
           {options.map((option) => (
             <SelectOption key={option.id} {...option} />
           ))}
