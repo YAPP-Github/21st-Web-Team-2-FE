@@ -17,6 +17,25 @@ export const TopicTop = styled.div`
   border-bottom: 1px solid ${theme.color.G4};
 `;
 
+export const Badge = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  gap: 2px;
+
+  width: fit-content;
+  height: 34px;
+
+  background: ${theme.color.G4};
+  border-radius: 4px;
+
+  font-weight: ${theme.fontWeight.bold};
+  font-size: ${theme.textSize.B3};
+  line-height: ${theme.lineHeight.B};
+  color: ${theme.color.Primary1};
+`;
+
 export const TopicHeader = styled.div`
   display: flex;
   justify-content: space-between;

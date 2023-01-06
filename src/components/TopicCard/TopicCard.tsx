@@ -9,12 +9,12 @@ import * as S from './TopicCard.style';
 export type TopicCardType = 'feed' | 'detail';
 
 interface TopicCardProps extends Topic {
-  badge?: string;
+  badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
 }
 
 const TopicCard = (props: TopicCardProps) => {
-  const { title, contents, options: defaultOptions, member, comments, type } = props;
+  const { title, contents, options: defaultOptions, member, comments, badge, type } = props;
   const [options, setOptions] = useState<TopicOption[]>(defaultOptions);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null); // TODO: 초기 선택 여부 확인해야함
 
@@ -38,13 +38,23 @@ const TopicCard = (props: TopicCardProps) => {
     if (selectedOptionId === id) {
       setSelectedOptionId(null);
     }
+
+    // TODO: api
   };
 
   return (
     <S.Container>
       <S.TopicTop>
         <S.TopicHeader>
-          <S.Title>{title}</S.Title>
+          <div>
+            {badge && (
+              <S.Badge>
+                <Icon name="ThumbsUp" size={18} />
+                {badge}
+              </S.Badge>
+            )}
+            <S.Title>{title}</S.Title>
+          </div>
           {isFeed && <Icon name="Share" />}
         </S.TopicHeader>
         <S.Contents>{contents}</S.Contents>

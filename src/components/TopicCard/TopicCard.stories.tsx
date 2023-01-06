@@ -27,6 +27,12 @@ Default.args = {
   type: 'feed',
 };
 
+export const Badge = Template.bind({});
+Badge.args = {
+  ...Default.args,
+  badge: 'badge',
+};
+
 export const Detail = Template.bind({});
 Detail.args = {
   ...Default.args,
