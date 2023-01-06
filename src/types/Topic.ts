@@ -6,12 +6,12 @@ export default interface Topic {
   contents: string;
   options: TopicOption[];
   member: Member;
-  participation: number;
+  participant: number;
   comments: number;
 }
 
 export interface TopicOption {
-  id?: number;
+  id: number;
   text: string;
-  rate?: number;
+  voters: number;
 }

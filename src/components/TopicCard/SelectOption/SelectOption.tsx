@@ -6,15 +6,21 @@ import { TopicOption } from '@src/types/Topic';
 import * as S from './SelectOption.style';
 
 interface SelectOptionProps extends TopicOption {
+  rate?: number;
   result?: boolean;
   selected?: boolean;
+  onClick: (id: number, selected: boolean) => void;
 }
 
 const SelectOption = (props: SelectOptionProps) => {
-  const { text, rate = 0, result = false, selected = false } = props;
+  const { id, text, rate = 0, result = false, selected = false, onClick } = props;
+
+  const handleClick = () => {
+    onClick(id, selected);
+  };
 
   return (
-    <S.Container $result={result}>
+    <S.Container $result={result} onClick={handleClick}>
       {result && <S.ProgressBar $rate={rate} $selected={selected} />}
       <S.Info>
         <Icon name="Vote" />

@@ -15,15 +15,15 @@ Default.args = {
   title: 'Title',
   contents: 'contents',
   options: [
-    { id: 0, text: 'text' },
-    { id: 1, text: 'text' },
+    { id: 0, text: 'text', voters: 0 },
+    { id: 1, text: 'text', voters: 0 },
   ],
   member: {
     jobCategory: '개발자',
     nickname: '닉네임',
     profileImage: '',
   },
-  participation: 0,
+  participant: 0,
   comments: 0,
 };
 
@@ -31,9 +31,9 @@ export const ThreeOptions = Template.bind({});
 ThreeOptions.args = {
   ...Default.args,
   options: [
-    { id: 0, text: 'text' },
-    { id: 1, text: 'text' },
-    { id: 2, text: 'text' },
+    { id: 0, text: 'text', voters: 0 },
+    { id: 1, text: 'text', voters: 0 },
+    { id: 2, text: 'text', voters: 0 },
   ],
 };
 
@@ -41,9 +41,9 @@ export const FourOptions = Template.bind({});
 FourOptions.args = {
   ...Default.args,
   options: [
-    { id: 0, text: 'text' },
-    { id: 1, text: 'text' },
-    { id: 2, text: 'text' },
-    { id: 3, text: 'text' },
+    { id: 0, text: 'text', voters: 0 },
+    { id: 1, text: 'text', voters: 0 },
+    { id: 2, text: 'text', voters: 0 },
+    { id: 3, text: 'text', voters: 0 },
   ],
 };
