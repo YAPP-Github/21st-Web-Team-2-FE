@@ -48,7 +48,7 @@ function getCommentByOrder(comment: IComment[], order: TOrder) {
   if (order === 'latest') return comment;
 
   const tempComment = comment.slice();
-  return tempComment.sort((a, b) => b.likes - a.likes);
+  return tempComment.sort((a, b) => b.likeAmount - a.likeAmount);
 }
 
 export default CommentList;
