@@ -7,8 +7,6 @@ import '@src/styles/reset.css';
 
 import '@src/styles/common.css';
 
-import Header from '@src/components/Header';
-
 import queryClient from '../configs/queryClient';
 
 if (process.env.NODE_ENV === 'development') {
@@ -29,7 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <Header />
         <Component {...pageProps} />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
