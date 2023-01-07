@@ -11,13 +11,29 @@ interface Props {
   comments: IComment[];
 }
 const CommentList: FC<Props> = (props) => {
-  const { comments } = props;
+  const { comments: _comments } = props;
 
+  const [comments, setComments] = useState(_comments);
   const [order, setOrder] = useState<TOrder>('latest');
 
   const handleClickOrderItem = (e: MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name as TOrder;
     setOrder(name);
+  };
+
+  const handleCommentUpdateLike = (commentId: IComment['commentId']) => {
+    const updatedComment = comments.map((item) => {
+      if (item.commentId !== commentId) return item;
+
+      const isLike = item.liked;
+      return {
+        ...item,
+        liked: !isLike,
+        likeAmount: isLike ? item.likeAmount - 1 : item.likeAmount + 1,
+      };
+    });
+
+    setComments(updatedComment);
   };
 
   const commentList = getCommentByOrder(comments, order);
@@ -37,7 +53,7 @@ const CommentList: FC<Props> = (props) => {
       </S.CommentHeader>
       <S.CommentList>
         {commentList.map((value) => (
-          <CommentListItem key={value.commentId} comment={value} />
+          <CommentListItem key={value.commentId} comment={value} onClickLike={handleCommentUpdateLike} />
         ))}
       </S.CommentList>
     </S.Wrapper>
