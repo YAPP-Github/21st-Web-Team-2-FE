@@ -4,7 +4,7 @@ import { commentArr } from '__mocks__/data/comment';
 import CommentList from './CommentList';
 
 export default {
-  title: 'Components/CommentList',
+  title: 'Components/CommentList/CommentList',
   component: CommentList,
   args: {},
 } as ComponentMeta<typeof CommentList>;
