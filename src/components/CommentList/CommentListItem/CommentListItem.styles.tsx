@@ -36,22 +36,15 @@ export const UserInfo = styled.p`
 
 export const Comment = styled.p``;
 
-export const VoteWrapper = styled.div<{ $liked: boolean }>`
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  line-height: 18px;
-
-  ${({ $liked }) =>
-    $liked &&
-    `color: ${theme.color.Primary1};
-      & path {
-      fill: ${theme.color.Primary1};
-    }`}
-`;
-
 export const VoteIcon = styled(Icon)`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const VoteWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 18px;
 `;

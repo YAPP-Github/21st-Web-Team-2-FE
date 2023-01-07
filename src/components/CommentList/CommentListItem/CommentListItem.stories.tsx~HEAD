@@ -15,3 +15,8 @@ export const Default = Template.bind({});
 Default.args = {
   comment: commentArr[0],
 };
+
+export const 좋아요_미선택 = Template.bind({});
+좋아요_미선택.args = {
+  comment: commentArr[1],
+};

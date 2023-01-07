@@ -6,10 +6,9 @@ import * as S from './CommentListItem.styles';
 
 interface Props {
   comment: IComment;
-  onClickLike: (commentId: number) => void;
 }
 const CommentListItem: FC<Props> = (props) => {
-  const { comment, onClickLike } = props;
+  const { comment } = props;
 
   return (
     <S.Wrapper>
@@ -21,9 +20,9 @@ const CommentListItem: FC<Props> = (props) => {
             {comment.createdMemberJobCategory}·{comment.createdMemberWorkingYears}연차
           </S.UserInfo>
         </S.UserWrapper>
-        <S.Comment>{comment.commentContent}</S.Comment>
-        <S.VoteWrapper $liked={comment.liked}>
-          <S.VoteIcon name="Vote" size={16} onClick={() => onClickLike(comment.commentId)} /> {comment.likeAmount}
+        <S.Comment>{comment.contents}</S.Comment>
+        <S.VoteWrapper>
+          <S.VoteIcon name="Vote" size={16} /> {comment.likes}
         </S.VoteWrapper>
       </S.Content>
     </S.Wrapper>
