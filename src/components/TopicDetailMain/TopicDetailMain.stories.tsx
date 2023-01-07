@@ -4,7 +4,7 @@ import { topic } from '__mocks__/data/topic';
 import TopicDetailMain from './TopicDetailMain';
 
 export default {
-  title: 'PageComponents/TopicDetailMain',
+  title: 'Components/TopicDetailMain',
   component: TopicDetailMain,
   args: {},
 } as ComponentMeta<typeof TopicDetailMain>;
@@ -15,3 +15,10 @@ export const Default = Template.bind({});
 Default.args = {
   topic: topic,
 };
+Default.decorators = [
+  (Story, context) => (
+    <div style={{ width: '857px' }}>
+      <Story {...context.args} />
+    </div>
+  ),
+];
