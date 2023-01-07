@@ -10,7 +10,7 @@ interface DefaultLayoutProps {
   main: ReactNode;
 }
 
-const MyButton = (props: DefaultLayoutProps) => {
+const DefaultLayout = (props: DefaultLayoutProps) => {
   const { left, main } = props;
   return (
     <S.Container>
@@ -23,4 +23,4 @@ const MyButton = (props: DefaultLayoutProps) => {
   );
 };
 
-export default MyButton;
+export default DefaultLayout;
