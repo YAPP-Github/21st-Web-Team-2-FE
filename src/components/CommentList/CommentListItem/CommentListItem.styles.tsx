@@ -24,14 +24,14 @@ export const Content = styled.div`
 `;
 
 export const UserWrapper = styled.div`
-  line-height: 21px;
+  line-height: ${theme.lineHeight.B};
 `;
 
 export const UserNickName = styled.p`
-  font-size: 14px;
+  font-size: ${theme.textSize.B2};
 `;
 export const UserInfo = styled.p`
-  font-size: 12px;
+  font-size: ${theme.textSize.B3};
 `;
 
 export const Comment = styled.p``;
@@ -39,8 +39,8 @@ export const Comment = styled.p``;
 export const VoteWrapper = styled.div<{ $liked: boolean }>`
   display: flex;
   align-items: center;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: ${theme.textSize.B3};
+  line-height: ${theme.lineHeight.B};
 
   ${({ $liked }) =>
     $liked &&

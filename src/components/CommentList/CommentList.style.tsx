@@ -14,7 +14,7 @@ export const CommentHeader = styled.div`
   align-items: center;
   padding: 13.5px 0px;
   gap: 40px;
-  border-bottom: 1px solid #373a40;
+  border-bottom: 1px solid ${theme.color.G4};
 `;
 
 export const CommentLength = styled.span`
@@ -48,18 +48,18 @@ export const EmptyCommentList = styled.div`
 `;
 
 export const EmptyCommentTitle = styled.h3`
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 130%;
+  font-weight: ${theme.fontWeight.bold};
+  font-size: ${theme.textSize.H3};
+  line-height: ${theme.lineHeight.H};
   text-align: center;
   color: ${theme.color.G6};
 `;
 
 export const EmptyCommentSubTitle = styled.p`
   margin-top: 24px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
+  font-weight: ${theme.fontWeight.regular};
+  font-size: ${theme.textSize.T2};
+  line-height: ${theme.lineHeight.B};
   text-align: center;
   white-space: pre-wrap;
   color: ${theme.color.G6};
