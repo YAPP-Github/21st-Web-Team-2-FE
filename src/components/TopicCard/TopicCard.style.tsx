@@ -34,6 +34,8 @@ export const Badge = styled.div`
   font-size: ${theme.textSize.B3};
   line-height: ${theme.lineHeight.B};
   color: ${theme.color.Primary1};
+
+  cursor: pointer;
 `;
 
 export const TopicHeader = styled.div`
