@@ -18,6 +18,7 @@ export const Container = styled.div<ContainerProps>`
   font-size: ${theme.textSize.T2};
 
   cursor: pointer;
+
   ${({ $result }) =>
     $result ||
     css`
@@ -56,6 +57,14 @@ export const Info = styled.div`
 
   position: absolute;
   width: 100%;
+`;
+
+export const Text = styled.div`
+  max-width: calc(100% - 75px);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Rate = styled.div`

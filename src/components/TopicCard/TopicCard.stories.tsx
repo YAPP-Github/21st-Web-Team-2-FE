@@ -27,6 +27,25 @@ Default.args = {
   type: 'feed',
 };
 
+export const 글자수_많음_2개 = Template.bind({});
+글자수_많음_2개.args = {
+  ...Default.args,
+  options: [
+    { id: 0, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 10 },
+    { id: 1, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 20 },
+  ],
+};
+
+export const 글자수_많음_3개 = Template.bind({});
+글자수_많음_3개.args = {
+  ...Default.args,
+  options: [
+    { id: 0, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 10 },
+    { id: 1, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 10 },
+    { id: 2, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 30 },
+  ],
+};
+
 export const Badge = Template.bind({});
 Badge.args = {
   ...Default.args,

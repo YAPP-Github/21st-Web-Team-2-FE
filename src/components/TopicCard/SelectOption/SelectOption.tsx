@@ -24,7 +24,7 @@ const SelectOption = (props: SelectOptionProps) => {
       {result && <S.ProgressBar className="progress" $rate={rate} $selected={selected} />}
       <S.Info>
         <Icon name="Vote" />
-        {text}
+        <S.Text>{text}</S.Text>
         {result && <S.Rate>{Math.round(rate * 100)}%</S.Rate>}
       </S.Info>
     </S.Container>
