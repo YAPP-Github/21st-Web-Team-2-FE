@@ -37,6 +37,7 @@ const CommentList: FC<Props> = (props) => {
   };
 
   const commentList = getCommentByOrder(comments, order);
+  const subTitle = `댓글과 좋아요는 Thumbs UP과 Finger님들에게\n 큰 힘이 됩니다.`;
 
   return (
     <S.Wrapper>
@@ -52,9 +53,16 @@ const CommentList: FC<Props> = (props) => {
         </S.Menu>
       </S.CommentHeader>
       <S.CommentList>
-        {commentList.map((value) => (
-          <CommentListItem key={value.commentId} comment={value} onClickLike={handleCommentUpdateLike} />
-        ))}
+        {commentList.length > 0 ? (
+          commentList.map((value) => (
+            <CommentListItem key={value.commentId} comment={value} onClickLike={handleCommentUpdateLike} />
+          ))
+        ) : (
+          <S.EmptyCommentList>
+            <S.EmptyCommentTitle>여러분의 의견과 생각을 댓글로 표현해주세요!</S.EmptyCommentTitle>
+            <S.EmptyCommentSubTitle>{subTitle}</S.EmptyCommentSubTitle>
+          </S.EmptyCommentList>
+        )}
       </S.CommentList>
     </S.Wrapper>
   );

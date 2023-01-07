@@ -42,3 +42,27 @@ export const CommentList = styled.ul`
   flex-direction: column;
   gap: 40px;
 `;
+
+export const EmptyCommentList = styled.div`
+  margin-top: 40px;
+`;
+export const EmptyCommentTitle = styled.h3`
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+  text-align: center;
+  color: ${theme.color.G6};
+`;
+export const EmptyCommentSubTitle = styled.p`
+  margin-top: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  /* white-space: pre-wrap; */
+  /* white-space: pre-line; */
+  white-space: pre-wrap;
+
+  /* width: 307px; */
+  color: ${theme.color.G6};
+`;
