@@ -20,9 +20,9 @@ const CommentListItem: FC<Props> = (props) => {
             {comment.createdMemberJobCategory}·{comment.createdMemberWorkingYears}연차
           </S.UserInfo>
         </S.UserWrapper>
-        <S.Comment>{comment.contents}</S.Comment>
-        <S.VoteWrapper>
-          <S.VoteIcon name="Vote" size={16} /> {comment.likes}
+        <S.Comment>{comment.commentContent}</S.Comment>
+        <S.VoteWrapper $liked={comment.liked}>
+          <S.VoteIcon name="Vote" size={16} /> {comment.likeAmount}
         </S.VoteWrapper>
       </S.Content>
     </S.Wrapper>
