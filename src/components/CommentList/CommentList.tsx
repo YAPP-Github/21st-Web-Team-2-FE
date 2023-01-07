@@ -5,7 +5,7 @@ import { IComment } from '@src/types/Comment';
 
 import * as S from './CommentList.style';
 
-type TOrder = 'latest' | 'popular';
+type OrderType = 'latest' | 'popular';
 
 interface Props {
   comments: IComment[];
@@ -14,10 +14,10 @@ const CommentList: FC<Props> = (props) => {
   const { comments: _comments } = props;
 
   const [comments, setComments] = useState(_comments);
-  const [order, setOrder] = useState<TOrder>('latest');
+  const [order, setOrder] = useState<OrderType>('latest');
 
   const handleClickOrderItem = (e: MouseEvent<HTMLButtonElement>) => {
-    const name = e.currentTarget.name as TOrder;
+    const name = e.currentTarget.name as OrderType;
     setOrder(name);
   };
 
@@ -68,7 +68,7 @@ const CommentList: FC<Props> = (props) => {
   );
 };
 
-function getCommentByOrder(comment: IComment[], order: TOrder) {
+function getCommentByOrder(comment: IComment[], order: OrderType) {
   if (order === 'latest') return comment;
 
   const tempComment = comment.slice();
