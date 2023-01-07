@@ -1,5 +1,6 @@
-import { IComment } from '__mocks__/data/comment';
 import React, { FC } from 'react';
+
+import { IComment } from '@src/types/Comment';
 
 import * as S from './CommentListItem.styles';
 

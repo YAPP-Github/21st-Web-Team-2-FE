@@ -1,18 +1,4 @@
-// TODO-GYU: api 및 상태 관리가 제대로 나올 때 이런 값들은 어떻게 관리할지 논의하기
-export interface IComment {
-  // user
-  createdMemberId: number;
-  createdMemberJobCategory: string;
-  createdMemberName: string;
-  createdMemberWorkingYears: number;
-  createdMemberProfileImage?: string | null;
-
-  // comment - 백엔드랑 협의 필요
-  commentAmount?: number;
-  commentId: number;
-  contents: string;
-  likes: number; //  백엔드 개발자 분한테 물어보기!
-}
+import { IComment } from '@src/types/Comment';
 
 export const commentArr: IComment[] = [
   {

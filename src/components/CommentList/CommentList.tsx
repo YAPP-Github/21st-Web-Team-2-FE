@@ -1,8 +1,7 @@
 import React, { FC, MouseEvent, useState } from 'react';
 
-import { IComment } from '@mocks/data/comment';
-
-import CommentListItem from '@src/components/CommentListItem';
+import CommentListItem from '@src/components/CommentList/CommentListItem';
+import { IComment } from '@src/types/Comment';
 
 import * as S from './CommentList.style';
 
