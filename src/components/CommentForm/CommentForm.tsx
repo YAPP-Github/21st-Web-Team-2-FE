@@ -16,7 +16,10 @@ const CommentForm: FC<Props> = (props) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    if (value.trim() === '') return;
+
     onSubmit(value);
+    setValue('');
   };
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {

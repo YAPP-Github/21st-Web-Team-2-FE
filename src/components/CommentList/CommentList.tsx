@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useState } from 'react';
+import React, { FC, MouseEvent, useEffect, useState } from 'react';
 
 import CommentListItem from '@src/components/CommentList/CommentListItem';
 import { IComment } from '@src/types/Comment';
@@ -15,6 +15,11 @@ const CommentList: FC<Props> = (props) => {
 
   const [comments, setComments] = useState(_comments);
   const [order, setOrder] = useState<OrderType>('latest');
+
+  // DELETE-GYU: API 연동시 제거될 로직
+  useEffect(() => {
+    setComments(_comments);
+  }, [_comments]);
 
   const handleClickOrderItem = (e: MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name as OrderType;
