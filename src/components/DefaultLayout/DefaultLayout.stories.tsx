@@ -12,6 +12,6 @@ const Template: ComponentStory<typeof DefaultLayout> = (args) => <DefaultLayout 
 
 export const Default = Template.bind({});
 Default.args = {
-  left: '왼쪽입니다.',
+  side: '왼쪽입니다.',
   main: '메인입니다.',
 };
