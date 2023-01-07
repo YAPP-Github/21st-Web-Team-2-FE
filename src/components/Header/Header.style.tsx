@@ -14,7 +14,6 @@ export const HeaderWrapper = styled.header`
 export const HeaderContents = styled.div`
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 24px;
   display: flex;
   align-items: center;
   height: 100%;
