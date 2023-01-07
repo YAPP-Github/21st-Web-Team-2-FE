@@ -20,8 +20,8 @@ const SelectOption = (props: SelectOptionProps) => {
   };
 
   return (
-    <S.Container $result={result} onClick={handleClick}>
-      {result && <S.ProgressBar $rate={rate} $selected={selected} />}
+    <S.Container $result={result} $selected={selected} onClick={handleClick}>
+      {result && <S.ProgressBar className="progress" $rate={rate} $selected={selected} />}
       <S.Info>
         <Icon name="Vote" />
         {text}

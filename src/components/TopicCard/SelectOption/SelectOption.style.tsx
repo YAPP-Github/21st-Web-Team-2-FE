@@ -5,6 +5,7 @@ import theme from '@src/styles/theme';
 
 interface ContainerProps {
   $result: boolean;
+  $selected: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -18,12 +19,16 @@ export const Container = styled.div<ContainerProps>`
 
   cursor: pointer;
   ${({ $result }) =>
-    $result &&
+    $result ||
     css`
       &:hover {
-        background-color: theme.color.G6;
+        background-color: ${theme.color.G6};
       }
     `}
+
+  &:hover .progress {
+    background-color: ${({ $selected }) => ($selected ? theme.color.Secondary2 : theme.color.G3)};
+  }
 `;
 
 export interface ProgressBarProps {
@@ -41,10 +46,6 @@ export const ProgressBar = styled.div<ProgressBarProps>`
 
   background-color: ${({ $selected }) => ($selected ? theme.color.Secondary1 : theme.color.G4)};
   border-radius: 4px;
-
-  &:hover {
-    background-color: ${({ $selected }) => ($selected ? theme.color.Secondary2 : theme.color.G3)};
-  }
 `;
 
 export const Info = styled.div`
