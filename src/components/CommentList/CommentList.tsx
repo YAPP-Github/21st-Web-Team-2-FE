@@ -27,10 +27,10 @@ const CommentList: FC<Props> = (props) => {
       <S.CommentHeader>
         <S.CommentLength>댓글 {comments.length}개</S.CommentLength>
         <S.Menu>
-          <S.MenuItem className={order === 'latest' ? 'active' : ''} name="latest" onClick={handleClickOrderItem}>
+          <S.MenuItem name="latest" $active={order === 'latest'} onClick={handleClickOrderItem}>
             최신순
           </S.MenuItem>
-          <S.MenuItem className={order === 'popular' ? 'active' : ''} name="popular" onClick={handleClickOrderItem}>
+          <S.MenuItem name="popular" $active={order === 'popular'} onClick={handleClickOrderItem}>
             좋아요순
           </S.MenuItem>
         </S.Menu>

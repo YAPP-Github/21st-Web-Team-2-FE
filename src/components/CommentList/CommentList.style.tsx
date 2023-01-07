@@ -29,14 +29,12 @@ export const Menu = styled.nav`
   gap: 16px;
 `;
 
-export const MenuItem = styled.button`
+export const MenuItem = styled.button<{ $active: boolean }>`
   color: ${theme.color.G6};
   &:hover {
     cursor: pointer;
   }
-  &.active {
-    color: ${theme.color.G8};
-  }
+  ${({ $active }) => $active && `color: ${theme.color.G8};`}
 `;
 
 export const CommentList = styled.ul`
