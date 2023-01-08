@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 import Icon from '@src/components/common/Icon';
 import { TopicOption } from '@src/types/Topic';
@@ -15,7 +15,8 @@ interface SelectOptionProps extends TopicOption {
 const SelectOption = (props: SelectOptionProps) => {
   const { id, text, rate = 0, result = false, selected = false, onClick } = props;
 
-  const handleClick = () => {
+  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     onClick(id, selected);
   };
 
