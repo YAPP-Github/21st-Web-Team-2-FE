@@ -3,6 +3,10 @@ import Image from 'next/image';
 
 import theme from '@src/styles/theme';
 
+export const Wrapper = styled.div`
+  padding: 0 20px;
+`;
+
 export const MemberSummary = styled.div`
   display: flex;
   flex-direction: row;
