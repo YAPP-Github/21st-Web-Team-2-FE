@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import TopicCard from '@src/components/TopicCard';
@@ -13,6 +14,8 @@ export interface MainTopicListProps {
 
 const MainTopicList: React.FC<MainTopicListProps> = (props) => {
   const { member, topics } = props;
+  const router = useRouter();
+
   return (
     <>
       <S.MainTop>
@@ -21,7 +24,7 @@ const MainTopicList: React.FC<MainTopicListProps> = (props) => {
       </S.MainTop>
       <S.TopicsContainer>
         {topics.map((topic) => (
-          <TopicCard key={topic.id} {...topic} type="feed" badge="참여율 TOP" />
+          <TopicCard key={topic.id} {...topic} type="feed" badge="참여율 TOP" onClick={() => router.push('/topic/1')} />
         ))}
       </S.TopicsContainer>
     </>
