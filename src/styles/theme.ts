@@ -23,6 +23,7 @@ const theme = {
   },
   fontFamily: {
     basic: 'Pretendard-Regular',
+    english: 'PoetsenOne-Regular',
     mainTitle: 'Syne',
   },
   fontWeight: {

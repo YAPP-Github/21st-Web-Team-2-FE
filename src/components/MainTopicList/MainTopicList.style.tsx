@@ -12,6 +12,7 @@ export const MainTop = styled.div`
 export const Welcome = styled.div`
   font-size: 28px;
   line-height: 34px;
+  font-family: ${theme.fontFamily.english};
 `;
 
 export const SubText = styled.div`
