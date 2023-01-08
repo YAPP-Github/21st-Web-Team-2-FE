@@ -23,6 +23,7 @@ const theme = {
   },
   fontFamily: {
     basic: 'Pretendard-Regular',
+    english: 'PoetsenOne-Regular',
     mainTitle: 'Syne',
   },
   fontWeight: {
@@ -37,6 +38,7 @@ const theme = {
     T1: '18px',
     T2: '16px', // B1과 동일
     T3: '15px',
+    B1: '16px',
     B2: '14px',
     B3: '12px',
     B4: '8px',

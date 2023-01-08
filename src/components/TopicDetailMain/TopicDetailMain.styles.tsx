@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Icon from '@src/components/common/Icon';
 
 export const Wrapper = styled.main`
-  margin: 60px 0;
+  margin-top: -20px;
   display: flex;
   flex-direction: column;
   gap: 40px;

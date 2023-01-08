@@ -4,7 +4,7 @@ import Image from 'next/image';
 import theme from '@src/styles/theme';
 
 export const Wrapper = styled.div`
-  padding: 80px 20px;
+  padding: 0 20px;
 `;
 
 export const MemberSummary = styled.div`

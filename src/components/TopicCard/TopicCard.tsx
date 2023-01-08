@@ -11,10 +11,11 @@ export type TopicCardType = 'feed' | 'detail';
 interface TopicCardProps extends Topic {
   badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
+  onClick?: () => void;
 }
 
 const TopicCard = (props: TopicCardProps) => {
-  const { title, contents, options: defaultOptions, member, comments, badge, type } = props;
+  const { title, contents, options: defaultOptions, member, comments, badge, type, onClick } = props;
   const [options, setOptions] = useState<TopicOption[]>(defaultOptions);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null); // TODO: 초기 선택 여부 확인해야함
 
@@ -43,7 +44,7 @@ const TopicCard = (props: TopicCardProps) => {
   };
 
   return (
-    <S.Container>
+    <S.Container onClick={onClick}>
       <S.TopicTop>
         <S.TopicHeader>
           <div>
