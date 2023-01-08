@@ -24,7 +24,7 @@ const TopicUserInfo: FC<Props> = (props) => {
   const { member, tags } = props;
 
   return (
-    <S.Wrapper>
+    <>
       <S.MemberSummary>
         <S.Profile src={member.profileImage ?? DefaultImage} alt={member.nickname} width={44} height={44} />
         <S.MemberWrapper>
@@ -37,7 +37,7 @@ const TopicUserInfo: FC<Props> = (props) => {
       <S.TagListWrapper>
         <TagList tags={tags} />
       </S.TagListWrapper>
-    </S.Wrapper>
+    </>
   );
 };
 
