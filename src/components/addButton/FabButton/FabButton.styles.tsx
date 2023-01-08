@@ -24,4 +24,8 @@ export const FabButton = styled.button<{ $visible: boolean }>`
     css`
       visibility: visible;
     `}
+
+  &:hover {
+    background: ${theme.color.Primary2};
+  }
 `;
