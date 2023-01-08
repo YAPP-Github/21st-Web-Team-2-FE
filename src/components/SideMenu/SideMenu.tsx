@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import { IconNameType } from '../common/Icon/Icon';
-import TagList from '../common/TagList';
+import { IconNameType } from '@src/components/common/Icon/Icon';
+import TagList from '@src/components/common/TagList';
+
 import * as S from './SideMenu.styles';
 import SideMenuItem from './SideMenuItem';
 
