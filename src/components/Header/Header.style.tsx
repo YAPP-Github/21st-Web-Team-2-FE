@@ -4,7 +4,12 @@ import Icon from '@src/components/common/Icon';
 import theme from '@src/styles/theme';
 
 export const HeaderWrapper = styled.header`
-  width: 100vw;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+
   height: 5rem;
   color: ${theme.color.Primary1};
   background-color: ${theme.color.G1};
@@ -14,11 +19,11 @@ export const HeaderWrapper = styled.header`
 export const HeaderContents = styled.div`
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 24px;
   display: flex;
   align-items: center;
   height: 100%;
   justify-content: space-between;
+  padding: 24px;
 `;
 
 export const LogoIcon = styled(Icon)`
