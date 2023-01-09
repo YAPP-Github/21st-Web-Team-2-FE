@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Topic, { TopicOption } from '@src/types/Topic';
 
-import Icon from '../common/Icon';
+import Icon from '../Icon';
 import SelectOption from './SelectOption';
 import * as S from './TopicCard.style';
 

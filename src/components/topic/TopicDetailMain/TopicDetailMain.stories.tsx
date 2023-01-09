@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { topic } from '__mocks__/data/topic';
 
-import TopicDetailMain from './TopicDetailMain';
+import { topic } from '@mocks/data/topic';
+
+import TopicDetailMain from '.';
 
 export default {
   title: 'Components/TopicDetailMain',

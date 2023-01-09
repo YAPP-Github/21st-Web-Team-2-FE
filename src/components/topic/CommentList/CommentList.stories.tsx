@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { commentArr } from '__mocks__/data/comment';
 
-import CommentList from './CommentList';
+import { commentArr } from '@mocks/data/comment';
+
+import CommentList from '.';
 
 export default {
   title: 'Components/CommentList/CommentList',

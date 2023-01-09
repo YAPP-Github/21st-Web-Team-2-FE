@@ -1,10 +1,11 @@
-import { commentArr } from '__mocks__/data/comment';
-import { TopicType } from '__mocks__/data/topic';
 import { FC, useState } from 'react';
 
-import CommentForm from '@src/components/CommentForm';
-import CommentList from '@src/components/CommentList';
-import TopicCard from '@src/components/TopicCard';
+import { commentArr } from '@mocks/data/comment';
+import { TopicType } from '@mocks/data/topic';
+
+import TopicCard from '@src/components/common/TopicCard';
+import CommentForm from '@src/components/topic/CommentForm';
+import CommentList from '@src/components/topic/CommentList';
 
 import * as S from './TopicDetailMain.styles';
 

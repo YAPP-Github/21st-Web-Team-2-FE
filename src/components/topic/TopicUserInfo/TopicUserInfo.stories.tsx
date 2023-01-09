@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import TopicUserInfo from './TopicUserInfo';
+import TopicUserInfo from '.';
 
 export default {
   title: 'Components/TopicUserInfo',

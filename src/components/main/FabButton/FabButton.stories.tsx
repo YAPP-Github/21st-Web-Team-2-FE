@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import FabButton from './FabButton';
+import FabButton from '.';
 
 export default {
   title: 'Components/AddButton/FabButton',

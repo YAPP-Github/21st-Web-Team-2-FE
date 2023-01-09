@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { topic } from '__mocks__/data/topic';
 
 import TopicDetail from './[id]';
 

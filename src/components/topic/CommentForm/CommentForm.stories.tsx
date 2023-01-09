@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import CommentForm from './CommentForm';
+import CommentForm from '.';
 
 export default {
   title: 'Commons/CommentForm',

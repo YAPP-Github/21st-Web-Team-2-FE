@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import Header from '@src/components/Header';
 import Grid from '@src/components/common/Grid';
+import Header from '@src/components/common/Header';
 
 import * as S from './DefaultLayout.styles';
 

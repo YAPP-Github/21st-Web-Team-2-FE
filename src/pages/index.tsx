@@ -3,9 +3,9 @@ import type { NextPage } from 'next';
 import { MEMBER } from '@mocks/data/member';
 import { TOPICS } from '@mocks/data/topics';
 
-import DefaultLayout from '@src/components/DefaultLayout';
-import MainTopicList from '@src/components/MainTopicList';
-import SideMenu from '@src/components/SideMenu';
+import DefaultLayout from '@src/components/common/DefaultLayout';
+import MainTopicList from '@src/components/main/MainTopicList';
+import SideMenu from '@src/components/main/SideMenu';
 
 const Home: NextPage = () => {
   return (

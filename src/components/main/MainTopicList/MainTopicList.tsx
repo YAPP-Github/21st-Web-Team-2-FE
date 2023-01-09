@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import TopicCard from '@src/components/TopicCard';
+import TopicCard from '@src/components/common/TopicCard';
 import Member from '@src/types/Member';
 import Topic from '@src/types/Topic';
 

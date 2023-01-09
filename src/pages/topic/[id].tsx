@@ -1,9 +1,9 @@
 import { member, tags, topic } from '__mocks__/data/topic';
 import type { NextPage } from 'next';
 
-import DefaultLayout from '@src/components/DefaultLayout';
-import TopicDetailMain from '@src/components/TopicDetailMain';
-import TopicUserInfo from '@src/components/TopicUserInfo';
+import DefaultLayout from '@src/components/common/DefaultLayout';
+import TopicDetailMain from '@src/components/topic/TopicDetailMain';
+import TopicUserInfo from '@src/components/topic/TopicUserInfo';
 
 // TODO-GYU: SSR, SSG 등 방식 고려해서 추가하기
 // 현재는 mockData 를 그대로 렌더링함.

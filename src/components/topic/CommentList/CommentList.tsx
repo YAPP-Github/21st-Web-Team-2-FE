@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent, useEffect, useState } from 'react';
 
-import CommentListItem from '@src/components/CommentList/CommentListItem';
+import CommentListItem from '@src/components/topic/CommentList/CommentListItem';
 import { IComment } from '@src/types/Comment';
 
 import * as S from './CommentList.style';
