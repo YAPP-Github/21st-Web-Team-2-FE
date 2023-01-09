@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Grid from '.';
 
 export default {
-  title: 'Commons/Grid',
+  title: 'common/Grid',
   component: Grid,
   argTypes: {
     container: {

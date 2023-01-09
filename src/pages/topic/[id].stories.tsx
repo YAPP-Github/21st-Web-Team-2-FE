@@ -1,10 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { topic } from '__mocks__/data/topic';
 
 import TopicDetail from './[id]';
 
 export default {
-  title: 'Page/TopicDetail',
+  title: 'pages/TopicDetail',
   component: TopicDetail,
   args: {},
 } as ComponentMeta<typeof TopicDetail>;
