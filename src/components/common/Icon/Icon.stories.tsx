@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Icon from '.';
 
 export default {
-  title: 'Commons/Icon',
+  title: 'common/Icon',
   component: Icon,
   argTypes: {
     size: { control: 'number', name: 'size(px)' },

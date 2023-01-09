@@ -5,7 +5,7 @@ import DefaultLayout from '.';
 
 export default {
   component: DefaultLayout,
-  title: 'Components/DefaultLayout',
+  title: 'common/DefaultLayout',
 };
 
 const Template: ComponentStory<typeof DefaultLayout> = (args) => <DefaultLayout {...args} />;

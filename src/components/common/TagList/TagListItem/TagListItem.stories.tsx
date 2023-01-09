@@ -5,7 +5,7 @@ import TagListItem from '.';
 
 export default {
   component: TagListItem,
-  title: 'Components/Common/TagListItem',
+  title: 'common/TagList/TagListItem',
 };
 
 const Template: ComponentStory<typeof TagListItem> = (args) => <TagListItem {...args} />;

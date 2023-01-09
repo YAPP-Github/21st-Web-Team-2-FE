@@ -5,7 +5,7 @@ import { topic } from '@mocks/data/topic';
 import TopicDetailMain from '.';
 
 export default {
-  title: 'Components/TopicDetailMain',
+  title: 'topic/TopicDetailMain',
   component: TopicDetailMain,
   args: {},
 } as ComponentMeta<typeof TopicDetailMain>;

@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import AddButton from '.';
 
 export default {
-  title: 'Components/AddButton/AddButton',
+  title: 'main/AddButton',
   component: AddButton,
 } as ComponentMeta<typeof AddButton>;
 

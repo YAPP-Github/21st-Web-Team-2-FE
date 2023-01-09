@@ -1,14 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import Header from '.';
+import MainTopicList from '.';
 
 export default {
-  title: 'Components/Header',
-  component: Header,
+  title: 'main/MainTopicList',
+  component: MainTopicList,
   argTypes: {},
-} as ComponentMeta<typeof Header>;
+} as ComponentMeta<typeof MainTopicList>;
 
-const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
+const Template: ComponentStory<typeof MainTopicList> = (args) => <MainTopicList {...args} />;
 
 export const 기본 = Template.bind({});
 기본.args = {};

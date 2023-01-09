@@ -5,7 +5,7 @@ import TopicCard from '.';
 
 export default {
   component: TopicCard,
-  title: 'Components/topic/SelectOption',
+  title: 'common/TopicCard/SelectOption',
 };
 
 const Template: ComponentStory<typeof TopicCard> = (args) => <TopicCard {...args} />;

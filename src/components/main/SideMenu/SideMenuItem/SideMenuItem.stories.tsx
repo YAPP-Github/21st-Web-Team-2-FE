@@ -5,7 +5,7 @@ import SideMenuItem from '.';
 
 export default {
   component: SideMenuItem,
-  title: 'Components/SideMenu/SideMenuItem',
+  title: 'main/SideMenu/SideMenuItem',
 };
 
 const Template: ComponentStory<typeof SideMenuItem> = (args) => <SideMenuItem {...args} />;

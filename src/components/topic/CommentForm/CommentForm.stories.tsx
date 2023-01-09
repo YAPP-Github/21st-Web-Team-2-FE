@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import CommentForm from '.';
 
 export default {
-  title: 'Commons/CommentForm',
+  title: 'topic/CommentForm',
   component: CommentForm,
   parameters: {
     actions: {

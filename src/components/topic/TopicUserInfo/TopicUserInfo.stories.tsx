@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import TopicUserInfo from '.';
 
 export default {
-  title: 'Components/TopicUserInfo',
+  title: 'topic/TopicUserInfo',
   component: TopicUserInfo,
   args: {},
 } as ComponentMeta<typeof TopicUserInfo>;

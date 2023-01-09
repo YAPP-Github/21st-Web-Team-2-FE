@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import FabButton from '.';
 
 export default {
-  title: 'Components/AddButton/FabButton',
+  title: 'main/FabButton',
   component: FabButton,
 } as ComponentMeta<typeof FabButton>;
 
