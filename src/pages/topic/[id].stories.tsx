@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import TopicDetail from './[id]';
 
 export default {
-  title: 'Page/TopicDetail',
+  title: 'pages/TopicDetail',
   component: TopicDetail,
   args: {},
 } as ComponentMeta<typeof TopicDetail>;

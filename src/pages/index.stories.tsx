@@ -5,7 +5,7 @@ import Home from '.';
 
 export default {
   component: Home,
-  title: 'page/Home',
+  title: 'pages/Home',
 };
 
 const Template: ComponentStory<typeof Home> = (args) => <Home {...args} />;
