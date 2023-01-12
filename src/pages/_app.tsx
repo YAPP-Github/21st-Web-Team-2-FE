@@ -7,8 +7,11 @@ import '@src/styles/reset.css';
 
 import '@src/styles/common.css';
 
+import { initAxiosConfig } from '@src/configs/axios';
+
 import queryClient from '../configs/queryClient';
 
+initAxiosConfig();
 if (process.env.NODE_ENV === 'development') {
   if (typeof window === 'undefined') {
     (async () => {
