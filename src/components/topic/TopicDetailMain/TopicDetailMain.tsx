@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 
 import { commentArr } from '@mocks/data/comment';
-import { TopicType } from '@mocks/data/topic';
 
+import { Topic } from '@src/apis';
 import TopicCard from '@src/components/common/TopicCard';
 import CommentForm from '@src/components/topic/CommentForm';
 import CommentList from '@src/components/topic/CommentList';
@@ -10,7 +10,7 @@ import CommentList from '@src/components/topic/CommentList';
 import * as S from './TopicDetailMain.styles';
 
 interface Props {
-  topic: TopicType;
+  topic: Topic;
 }
 const TopicDetailMain: FC<Props> = (props) => {
   const { topic } = props;
@@ -44,7 +44,7 @@ const TopicDetailMain: FC<Props> = (props) => {
           options={voteOptions}
           member={{
             id: member.id,
-            nickname: member.nickname,
+            nickname: member.name,
             jobCategory: member.jobCategory,
             profileImage: member.profileImage ?? '',
           }}

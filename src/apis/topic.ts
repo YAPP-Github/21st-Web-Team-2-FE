@@ -4,6 +4,9 @@ import { IBaseResponse } from './';
 
 // THINK-GYU: 해당 타입들을 어디서 관리하지?
 type VoteOption = {
+  // TODO-GYU: Change
+  // 이 부분은 TopicCard 에서 select를 어떻게 구현하냐에 따라 달라짐
+  id?: number; // TODO-GYU: Change
   text: string;
   voteOptionImageFilename: string | null;
   codeBlock: string | null;
