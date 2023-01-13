@@ -16,5 +16,10 @@ const Template: ComponentStory<typeof TopicCarousel> = (args) => <TopicCarousel 
 export const 기본 = Template.bind({});
 기본.args = {
   topics: TOPICS,
+};
+
+export const 맴버 = Template.bind({});
+맴버.args = {
+  topics: TOPICS,
   member: MEMBER,
 };
