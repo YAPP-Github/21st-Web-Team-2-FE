@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 
 import theme from '@src/styles/theme';
 
-export const Container = styled.div``;
-
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;

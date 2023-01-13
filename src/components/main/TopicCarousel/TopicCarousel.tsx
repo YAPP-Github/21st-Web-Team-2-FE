@@ -61,7 +61,7 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
   };
 
   return (
-    <S.Container>
+    <>
       <S.Header>
         <div>
           <S.Welcome>Hello {member?.nickname || 'Fingers'}!</S.Welcome>
@@ -91,7 +91,7 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
           ))}
         </S.TopicContainer>
       </S.CarouselWrapper>
-    </S.Container>
+    </>
   );
 };
 

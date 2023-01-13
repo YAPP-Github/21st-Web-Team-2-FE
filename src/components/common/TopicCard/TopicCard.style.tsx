@@ -5,7 +5,6 @@ import theme from '@src/styles/theme';
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 857px;
 
   background-color: ${theme.color.G3};
 
