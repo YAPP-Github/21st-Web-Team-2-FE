@@ -13,5 +13,5 @@ export interface IBaseResponse<T> {
 
 export interface IBasePaginationResponse<T> extends IBaseResponse<T> {
   hasNext: boolean;
-  offsetId: number; // THINK-GYU: 이 부분 논의 해보기
+  offsetId: number | null; // THINK-GYU: 이 부분 논의 해보기
 }
