@@ -2,12 +2,12 @@ const theme = {
   color: {
     // common color
     G8: '#F8F9FA',
-    G7: '#9C9EA7',
+    G7: '#C1C2C5',
     G6: '#6E7178',
     G5: '#4E5259',
     G4: '#373a40',
-    G3: '#1E1D23',
-    G2: '#141517',
+    G3: '#2C2E33',
+    G2: '#212529',
     G1: '#101012',
     Primary1: '#D2FA64',
     Primary2: '#b2dd3c',
