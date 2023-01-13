@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -16,6 +18,10 @@ interface TopicCarouselProps {
 const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) => {
   const { topics, member } = props;
   const [current, setCurrent] = useState<number>(1);
+
+  const topicContainerStyle = css`
+    transform: translateX(calc(-${current - 1} * (100% + 24px)));
+  `;
 
   const handleCurrent =
     (value: number): (() => void) =>
@@ -50,10 +56,10 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
         </S.HeaderRight>
       </S.Header>
       <S.CarouselWrapper>
-        <S.TopicContainer>
+        <S.TopicContainer css={topicContainerStyle}>
           {topics.map((topic) => (
             <S.TopicWrapper key={topic.id}>
-              <Link href={`/topic/${topic.id}`}>
+              <Link href={`/topic/${topic.id}`} passHref>
                 <TopicCard key={topic.id} {...topic} type="feed" badge="참여율 TOP" />
               </Link>
             </S.TopicWrapper>

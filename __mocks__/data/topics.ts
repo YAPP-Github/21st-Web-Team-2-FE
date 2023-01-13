@@ -18,12 +18,10 @@ export const TOPIC: Topic = {
 
 export const TOPICS: Topic[] = [
   { ...TOPIC },
-  { ...TOPIC, id: 1 },
-  { ...TOPIC, id: 2 },
-  { ...TOPIC, id: 3 },
-  { ...TOPIC, id: 4 },
-  { ...TOPIC, id: 5 },
-  { ...TOPIC, id: 6 },
-  { ...TOPIC, id: 7 },
-  { ...TOPIC, id: 8 },
+  { ...TOPIC, id: 1, title: '두번째' },
+  { ...TOPIC, id: 2, title: '세번째' },
+  { ...TOPIC, id: 3, title: '네번째' },
+  { ...TOPIC, id: 4, title: '다섯번째' },
+  { ...TOPIC, id: 5, title: '여섯번째' },
+  { ...TOPIC, id: 6, title: '일곱번째' },
 ];
