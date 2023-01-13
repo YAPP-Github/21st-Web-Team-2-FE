@@ -32,14 +32,10 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
 
   const replaceSlide = useCallback((destination: number) => {
     setDisplayCurrent(destination);
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setTransition('');
       setCurrent(destination);
     }, 500);
-
-    return () => {
-      clearInterval(timer);
-    };
   }, []);
 
   const moveCarousel = useCallback(
@@ -53,7 +49,7 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
         const destination = current + value;
         setCurrent(destination);
 
-        const timer = setTimeout(() => {
+        setTimeout(() => {
           setDelay(false);
         }, 500);
 
@@ -64,10 +60,6 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
           return replaceSlide(carouselTopics.length - 2);
         }
         setDisplayCurrent(destination);
-
-        return () => {
-          clearInterval(timer);
-        };
       },
     [carouselTopics.length, current, delay, replaceSlide],
   );
