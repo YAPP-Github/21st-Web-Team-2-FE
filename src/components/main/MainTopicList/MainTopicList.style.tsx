@@ -25,4 +25,5 @@ export const TopicsContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 80px;
+  margin-top: 24px;
 `;

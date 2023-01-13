@@ -15,7 +15,7 @@ export const FabButton = styled.button<{ $visible: boolean }>`
   justify-content: center;
   align-items: center;
 
-  position: absolute;
+  position: fixed;
   right: 28px;
   bottom: 28px;
 
