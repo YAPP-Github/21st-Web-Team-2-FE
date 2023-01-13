@@ -67,8 +67,6 @@ export const TopicContainer = styled.div`
   width: 100%;
 
   gap: 24px;
-
-  transition: all 0.5s ease-in-out;
 `;
 
 export const TopicWrapper = styled.div`
