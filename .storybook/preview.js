@@ -7,7 +7,7 @@ import '@src/styles/reset.css';
 
 import '@src/styles/common.css';
 
-import mockApis from '../__mocks__/apis';
+import { handlers } from '../__mocks__/apis/handlers';
 
 initialize();
 
@@ -21,7 +21,9 @@ export const decorators = [
 ];
 
 export const parameters = {
-  msw: mockApis,
+  msw: {
+    handlers: handlers,
+  },
   actions: { argTypesRegex: '^on.*' },
   nextRouter: {
     Provider: RouterContext.Provider,

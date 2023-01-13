@@ -5,7 +5,7 @@ import { BASE_URL } from '@src/configs/axios';
 
 import { getRandomNumber } from '.';
 
-const TOPIC_DETAIL: Topic = {
+export const TOPIC_DETAIL: Topic = {
   topicId: 2,
   title: 'Vote1',
   contents: 'Content1',
@@ -41,7 +41,7 @@ const TOPIC_DETAIL: Topic = {
 
 export const topicDetailHandler = [
   rest.get(`${BASE_URL}/topic/:topicId`, (req, res, ctx) => {
-    ctx.delay(getRandomNumber(100, 6000));
+    ctx.delay(getRandomNumber(100, 600));
 
     return res(
       ctx.status(200),
