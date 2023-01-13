@@ -38,31 +38,27 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
     }, 500);
   }, []);
 
-  const moveCarousel = useCallback(
-    (value: number): (() => void) =>
-      () => {
-        if (delay) return;
-        setDelay(true);
+  const moveCarousel = (value: number) => () => {
+    if (delay) return;
+    setDelay(true);
 
-        setTransition(TRANSITION);
+    setTransition(TRANSITION);
 
-        const destination = current + value;
-        setCurrent(destination);
+    const destination = current + value;
+    setCurrent(destination);
 
-        setTimeout(() => {
-          setDelay(false);
-        }, 500);
+    setTimeout(() => {
+      setDelay(false);
+    }, 500);
 
-        if (destination > carouselTopics.length - 2) {
-          return replaceSlide(1);
-        }
-        if (destination <= 0) {
-          return replaceSlide(carouselTopics.length - 2);
-        }
-        setDisplayCurrent(destination);
-      },
-    [carouselTopics.length, current, delay, replaceSlide],
-  );
+    if (destination > carouselTopics.length - 2) {
+      return replaceSlide(1);
+    }
+    if (destination <= 0) {
+      return replaceSlide(carouselTopics.length - 2);
+    }
+    setDisplayCurrent(destination);
+  };
 
   return (
     <S.Container>
