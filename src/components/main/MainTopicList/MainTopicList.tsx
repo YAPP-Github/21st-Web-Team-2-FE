@@ -30,7 +30,7 @@ const MainTopicList: React.FC<MainTopicListProps> = (props) => {
     const observer = new IntersectionObserver(handleObserver);
 
     observer.observe(observerRef.current);
-  });
+  }, [handleObserver]);
 
   const handleWrite = () => {
     router.push('/write');
