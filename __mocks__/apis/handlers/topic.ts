@@ -1,4 +1,4 @@
-import { rest } from 'msw';
+import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
 import { TOPIC } from '@mocks/data/topic';
 
@@ -7,17 +7,19 @@ import { BASE_URL } from '@src/configs/axios';
 
 import { getRandomNumber } from '.';
 
-export const topicDetailHandler = [
-  rest.get(`${BASE_URL}/topic/:topicId`, (req, res, ctx) => {
-    ctx.delay(getRandomNumber(100, 600));
+const fetchTopic = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
+  ctx.delay(getRandomNumber(100, 600));
 
-    return res(
-      ctx.status(200),
-      ctx.json<IBaseResponse<Topic>>({
-        code: 'SUCCES',
-        message: '성공',
-        data: TOPIC,
-      }),
-    );
-  }),
+  return res(
+    ctx.status(200),
+    ctx.json<IBaseResponse<Topic>>({
+      code: 'SUCCES',
+      message: '성공',
+      data: TOPIC,
+    }),
+  );
+};
+
+export const topicDetailHandler = [
+  rest.get(`${BASE_URL}/topic/:topicId`, fetchTopic), //
 ];

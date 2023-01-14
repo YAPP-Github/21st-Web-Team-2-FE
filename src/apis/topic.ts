@@ -35,8 +35,10 @@ export type Topic = {
   voteOptions: VoteOption[];
 };
 
+/**
+ * 토픽 상세 조회
+ */
 export type IGetTopicDetailResponseData = IBaseResponse<Topic>;
-
 export const getTopicDetail = async (topicId: number) => {
   const res = await axios.get<IGetTopicDetailResponseData>(`/topic/${topicId}`);
 

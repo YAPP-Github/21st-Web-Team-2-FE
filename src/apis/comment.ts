@@ -12,8 +12,10 @@ export type Comment = {
   liked: boolean;
 };
 
+/**
+ * topic 별 댓글 조회
+ */
 export type IGetCommentsResponseData = IBasePaginationResponse<Comment[]>;
-
 export const getComments = async (topicId: number, offsetId?: number) => {
   const url = `${BASE_URL}/comment/${topicId}/latest${offsetId ? `?lastOffset=${offsetId}` : ''}`;
   const res = await axios.get<IGetCommentsResponseData>(url);
@@ -21,6 +23,9 @@ export const getComments = async (topicId: number, offsetId?: number) => {
   return res.data;
 };
 
+/**
+ * 댓글 생성
+ */
 export type IPostCommentResponsData = IBaseResponse<Comment>;
 export const createComment = async (topicId: number, data: Comment) => {
   const res = await axios.post<IPostCommentResponsData>(`${BASE_URL}/comment/${topicId}`, data);
