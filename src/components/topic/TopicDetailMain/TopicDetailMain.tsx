@@ -15,23 +15,7 @@ interface Props {
 const TopicDetailMain: FC<Props> = (props) => {
   const { topic } = props;
 
-  const [comment, setComment] = useState(commentArr);
-
-  const handleAddComment = (commentValue: string) => {
-    const newComment = {
-      commentId: Math.floor(Math.random() * 1000),
-      createdMemberId: 102,
-      createdMemberName: '아무개',
-      createdMemberProfileImage: null,
-      createdMemberJobCategory: '개발자',
-      createdMemberWorkingYears: 1,
-      commentContent: commentValue,
-      likeAmount: 0,
-      liked: false,
-    };
-
-    setComment(() => [...comment, newComment]);
-  };
+  const handleAddComment = (commentValue: string) => {};
 
   const { title, contents, member, commentAmount, voteOptions } = topic;
   return (
@@ -53,7 +37,7 @@ const TopicDetailMain: FC<Props> = (props) => {
         />
       </S.TopicCardWrapper>
       <CommentForm placeholder="닉네임님, 댓글을 남겨보세요! 💬" onSubmit={handleAddComment} />
-      <CommentList comments={comment} />
+      <CommentList />
     </S.Wrapper>
   );
 };

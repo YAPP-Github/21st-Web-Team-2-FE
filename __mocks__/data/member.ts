@@ -1,7 +1,9 @@
-import Member from '@src/types/Member';
+import { Member } from '@src/apis';
 
 export const MEMBER: Member = {
-  jobCategory: '개발자',
-  nickname: 'YAPP',
-  profileImage: 'https://avatars.githubusercontent.com/u/45786387?v=4',
+  id: 4,
+  name: 'MemberA',
+  profileImage: null,
+  jobCategory: 'developer',
+  workingYears: 3,
 };

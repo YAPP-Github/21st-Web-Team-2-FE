@@ -1,10 +1,5 @@
 export * from './topic';
 
-export interface IError {
-  message: string;
-  code: string;
-}
-
 export interface IBaseResponse<T> {
   message: string;
   code: string;
@@ -13,5 +8,5 @@ export interface IBaseResponse<T> {
 
 export interface IBasePaginationResponse<T> extends IBaseResponse<T> {
   hasNext: boolean;
-  offsetId: number | null; // THINK-GYU: 이 부분 논의 해보기
+  offsetId: number | null;
 }

@@ -12,12 +12,10 @@ const TopicDetail: NextPage<Props> = ({ topicDetail }) => {
   const { member, tags } = topicDetail;
 
   return (
-    <>
-      <DefaultLayout //
-        side={<TopicUserInfo member={member} tags={tags} />}
-        main={<TopicDetailMain topic={topicDetail} />}
-      />
-    </>
+    <DefaultLayout //
+      side={<TopicUserInfo member={member} tags={tags} />}
+      main={<TopicDetailMain topic={topicDetail} />}
+    />
   );
 };
 

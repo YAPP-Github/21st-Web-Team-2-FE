@@ -1,6 +1,6 @@
 import { Comment } from '@src/apis/comment';
 
-export const commentArr: Comment[] = [
+export const COMMENTS: Comment[] = [
   {
     commentId: 30,
     member: {
