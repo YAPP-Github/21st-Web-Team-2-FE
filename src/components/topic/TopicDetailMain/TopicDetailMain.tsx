@@ -1,11 +1,10 @@
-import { FC, useState } from 'react';
-
-import { commentArr } from '@mocks/data/comment';
+import { FC } from 'react';
 
 import { Topic } from '@src/apis';
 import TopicCard from '@src/components/common/TopicCard';
 import CommentForm from '@src/components/topic/CommentForm';
 import CommentList from '@src/components/topic/CommentList';
+import { useCreateComments } from '@src/queires/useCreateComment';
 
 import * as S from './TopicDetailMain.styles';
 
@@ -15,7 +14,25 @@ interface Props {
 const TopicDetailMain: FC<Props> = (props) => {
   const { topic } = props;
 
-  const handleAddComment = (commentValue: string) => {};
+  const { mutateComment } = useCreateComments(1);
+
+  const handleAddComment = async (commentValue: string) => {
+    const comment = {
+      commentId: Math.floor(Math.random() * 100),
+      member: {
+        id: 3,
+        name: 'MemberC',
+        profileImage: null,
+        jobCategory: 'product_manager',
+        workingYears: 1,
+      },
+      commentContent: commentValue,
+      likeAmount: 30,
+      liked: false,
+    };
+
+    mutateComment.mutate(comment);
+  };
 
   const { title, contents, member, commentAmount, voteOptions } = topic;
   return (
