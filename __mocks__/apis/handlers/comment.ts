@@ -139,8 +139,6 @@ const COMMENTS: Comment[] = [
   },
 ];
 
-console.log('COMMENTS', COMMENTS.length);
-
 export const commentHandler = [
   rest.get(`${BASE_URL}/comment/:topicId/latest`, (req, res, ctx) => {
     ctx.delay(getRandomNumber(100, 600));

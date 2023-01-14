@@ -15,7 +15,7 @@ export type Comment = {
 export type IGetCommentsResponseData = IBasePaginationResponse<Comment[]>;
 
 export const getComments = async (topicId: number, offsetId?: number) => {
-  const url = `${BASE_URL}/comment/${topicId}/latest${offsetId ? `?${offsetId}` : ''}`;
+  const url = `${BASE_URL}/comment/${topicId}/latest${offsetId ? `?lastOffset=${offsetId}` : ''}`;
   const res = await axios.get<IGetCommentsResponseData>(url);
 
   return res.data;
