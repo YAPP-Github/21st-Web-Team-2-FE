@@ -1,6 +1,4 @@
-import axios from 'axios';
 import type { GetServerSideProps, NextPage } from 'next';
-import { useEffect } from 'react';
 
 import { Topic, getTopicDetail } from '@src/apis';
 import DefaultLayout from '@src/components/common/DefaultLayout';
@@ -12,16 +10,6 @@ interface Props {
 }
 const TopicDetail: NextPage<Props> = ({ topicDetail }) => {
   const { member, tags } = topicDetail;
-
-  useEffect(() => {
-    const req = async () => {
-      const res = await axios.get('/comment/1/latest');
-
-      console.log('res', res);
-    };
-
-    req();
-  }, []);
 
   return (
     <>
