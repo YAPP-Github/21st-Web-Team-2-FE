@@ -15,3 +15,11 @@ export const Default = Template.bind({});
 Default.args = {
   topicDetail: TOPIC_DETAIL,
 };
+Default.parameters = {
+  nextRouter: {
+    path: '/topic/[id]',
+    query: {
+      id: '1',
+    },
+  },
+};
