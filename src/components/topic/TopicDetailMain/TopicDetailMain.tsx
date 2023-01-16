@@ -14,24 +14,10 @@ interface Props {
 const TopicDetailMain: FC<Props> = (props) => {
   const { topic } = props;
 
-  const { mutateComment } = useCreateComments(1);
+  const { mutateComment } = useCreateComments(topic.topicId);
 
-  const handleAddComment = async (commentValue: string) => {
-    const comment = {
-      commentId: Math.floor(Math.random() * 100),
-      member: {
-        id: 3,
-        name: 'MemberC',
-        profileImage: null,
-        jobCategory: 'product_manager',
-        workingYears: 1,
-      },
-      commentContent: commentValue,
-      likeAmount: 30,
-      liked: false,
-    };
-
-    mutateComment.mutate(comment);
+  const handleAddComment = (commentValue: string) => {
+    mutateComment.mutate(commentValue);
   };
 
   const { title, contents, member, commentAmount, voteOptions } = topic;

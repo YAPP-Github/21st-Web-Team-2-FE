@@ -30,8 +30,22 @@ const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContex
   );
 };
 
-const createComment = (req: RestRequest<Comment>, res: ResponseComposition, ctx: RestContext) => {
-  const comment = req.body;
+const createComment = (req: RestRequest<Comment['commentContent']>, res: ResponseComposition, ctx: RestContext) => {
+  const commentContent = req.body;
+
+  const comment = {
+    commentId: Math.floor(Math.random() * 100),
+    member: {
+      id: 3,
+      name: 'MemberC',
+      profileImage: null,
+      jobCategory: 'product_manager',
+      workingYears: 1,
+    },
+    commentContent,
+    likeAmount: 0,
+    liked: false,
+  };
 
   comments.unshift(comment);
 
@@ -47,5 +61,5 @@ const createComment = (req: RestRequest<Comment>, res: ResponseComposition, ctx:
 
 export const commentHandler = [
   rest.get(`${BASE_URL}/comment/:topicId/latest`, getComments),
-  rest.post<Comment>(`${BASE_URL}/comment/:topicId`, createComment),
+  rest.post(`${BASE_URL}/comment/:topicId`, createComment),
 ];

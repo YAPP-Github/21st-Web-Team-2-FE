@@ -27,7 +27,7 @@ export const getComments = async (topicId: number, offsetId?: number) => {
  * 댓글 생성
  */
 export type IPostCommentResponsData = BaseResponse<Comment>;
-export const createComment = async (topicId: number, data: Comment) => {
+export const createComment = async (topicId: number, data: Comment['commentContent']) => {
   const res = await axios.post<IPostCommentResponsData>(`${BASE_URL}/comment/${topicId}`, data);
 
   return res.data.data;
