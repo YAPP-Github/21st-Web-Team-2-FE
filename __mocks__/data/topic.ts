@@ -18,6 +18,7 @@ export const TOPIC: Topic = {
   tags: [],
   voteOptions: [
     {
+      id: 1,
       text: 'Content1 OptionA',
       voteOptionImageFilename: null,
       codeBlock: null,
@@ -25,6 +26,7 @@ export const TOPIC: Topic = {
       votedAmount: 1,
     },
     {
+      id: 2,
       text: 'Content1 OptionB',
       voteOptionImageFilename: null,
       codeBlock: null,

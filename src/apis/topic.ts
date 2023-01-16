@@ -3,10 +3,7 @@ import axios from 'axios';
 import { BaseResponse } from './';
 
 type VoteOption = {
-  // TODO-GYU: Change
-  // 이 부분은 TopicCard 에서 select를 어떻게 구현하냐에 따라 달라짐
-  id?: number; // TODO-GYU: Change
-
+  id: number;
   text: string;
   voteOptionImageFilename: string | null;
   codeBlock: string | null;
