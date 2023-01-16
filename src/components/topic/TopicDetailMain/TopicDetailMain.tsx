@@ -20,24 +20,12 @@ const TopicDetailMain: FC<Props> = (props) => {
     mutateComment.mutate(commentValue);
   };
 
-  const { title, contents, member, commentAmount, voteOptions } = topic;
+  const { title, contents, commentAmount, voteOptions } = topic;
   return (
     <S.Wrapper>
       <S.TopicCardWrapper>
         <S.ShareIcon name="Share" size={24} />
-        <TopicCard
-          title={title}
-          contents={contents}
-          options={voteOptions}
-          member={{
-            id: member.id,
-            nickname: member.name,
-            jobCategory: member.jobCategory,
-            profileImage: member.profileImage ?? '',
-          }}
-          comments={commentAmount}
-          type={'detail'}
-        />
+        <TopicCard title={title} contents={contents} options={voteOptions} comments={commentAmount} type={'detail'} />
       </S.TopicCardWrapper>
       <CommentForm placeholder="닉네임님, 댓글을 남겨보세요! 💬" onSubmit={handleAddComment} />
       <CommentList />
