@@ -9,7 +9,7 @@ import { getRandomNumber } from '.';
 
 const comments = COMMENTS;
 
-const fetchComments = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
+const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
   ctx.delay(getRandomNumber(100, 600));
 
   const lastOffset = req.url.searchParams.get('lastOffset');
@@ -52,6 +52,6 @@ const createComment = (req: RestRequest<Comment>, res: ResponseComposition, ctx:
 };
 
 export const commentHandler = [
-  rest.get(`${BASE_URL}/comment/:topicId/latest`, fetchComments),
+  rest.get(`${BASE_URL}/comment/:topicId/latest`, getComments),
   rest.post<Comment>(`${BASE_URL}/comment/:topicId`, createComment),
 ];
