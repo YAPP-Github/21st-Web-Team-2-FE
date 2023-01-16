@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBaseResponse } from './';
+import { BaseResponse } from './';
 
 type VoteOption = {
   // TODO-GYU: Change
@@ -38,7 +38,7 @@ export type Topic = {
 /**
  * 토픽 상세 조회
  */
-export type IGetTopicDetailResponseData = IBaseResponse<Topic>;
+export type IGetTopicDetailResponseData = BaseResponse<Topic>;
 export const getTopicDetail = async (topicId: number) => {
   const res = await axios.get<IGetTopicDetailResponseData>(`/topic/${topicId}`);
 

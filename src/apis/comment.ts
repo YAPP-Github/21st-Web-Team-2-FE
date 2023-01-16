@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { BASE_URL } from '@src/configs/axios';
 
-import { IBasePaginationResponse, IBaseResponse, Member } from './';
+import { BasePaginationResponse, BaseResponse, Member } from './';
 
 export interface Comment {
   commentId: number;
@@ -15,7 +15,7 @@ export interface Comment {
 /**
  * topic 별 댓글 조회
  */
-export type IGetCommentsResponseData = IBasePaginationResponse<Comment[]>;
+export type IGetCommentsResponseData = BasePaginationResponse<Comment[]>;
 export const getComments = async (topicId: number, offsetId?: number) => {
   const url = `${BASE_URL}/comment/${topicId}/latest${offsetId ? `?lastOffset=${offsetId}` : ''}`;
   const res = await axios.get<IGetCommentsResponseData>(url);
@@ -26,7 +26,7 @@ export const getComments = async (topicId: number, offsetId?: number) => {
 /**
  * 댓글 생성
  */
-export type IPostCommentResponsData = IBaseResponse<Comment>;
+export type IPostCommentResponsData = BaseResponse<Comment>;
 export const createComment = async (topicId: number, data: Comment) => {
   const res = await axios.post<IPostCommentResponsData>(`${BASE_URL}/comment/${topicId}`, data);
 
