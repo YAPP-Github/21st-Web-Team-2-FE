@@ -4,13 +4,13 @@ import { BASE_URL } from '@src/configs/axios';
 
 import { IBasePaginationResponse, IBaseResponse, Member } from './';
 
-export type Comment = {
+export interface Comment {
   commentId: number;
   member: Member;
   commentContent: string;
   likeAmount: number;
   liked: boolean;
-};
+}
 
 /**
  * topic 별 댓글 조회
