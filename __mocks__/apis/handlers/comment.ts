@@ -5,13 +5,9 @@ import { COMMENTS } from '@mocks/data/comment';
 import { Comment, IGetCommentsResponseData, IPostCommentResponsData } from '@src/apis/comment';
 import { BASE_URL } from '@src/configs/axios';
 
-import { getRandomNumber } from '.';
-
 const comments = COMMENTS;
 
 const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
-  ctx.delay(getRandomNumber(100, 600));
-
   const lastOffset = req.url.searchParams.get('lastOffset');
 
   let responseData: Comment[] = [];
@@ -35,8 +31,6 @@ const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContex
 };
 
 const createComment = (req: RestRequest<Comment>, res: ResponseComposition, ctx: RestContext) => {
-  ctx.delay(getRandomNumber(100, 600));
-
   const comment = req.body;
 
   comments.unshift(comment);

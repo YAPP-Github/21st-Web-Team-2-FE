@@ -5,11 +5,7 @@ import { TOPIC } from '@mocks/data/topic';
 import { IBaseResponse, Topic } from '@src/apis/';
 import { BASE_URL } from '@src/configs/axios';
 
-import { getRandomNumber } from '.';
-
 const getTopic = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
-  ctx.delay(getRandomNumber(100, 600));
-
   return res(
     ctx.status(200),
     ctx.json<IBaseResponse<Topic>>({
