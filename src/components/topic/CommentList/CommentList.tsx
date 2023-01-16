@@ -15,7 +15,7 @@ const CommentList: FC = () => {
 
   const [order, setOrder] = useState<OrderType>('latest');
 
-  const { fetchNextPage, data: comments, isLoading, hasNextPage } = useGetComments(Number(router.query.id!));
+  const { fetchNextPage, data: comments, isLoading, hasNextPage } = useGetComments(Number(router.query.id));
   const { ref } = useInView({
     onChange: (inView) => {
       if (inView && hasNextPage) {
