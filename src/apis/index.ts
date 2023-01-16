@@ -1,4 +1,5 @@
 export * from './topic';
+export * from './comment';
 
 export interface IBaseResponse<T> {
   message: string;

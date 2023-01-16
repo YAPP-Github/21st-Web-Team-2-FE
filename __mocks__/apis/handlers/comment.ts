@@ -2,7 +2,7 @@ import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
 import { COMMENTS } from '@mocks/data/comment';
 
-import { Comment, IGetCommentsResponseData, IPostCommentResponsData } from '@src/apis/comment';
+import { Comment, IGetCommentsResponseData, IPostCommentResponsData } from '@src/apis';
 import { BASE_URL } from '@src/configs/axios';
 
 const comments = COMMENTS;

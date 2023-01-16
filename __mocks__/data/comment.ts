@@ -1,4 +1,4 @@
-import { Comment } from '@src/apis/comment';
+import { Comment } from '@src/apis';
 
 export const COMMENTS: Comment[] = [
   {

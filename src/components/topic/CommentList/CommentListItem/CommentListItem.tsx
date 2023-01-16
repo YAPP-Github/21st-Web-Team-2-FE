@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Comment } from '@src/apis/comment';
+import { Comment } from '@src/apis';
 
 import * as S from './CommentListItem.styles';
 

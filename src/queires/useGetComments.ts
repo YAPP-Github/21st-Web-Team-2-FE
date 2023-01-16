@@ -1,7 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-import { Comment, getComments } from '@src/apis/comment';
-import { IGetCommentsResponseData } from '@src/apis/comment';
+import { Comment, IGetCommentsResponseData, getComments } from '@src/apis';
 
 import { queryKeys } from './constant';
 

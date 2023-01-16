@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { FC, MouseEvent, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { Comment } from '@src/apis/comment';
+import { Comment } from '@src/apis';
 import CommentListItem from '@src/components/topic/CommentList/CommentListItem';
 import { useGetComments } from '@src/queires/useGetComments';
 
