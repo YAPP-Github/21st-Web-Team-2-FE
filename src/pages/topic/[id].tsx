@@ -21,7 +21,7 @@ const TopicDetail: NextPage<Props> = ({ topicDetail }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const id = context.query.id;
-  if (id && typeof id === 'string' && Number(id)) {
+  if (Number(id)) {
     const topicId = Number(id);
 
     // THINK-GYU: topic 카드 select를 어떻게 처리할지에 따라 해당 부분이 달라짐
