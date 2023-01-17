@@ -45,7 +45,7 @@ export const 에러및메시지 = Template.bind({});
 
 export const withLabel = Template.bind({});
 withLabel.args = {
-  htmlId: 'label',
+  id: 'label',
   placeholder: '라벨을 선택하세요',
 };
 withLabel.decorators = [

@@ -1,32 +1,29 @@
-import { ChangeEvent, FC } from 'react';
+import { ChangeEvent, FC, InputHTMLAttributes } from 'react';
 
 import * as S from './Input.style';
 
-interface Props {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
   error?: boolean;
   errorMessage?: string;
-  maxLength?: number;
-  name?: string;
-  htmlId?: string;
 }
 const Input: FC<Props> = (props) => {
-  const { htmlId, name, placeholder, maxLength, error, errorMessage, value, onChange } = props;
+  const { id, name, placeholder, maxLength, error, errorMessage, value, onChange, ...rest } = props;
 
   const isError = !!error;
-  const isTyped = !!value.length;
+  const isTyped = !!value;
 
   return (
     <>
       <S.Wrapper $error={isError} $isTyped={isTyped}>
         <S.Input
+          {...rest}
           placeholder={placeholder}
           maxLength={maxLength}
           onChange={onChange}
           value={value}
-          id={htmlId}
+          id={id}
           name={name}
         />
         {maxLength && (
