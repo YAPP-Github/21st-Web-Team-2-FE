@@ -15,10 +15,11 @@ const Input: FC<Props> = (props) => {
   const { htmlId, placeholder, maxLength, error, errorMessage, value, onChange } = props;
 
   const isError = !!error;
+  const isTyped = !!value.length;
 
   return (
     <>
-      <S.Wrapper error={isError}>
+      <S.Wrapper $error={isError} $isTyped={isTyped}>
         <S.Input placeholder={placeholder} maxLength={maxLength} onChange={onChange} value={value} id={htmlId} />
         {maxLength && (
           <S.TextLength>
