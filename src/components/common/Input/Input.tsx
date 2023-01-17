@@ -9,10 +9,11 @@ interface Props {
   error?: boolean;
   errorMessage?: string;
   maxLength?: number;
+  name?: string;
   htmlId?: string;
 }
 const Input: FC<Props> = (props) => {
-  const { htmlId, placeholder, maxLength, error, errorMessage, value, onChange } = props;
+  const { htmlId, name, placeholder, maxLength, error, errorMessage, value, onChange } = props;
 
   const isError = !!error;
   const isTyped = !!value.length;
@@ -20,7 +21,14 @@ const Input: FC<Props> = (props) => {
   return (
     <>
       <S.Wrapper $error={isError} $isTyped={isTyped}>
-        <S.Input placeholder={placeholder} maxLength={maxLength} onChange={onChange} value={value} id={htmlId} />
+        <S.Input
+          placeholder={placeholder}
+          maxLength={maxLength}
+          onChange={onChange}
+          value={value}
+          id={htmlId}
+          name={name}
+        />
         {maxLength && (
           <S.TextLength>
             (<S.CurrentText>{value.length}</S.CurrentText>/{maxLength})
