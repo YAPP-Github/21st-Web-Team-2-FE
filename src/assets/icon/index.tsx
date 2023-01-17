@@ -18,3 +18,4 @@ export { ReactComponent as Search } from './search.svg';
 export { ReactComponent as Share } from './share.svg';
 export { ReactComponent as Vote } from './vote.svg';
 export { ReactComponent as X } from './x.svg';
+export { ReactComponent as Next } from './next.svg';

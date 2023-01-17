@@ -4,7 +4,7 @@ import Image from 'next/image';
 import theme from '@src/styles/theme';
 
 export const Container = styled.div`
-  width: 857px;
+  width: 100%;
 
   background-color: ${theme.color.G3};
 
@@ -105,7 +105,7 @@ export const LikeBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 12px;
+  padding: 0 12px;
   gap: 2px;
 
   height: 36px;
