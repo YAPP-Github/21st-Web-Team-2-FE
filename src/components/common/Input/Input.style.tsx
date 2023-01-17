@@ -27,6 +27,7 @@ export const Input = styled.input`
   caret-color: ${theme.color.Primary1};
   font-size: ${theme.textSize.B2};
   line-height: ${theme.lineHeight.B};
+  font-family: ${theme.fontFamily.basic};
   flex: 1;
   &::placeholder {
     color: ${theme.color.G6};
