@@ -13,10 +13,10 @@ export interface Comment {
 /**
  * topic 별 댓글 조회
  */
-export type IGetCommentsResponseData = BasePaginationResponse<Comment[]>;
+export type GetCommentsResponseData = BasePaginationResponse<Comment[]>;
 export const getComments = async (topicId: number, offsetId?: number) => {
   const url = `/comment/${topicId}/latest${offsetId ? `?lastOffset=${offsetId}` : ''}`;
-  const res = await axios.get<IGetCommentsResponseData>(url);
+  const res = await axios.get<GetCommentsResponseData>(url);
 
   return res.data;
 };
@@ -24,9 +24,9 @@ export const getComments = async (topicId: number, offsetId?: number) => {
 /**
  * 댓글 생성
  */
-export type IPostCommentResponsData = BaseResponse<Comment>;
+export type PostCommentResponsData = BaseResponse<Comment>;
 export const createComment = async (topicId: number, data: Comment['commentContent']) => {
-  const res = await axios.post<IPostCommentResponsData>(`/comment/${topicId}`, data);
+  const res = await axios.post<PostCommentResponsData>(`/comment/${topicId}`, data);
 
   return res.data.data;
 };

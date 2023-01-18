@@ -35,9 +35,9 @@ export type Topic = {
 /**
  * 토픽 상세 조회
  */
-export type IGetTopicDetailResponseData = BaseResponse<Topic>;
+export type GetTopicDetailResponseData = BaseResponse<Topic>;
 export const getTopicDetail = async (topicId: number) => {
-  const res = await axios.get<IGetTopicDetailResponseData>(`/topic/${topicId}`);
+  const res = await axios.get<GetTopicDetailResponseData>(`/topic/${topicId}`);
 
   return res.data.data;
 };

@@ -1,7 +1,7 @@
 import { Topic } from '@src/apis';
 
 export const TOPIC: Topic = {
-  topicId: 2,
+  topicId: 1,
   title: 'Vote1',
   contents: 'Content1',
   member: {

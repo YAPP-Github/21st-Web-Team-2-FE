@@ -2,7 +2,7 @@ import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
 import { COMMENTS } from '@mocks/data/comment';
 
-import { Comment, IGetCommentsResponseData, IPostCommentResponsData } from '@src/apis';
+import { Comment, GetCommentsResponseData, PostCommentResponsData } from '@src/apis';
 import { BASE_URL } from '@src/configs/axios';
 
 const comments = COMMENTS;
@@ -20,7 +20,7 @@ const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContex
 
   return res(
     ctx.status(200),
-    ctx.json<IGetCommentsResponseData>({
+    ctx.json<GetCommentsResponseData>({
       code: 'SUCCESS',
       message: '성공',
       data: responseData,
@@ -51,7 +51,7 @@ const createComment = (req: RestRequest<Comment['commentContent']>, res: Respons
 
   return res(
     ctx.status(201),
-    ctx.json<IPostCommentResponsData>({
+    ctx.json<PostCommentResponsData>({
       code: 'SUCCESS',
       message: '성공',
       data: comment,
