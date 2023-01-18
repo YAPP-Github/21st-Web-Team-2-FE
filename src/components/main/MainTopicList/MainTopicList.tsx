@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import React from 'react';
 
 import TopicCard from '@src/components/common/TopicCard';
@@ -14,12 +14,13 @@ export interface MainTopicListProps {
 
 const MainTopicList: React.FC<MainTopicListProps> = (props) => {
   const { topics } = props;
-  const router = useRouter();
 
   return (
     <S.TopicsContainer>
       {topics.map((topic) => (
-        <TopicCard key={topic.id} {...topic} type="feed" onClick={() => router.push('/topic/1')} />
+        <Link key={topic.id} href={`/topic/${topic.id}`} passHref>
+          <TopicCard {...topic} type="feed" />
+        </Link>
       ))}
     </S.TopicsContainer>
   );

@@ -100,4 +100,4 @@ const TopicCard = (props: TopicCardProps) => {
   );
 };
 
-export default TopicCard;
+export default React.forwardRef(TopicCard);
