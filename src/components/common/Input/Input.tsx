@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, InputHTMLAttributes } from 'react';
 
-import * as S from './Input.style';
+import * as S from './Input.styles';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
