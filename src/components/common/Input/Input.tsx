@@ -9,7 +9,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
 }
 const Input: FC<Props> = (props) => {
-  const { id, name, placeholder, maxLength, error, errorMessage, value, onChange, ...rest } = props;
+  const { value, onChange, error, errorMessage, maxLength, ...rest } = props;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (maxLength && e.target.value.length > maxLength) return;
@@ -23,15 +23,7 @@ const Input: FC<Props> = (props) => {
   return (
     <>
       <S.Wrapper $error={isError} $isTyped={isTyped}>
-        <S.Input
-          {...rest}
-          placeholder={placeholder}
-          maxLength={maxLength}
-          onChange={handleChange}
-          value={value}
-          id={id}
-          name={name}
-        />
+        <S.Input {...rest} value={value} onChange={handleChange} maxLength={maxLength} />
         {maxLength && (
           <S.TextLength>
             (<S.CurrentText>{value.length}</S.CurrentText>/{maxLength})
