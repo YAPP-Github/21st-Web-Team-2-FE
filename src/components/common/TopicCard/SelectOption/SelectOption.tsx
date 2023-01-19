@@ -17,6 +17,7 @@ const SelectOption = (props: SelectOptionProps) => {
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
+    e.nativeEvent.preventDefault();
     onClick(id, selected);
   };
 
