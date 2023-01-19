@@ -55,14 +55,10 @@ p {
   font-weight: regular;
 }
 
-a {
-  color: #fff;
-  text-decoration: none;
-  outline: none;
-}
+a,
 a:hover,
 a:active {
+  color: inherit;
   text-decoration: none;
-  color: #fff;
-  background-color: #f59000;
+  outline: none;
 }
