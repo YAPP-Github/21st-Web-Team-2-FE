@@ -1,5 +1,5 @@
 import { SetupWorkerApi, setupWorker } from 'msw';
 
-import mockApis from '.';
+import { handlers } from './handlers';
 
-export const worker: SetupWorkerApi = setupWorker(...mockApis);
+export const worker: SetupWorkerApi = setupWorker(...handlers);

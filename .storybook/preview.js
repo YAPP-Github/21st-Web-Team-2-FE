@@ -7,9 +7,11 @@ import '@src/styles/reset.css';
 
 import '@src/styles/common.css';
 
-import mockApis from '../__mocks__/apis';
+import { handlers } from '../__mocks__/apis/handlers';
+import { initAxiosConfig } from '../src/configs/axios';
 
 initialize();
+initAxiosConfig();
 
 export const decorators = [
   mswDecorator,
@@ -21,7 +23,9 @@ export const decorators = [
 ];
 
 export const parameters = {
-  msw: mockApis,
+  msw: {
+    handlers: handlers,
+  },
   actions: { argTypesRegex: '^on.*' },
   nextRouter: {
     Provider: RouterContext.Provider,

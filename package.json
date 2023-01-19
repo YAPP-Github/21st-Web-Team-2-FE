@@ -11,8 +11,8 @@
     "cypress:headless": "cypress run",
     "e2e": "npm run build && start-server-and-test start http://localhost:3000 cypress",
     "e2e:headless": "npm run build && start-server-and-test start http://localhost:3000 cypress:headless",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -22,6 +22,7 @@
     "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.4.1",
     "recoil": "^0.7.6"
   },
   "devDependencies": {
