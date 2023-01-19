@@ -11,6 +11,12 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 const Input: FC<Props> = (props) => {
   const { id, name, placeholder, maxLength, error, errorMessage, value, onChange, ...rest } = props;
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (maxLength && e.target.value.length > maxLength) return;
+
+    onChange(e);
+  };
+
   const isError = !!error;
   const isTyped = !!value;
 
@@ -21,7 +27,7 @@ const Input: FC<Props> = (props) => {
           {...rest}
           placeholder={placeholder}
           maxLength={maxLength}
-          onChange={onChange}
+          onChange={handleChange}
           value={value}
           id={id}
           name={name}
