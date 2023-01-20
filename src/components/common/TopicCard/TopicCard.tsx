@@ -14,7 +14,7 @@ interface TopicCardProps extends Topic {
   onClick?: () => void;
 }
 
-const TopicCard = (props: TopicCardProps) => {
+const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
   const { title, contents, options: defaultOptions, member, comments, badge, type, onClick } = props;
   const [options, setOptions] = useState<TopicOption[]>(defaultOptions);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null); // TODO: 초기 선택 여부 확인해야함
@@ -44,7 +44,7 @@ const TopicCard = (props: TopicCardProps) => {
   };
 
   return (
-    <S.Container onClick={onClick}>
+    <S.Container onClick={onClick} ref={ref}>
       <S.TopicTop>
         <S.TopicHeader>
           <div>
@@ -100,4 +100,4 @@ const TopicCard = (props: TopicCardProps) => {
   );
 };
 
-export default TopicCard;
+export default React.forwardRef<HTMLDivElement, TopicCardProps>(TopicCard);

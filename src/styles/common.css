@@ -54,3 +54,11 @@ p {
   font-size: 14pt;
   font-weight: regular;
 }
+
+a,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
