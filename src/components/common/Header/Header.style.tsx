@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
 import Icon from '@src/components/common/Icon';
 import theme from '@src/styles/theme';
@@ -43,4 +44,20 @@ export const Menu = styled.li`
   font-weight: 700;
   font-size: 15px;
   line-height: 150%;
+
+  text-decoration: none;
+  color: ${theme.color.Primary1};
+`;
+
+export const UserInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const Profile = styled(Image)`
+  background: transparent;
+  background-color: ${theme.color.G7};
+  border-radius: 50%;
 `;

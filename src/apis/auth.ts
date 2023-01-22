@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { BaseResponse } from '.';
 
-interface Auth {
+export interface Auth {
   isMember: boolean;
   jwtTokens: {
     accessToken: string;
