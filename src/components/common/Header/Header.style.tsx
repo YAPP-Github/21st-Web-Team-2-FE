@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 import Icon from '@src/components/common/Icon';
 import theme from '@src/styles/theme';
@@ -12,12 +11,12 @@ export const HeaderWrapper = styled.header`
   z-index: 1;
 
   height: 5rem;
-  color: ${theme.color.Primary1};
   background-color: ${theme.color.G1};
   border-bottom: 1px solid ${theme.color.Primary1};
 `;
 
 export const HeaderContents = styled.div`
+  position: relative;
   margin: 0 auto;
   max-width: 1200px;
   display: flex;
@@ -49,15 +48,12 @@ export const Menu = styled.li`
   color: ${theme.color.Primary1};
 `;
 
-export const UserInfo = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+export const UserInfoWrapper = styled.div`
+  cursor: pointer;
 `;
 
-export const Profile = styled(Image)`
-  background: transparent;
-  background-color: ${theme.color.G7};
-  border-radius: 50%;
+export const UserMenuWrapper = styled.div`
+  position: absolute;
+  top: 70px;
+  right: 0;
 `;

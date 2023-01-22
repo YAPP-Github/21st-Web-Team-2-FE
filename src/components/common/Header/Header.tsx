@@ -1,15 +1,17 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
-import DefaultImage from '@src/assets/user-default.png';
 import Icon from '@src/components/common/Icon';
+import UserInfo from '@src/components/common/UserInfo';
 import $userSession from '@src/recoil/userSession';
 
 import * as S from './Header.style';
+import UserMenu from './UserMenu';
 
 const Header: FC = () => {
   const userSession = useRecoilValue($userSession);
+  const [viewUserMenu, setViewUserMenu] = useState(false);
 
   const isLogin = !!userSession;
 
@@ -25,16 +27,20 @@ const Header: FC = () => {
             <Icon name="Search" size={30} />
           </S.Menu>
           {isLogin ? (
-            <S.UserInfo>
-              <S.Profile src={DefaultImage} alt={'name'} width={28} height={28} />
-              닉네임
-            </S.UserInfo>
+            <S.UserInfoWrapper onClick={() => setViewUserMenu((prev) => !prev)}>
+              <UserInfo type="simple" />
+            </S.UserInfoWrapper>
           ) : (
             <Link href="/login">
               <S.Menu>로그인</S.Menu>
             </Link>
           )}
         </S.Menus>
+        {viewUserMenu && (
+          <S.UserMenuWrapper>
+            <UserMenu />
+          </S.UserMenuWrapper>
+        )}
       </S.HeaderContents>
     </S.HeaderWrapper>
   );
