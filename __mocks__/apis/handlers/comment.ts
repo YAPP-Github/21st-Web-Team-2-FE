@@ -3,7 +3,7 @@ import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 import { COMMENTS } from '@mocks/data/comment';
 import { MEMBER } from '@mocks/data/member';
 
-import { GetCommentsResponse, PostCommentResponse } from '@src/apis';
+import { GetCommentsResponse, PostCommentRequest, PostCommentResponse } from '@src/apis';
 import { BASE_URL } from '@src/configs/axios';
 import Comment from '@src/types/Comment';
 
@@ -32,7 +32,7 @@ const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContex
   );
 };
 
-const createComment = (req: RestRequest<Comment['contents']>, res: ResponseComposition, ctx: RestContext) => {
+const createComment = (req: RestRequest<PostCommentRequest>, res: ResponseComposition, ctx: RestContext) => {
   const contents = req.body;
 
   const comment: Comment = {
