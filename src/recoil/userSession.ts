@@ -4,9 +4,12 @@ import { atom } from 'recoil';
 // 임시로 Auth로 처리
 import { Auth } from '@src/apis/auth';
 
+import localStorageEffect from './effects/localstorageEffect';
+
 const $userSession = atom<Auth | undefined>({
   key: 'user-sesseion',
   default: undefined,
+  effects: [localStorageEffect('user')],
 });
 
 export default $userSession;
