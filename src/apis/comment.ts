@@ -1,22 +1,16 @@
 import axios from 'axios';
 
-import { BasePaginationResponse, BaseResponse, Member } from './';
+import Comment from '@src/types/Comment';
 
-export interface Comment {
-  commentId: number;
-  member: Member;
-  commentContent: string;
-  likeAmount: number;
-  liked: boolean;
-}
+import { BasePaginationResponse, BaseResponse } from './';
 
 /**
  * topic 별 댓글 조회
  */
-export type GetCommentsResponseData = BasePaginationResponse<Comment[]>;
+export type GetCommentsResponse = BasePaginationResponse<Comment[]>;
 export const getComments = async (topicId: number, offsetId?: number) => {
   const url = `/comment/${topicId}/latest${offsetId ? `?lastOffset=${offsetId}` : ''}`;
-  const res = await axios.get<GetCommentsResponseData>(url);
+  const res = await axios.get<GetCommentsResponse>(url);
 
   return res.data;
 };
@@ -24,9 +18,9 @@ export const getComments = async (topicId: number, offsetId?: number) => {
 /**
  * 댓글 생성
  */
-export type PostCommentResponsData = BaseResponse<Comment>;
-export const createComment = async (topicId: number, data: Comment['commentContent']) => {
-  const res = await axios.post<PostCommentResponsData>(`/comment/${topicId}`, data);
+export type PostCommentResponse = BaseResponse<Comment>;
+export const createComment = async (topicId: number, data: Comment['contents']) => {
+  const res = await axios.post<PostCommentResponse>(`/comment/${topicId}`, data);
 
   return res.data.data;
 };

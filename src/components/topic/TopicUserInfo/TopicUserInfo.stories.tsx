@@ -1,5 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { MEMBER } from '@mocks/data/member';
+
 import TopicUserInfo from '.';
 
 export default {
@@ -12,6 +14,6 @@ const Template: ComponentStory<typeof TopicUserInfo> = ({ ...args }) => <TopicUs
 
 export const Default = Template.bind({});
 Default.args = {
-  member: { id: 1, nickname: 'gyu', jobCategory: '개발', profileImage: null, workingYears: 1 },
+  member: MEMBER,
   tags: ['React', 'Vue', '연봉', '인기태그', '태그5'],
 };

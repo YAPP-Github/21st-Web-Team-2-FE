@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { TOPICS } from '@mocks/data/topics';
+import { TOPICS } from '@mocks/data/topic';
 
 import MainTopicList from '.';
 

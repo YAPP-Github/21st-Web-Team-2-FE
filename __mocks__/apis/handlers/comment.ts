@@ -1,9 +1,11 @@
 import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
 import { COMMENTS } from '@mocks/data/comment';
+import { MEMBER } from '@mocks/data/member';
 
-import { Comment, GetCommentsResponseData, PostCommentResponsData } from '@src/apis';
+import { GetCommentsResponse, PostCommentResponse } from '@src/apis';
 import { BASE_URL } from '@src/configs/axios';
+import Comment from '@src/types/Comment';
 
 const comments = COMMENTS;
 
@@ -20,7 +22,7 @@ const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContex
 
   return res(
     ctx.status(200),
-    ctx.json<GetCommentsResponseData>({
+    ctx.json<GetCommentsResponse>({
       code: 'SUCCESS',
       message: '성공',
       data: responseData,
@@ -30,19 +32,13 @@ const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContex
   );
 };
 
-const createComment = (req: RestRequest<Comment['commentContent']>, res: ResponseComposition, ctx: RestContext) => {
-  const commentContent = req.body;
+const createComment = (req: RestRequest<Comment['contents']>, res: ResponseComposition, ctx: RestContext) => {
+  const contents = req.body;
 
-  const comment = {
+  const comment: Comment = {
     commentId: Math.floor(Math.random() * 100),
-    member: {
-      id: 3,
-      name: 'MemberC',
-      profileImage: null,
-      jobCategory: 'product_manager',
-      workingYears: 1,
-    },
-    commentContent,
+    member: MEMBER,
+    contents,
     likeAmount: 0,
     liked: false,
   };
@@ -51,7 +47,7 @@ const createComment = (req: RestRequest<Comment['commentContent']>, res: Respons
 
   return res(
     ctx.status(201),
-    ctx.json<PostCommentResponsData>({
+    ctx.json<PostCommentResponse>({
       code: 'SUCCESS',
       message: '성공',
       data: comment,
