@@ -9,6 +9,7 @@ import '@src/styles/reset.css';
 import '@src/styles/common.css';
 
 import { initAxiosConfig } from '@src/configs/axios';
+import '@src/configs/recoil';
 
 import queryClient from '../configs/queryClient';
 
