@@ -27,7 +27,7 @@ const getGoogleUrl = () => {
     redirect_uri: 'http://localhost:3000/auth',
     scope: 'email',
     response_type: 'code',
-    client_id: process.env.GOOGLE_CLIENT_ID as string,
+    client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,
   };
 
   const qs = new URLSearchParams(options);

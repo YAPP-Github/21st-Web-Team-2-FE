@@ -5,7 +5,12 @@ import UserInfo from '@src/components/common/UserInfo';
 
 import * as S from './UserMenu.styles';
 
-const UserMenu: FC = () => {
+interface Props {
+  onLogout: () => void;
+}
+const UserMenu: FC<Props> = (props) => {
+  const { onLogout } = props;
+
   return (
     <S.Wrapper>
       <S.UserItem>
@@ -13,7 +18,7 @@ const UserMenu: FC = () => {
         <Icon name="ArrowRight" size={24} />
       </S.UserItem>
       <S.MenuItem>문의하기</S.MenuItem>
-      <S.MenuItem>로그아웃</S.MenuItem>
+      <S.MenuItem onClick={onLogout}>로그아웃</S.MenuItem>
     </S.Wrapper>
   );
 };

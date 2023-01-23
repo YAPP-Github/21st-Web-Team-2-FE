@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FC, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 
 import Icon from '@src/components/common/Icon';
 import UserInfo from '@src/components/common/UserInfo';
@@ -11,9 +11,15 @@ import UserMenu from './UserMenu';
 
 const Header: FC = () => {
   const userSession = useRecoilValue($userSession);
+  const userReset = useResetRecoilState($userSession);
   const [viewUserMenu, setViewUserMenu] = useState(false);
 
   const isLogin = !!userSession;
+
+  const handleLogout = () => {
+    userReset();
+    setViewUserMenu(false);
+  };
 
   // TODO-GYU: backend 와 논의 후 user 정보를 어떻게 받아올지 처리
   return (
@@ -38,7 +44,7 @@ const Header: FC = () => {
         </S.Menus>
         {viewUserMenu && (
           <S.UserMenuWrapper>
-            <UserMenu />
+            <UserMenu onLogout={handleLogout} />
           </S.UserMenuWrapper>
         )}
       </S.HeaderContents>
