@@ -10,7 +10,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['avatars.githubusercontent.com'],
+    domains: ['*'], // TODO: S3 주소만 허용할 건지 논의 필요
   },
 };
 

@@ -1,3 +1,5 @@
+import { TEST_IMAGE } from '@mocks/data/image';
+
 import VoteOption from '@src/types/VoteOption';
 
 export const VOTE_OPTION: VoteOption = {
@@ -16,3 +18,10 @@ export const VOTE_OPTION2: VoteOption = {
 };
 
 export const VOTE_OPTIONS: VoteOption[] = [VOTE_OPTION, VOTE_OPTION2];
+
+export const VOTE_OPTION_WITH_IMAGE: VoteOption = {
+  ...VOTE_OPTION,
+  voteOptionId: 9,
+  text: '이미지가 있음',
+  image: TEST_IMAGE,
+};

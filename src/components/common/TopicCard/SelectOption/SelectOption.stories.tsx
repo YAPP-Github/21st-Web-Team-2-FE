@@ -1,6 +1,8 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { TEST_IMAGE } from '@mocks/data/image';
+
 import TopicCard from '.';
 
 export default {
@@ -28,4 +30,10 @@ export const 선택안된_결과 = Template.bind({});
   text: 'Text',
   rate: 0.24,
   result: true,
+};
+
+export const 이미지 = Template.bind({});
+이미지.args = {
+  ...Default.args,
+  image: TEST_IMAGE,
 };

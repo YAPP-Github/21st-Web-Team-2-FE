@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
 import theme from '@src/styles/theme';
 
@@ -8,14 +9,25 @@ interface ContainerProps {
   $selected: boolean;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+export const SelectButton = styled.button<ContainerProps>`
+  display: flex;
+  align-items: center;
+
   position: relative;
+  width: 100%;
   height: 68px;
 
   background-color: ${theme.color.G5};
   border-radius: 4px;
 
   font-size: ${theme.textSize.T2};
+  color: ${theme.color.G8};
 
   cursor: pointer;
 
@@ -69,4 +81,17 @@ export const Text = styled.div`
 
 export const Rate = styled.div`
   margin-left: auto;
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+
+  height: 300px;
+
+  background-color: ${theme.color.G6};
+  border-radius: 4px;
+`;
+
+export const OptionImage = styled(Image)`
+  object-fit: contain;
 `;
