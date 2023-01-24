@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { MouseEvent, useState } from 'react';
 
 import Icon from '@src/components/common/Icon';
 
@@ -12,7 +12,10 @@ const ShareIcon: React.FC<ShareIconProps> = (props) => {
   const { url } = props;
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
-  const handleShare = async () => {
+  const handleShare = async (e: MouseEvent<SVGSVGElement>) => {
+    e.stopPropagation();
+    e.nativeEvent.preventDefault();
+
     if (isCopied) return;
     if (!navigator.clipboard) return;
 

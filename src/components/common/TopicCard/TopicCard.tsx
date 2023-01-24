@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import ShareIcon from '@src/components/common/ShareIcon';
 import Topic, { TopicOption } from '@src/types/Topic';
 
 import Icon from '../Icon';
@@ -15,7 +16,7 @@ interface TopicCardProps extends Topic {
 }
 
 const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
-  const { title, contents, options: defaultOptions, member, comments, badge, type, onClick } = props;
+  const { id, title, contents, options: defaultOptions, member, comments, badge, type, onClick } = props;
   const [options, setOptions] = useState<TopicOption[]>(defaultOptions);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null); // TODO: 초기 선택 여부 확인해야함
 
@@ -56,7 +57,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             )}
             <S.Title>{title}</S.Title>
           </div>
-          {isFeed && <Icon name="Share" />}
+          {isFeed && <ShareIcon url={`${location.host}/topics/${id}`} />}
         </S.TopicHeader>
         <S.Contents>{contents}</S.Contents>
         <S.SelectOptionContainer $odd={options.length % 2 === 1}>

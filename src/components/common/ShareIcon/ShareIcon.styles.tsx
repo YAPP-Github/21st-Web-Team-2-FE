@@ -5,6 +5,7 @@ import theme from '@src/styles/theme';
 
 export const Container = styled.div`
   width: 24px;
+  height: 24px;
 
   position: relative;
 `;
