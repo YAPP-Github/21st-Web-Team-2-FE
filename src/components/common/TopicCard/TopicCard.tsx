@@ -9,7 +9,7 @@ import * as S from './TopicCard.style';
 
 export type TopicCardType = 'feed' | 'detail';
 
-interface TopicCardProps extends Omit<Topic, 'liked' | 'likedAmount' | 'tags'> {
+interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
   badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
   onClick?: () => void;
@@ -20,18 +20,18 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
   const selectedOption = options.find((option) => option.voted);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(selectedOption?.voteOptionId || null);
-  const votedAmount = options.reduce((prev, option) => prev + option.votedAmount, 0);
+  const votedAmount = options.reduce((prev, option) => prev + option.voteAmount, 0);
 
   const isFeed = type === 'feed';
 
   const handleClickOption = (id: number) => {
     const changed = options.map((option) => {
       if (option.voteOptionId === selectedOptionId) {
-        option.votedAmount -= 1;
+        option.voteAmount -= 1;
         return option;
       }
       if (option.voteOptionId === id) {
-        option.votedAmount += 1;
+        option.voteAmount += 1;
       }
       return option;
     });
@@ -66,7 +66,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             <SelectOption
               key={option.voteOptionId}
               {...option}
-              rate={option.votedAmount / votedAmount}
+              rate={option.voteAmount / votedAmount}
               result={selectedOptionId !== null}
               selected={selectedOptionId === option.voteOptionId}
               onClick={handleClickOption}

@@ -27,8 +27,8 @@ export const 글자수_많음_2개 = Template.bind({});
 글자수_많음_2개.args = {
   ...Default.args,
   voteOptions: [
-    { ...VOTE_OPTION, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', votedAmount: 20 },
-    { ...VOTE_OPTION2, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', votedAmount: 10 },
+    { ...VOTE_OPTION, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 20 },
+    { ...VOTE_OPTION2, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 10 },
   ],
 };
 
@@ -36,9 +36,9 @@ export const 글자수_많음_3개 = Template.bind({});
 글자수_많음_3개.args = {
   ...Default.args,
   voteOptions: [
-    { ...VOTE_OPTION, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', votedAmount: 20 },
-    { ...VOTE_OPTION2, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', votedAmount: 10 },
-    { ...VOTE_OPTION2, voteOptionId: 3, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', votedAmount: 30 },
+    { ...VOTE_OPTION, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 20 },
+    { ...VOTE_OPTION2, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 10 },
+    { ...VOTE_OPTION2, voteOptionId: 3, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 30 },
   ],
 };
 

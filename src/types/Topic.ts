@@ -8,9 +8,9 @@ export default interface Topic {
   contents: string;
   commentAmount: number;
   liked: boolean;
-  likedAmount: number;
+  likeAmount: number;
   tags: string[];
-  votedAmount: number;
+  voteAmount: number;
   voteOptions: VoteOption[];
   member: Member;
 }

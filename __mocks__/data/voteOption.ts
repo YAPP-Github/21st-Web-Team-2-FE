@@ -6,7 +6,7 @@ export const VOTE_OPTION: VoteOption = {
   image: null,
   codeBlock: null,
   voted: false,
-  votedAmount: 1,
+  voteAmount: 1,
 };
 
 export const VOTE_OPTION2: VoteOption = {

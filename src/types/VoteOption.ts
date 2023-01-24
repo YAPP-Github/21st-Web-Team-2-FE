@@ -7,5 +7,5 @@ export default interface VoteOption {
     contents: string;
   } | null;
   voted: boolean;
-  votedAmount: number;
+  voteAmount: number;
 }

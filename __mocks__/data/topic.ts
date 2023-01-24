@@ -9,9 +9,9 @@ export const TOPIC: Topic = {
   contents: 'Content1',
   member: MEMBER,
   commentAmount: 2,
-  votedAmount: 0,
+  voteAmount: 0,
   liked: false,
-  likedAmount: 0,
+  likeAmount: 0,
   tags: [],
   voteOptions: VOTE_OPTIONS,
 };
