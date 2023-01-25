@@ -10,6 +10,11 @@
   src: url('../assets/fonts/PoetsenOne-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'D2Coding';
+  src: url('../assets/fonts/D2Coding.ttf');
+}
+
 * {
   box-sizing: border-box;
 }
