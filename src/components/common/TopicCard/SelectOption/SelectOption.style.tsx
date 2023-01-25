@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 
+import CodeEditor from '@src/components/common/CodeEditor';
 import theme from '@src/styles/theme';
 
 interface ContainerProps {
@@ -94,4 +95,8 @@ export const ImageWrapper = styled.div`
 
 export const OptionImage = styled(Image)`
   object-fit: contain;
+`;
+
+export const CodeBlock = styled(CodeEditor)`
+  height: 300px;
 `;

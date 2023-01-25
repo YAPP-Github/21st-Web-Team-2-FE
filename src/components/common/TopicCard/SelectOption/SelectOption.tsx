@@ -1,5 +1,6 @@
 import React, { MouseEvent } from 'react';
 
+import { Languages } from '@src/components/common/CodeEditor';
 import Icon from '@src/components/common/Icon';
 import VoteOption from '@src/types/VoteOption';
 
@@ -13,7 +14,7 @@ interface SelectOptionProps extends VoteOption {
 }
 
 const SelectOption = (props: SelectOptionProps) => {
-  const { voteOptionId, text, rate = 0, result = false, selected = false, image, onClick } = props;
+  const { voteOptionId, text, rate = 0, result = false, selected = false, image, codeBlock, onClick } = props;
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -36,6 +37,7 @@ const SelectOption = (props: SelectOptionProps) => {
           <S.OptionImage src={image} alt={text} fill />
         </S.ImageWrapper>
       )}
+      {codeBlock && <S.CodeBlock language={codeBlock.language as Languages} value={codeBlock.contents} disabled />}
     </S.Container>
   );
 };
