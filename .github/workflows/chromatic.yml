@@ -25,6 +25,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "API_HOSTNAME=$API_HOSTNAME" >> .env
+          echo "API_PORT=$API_PORT" >> .env
+          echo "API_VERSION=$API_VERSION" >> .env
+          echo "API_URL=$API_URL" >> .env
+          echo "NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL" >> .env
+        env:
+          API_HOSTNAME: ${{ secrets.API_HOSTNAME }}
+          API_PORT: ${{ secrets.API_PORT }}
+          API_VERSION: ${{ secrets.API_VERSION }}
+          API_URL: ${{ secrets.API_URL }}
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+
+
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
