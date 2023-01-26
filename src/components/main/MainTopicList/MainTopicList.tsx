@@ -18,7 +18,7 @@ const MainTopicList: React.FC<MainTopicListProps> = (props) => {
   return (
     <S.TopicsContainer>
       {topics.map((topic) => (
-        <Link key={topic.id} href={`/topic/${topic.id}`} passHref>
+        <Link key={topic.topicId} href={`/topic/${topic.topicId}`} passHref>
           <TopicCard {...topic} type="feed" />
         </Link>
       ))}

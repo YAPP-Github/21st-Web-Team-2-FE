@@ -1,16 +1,16 @@
+import VoteOption from '@src/types/VoteOption';
+
 import Member from './Member';
 
 export default interface Topic {
-  id?: number;
+  topicId: number;
   title: string;
   contents: string;
-  options: TopicOption[];
+  commentAmount: number;
+  liked: boolean;
+  likeAmount: number;
+  tags: string[];
+  voteAmount: number;
+  voteOptions: VoteOption[];
   member: Member;
-  comments: number;
-}
-
-export interface TopicOption {
-  id: number;
-  text: string;
-  voters: number;
 }

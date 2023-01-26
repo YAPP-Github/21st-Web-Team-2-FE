@@ -1,11 +1,9 @@
-export interface IComment {
+import Member from '@src/types/Member';
+
+export default interface Comment {
   commentId: number;
-  createdMemberId: number;
-  createdMemberName: string;
-  createdMemberProfileImage: string | null;
-  createdMemberJobCategory: string;
-  createdMemberWorkingYears: number;
-  commentContent: string;
+  contents: string;
   likeAmount: number;
   liked: boolean;
+  member: Member;
 }

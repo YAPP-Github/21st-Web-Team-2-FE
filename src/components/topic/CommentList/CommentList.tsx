@@ -2,9 +2,9 @@ import { useRouter } from 'next/router';
 import React, { FC, MouseEvent, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { Comment } from '@src/apis';
 import CommentListItem from '@src/components/topic/CommentList/CommentListItem';
 import { useGetComments } from '@src/queires/useGetComments';
+import Comment from '@src/types/Comment';
 
 import * as S from './CommentList.style';
 
@@ -15,7 +15,7 @@ const CommentList: FC = () => {
 
   const [order, setOrder] = useState<OrderType>('latest');
 
-  const { fetchNextPage, data: comments, isLoading, hasNextPage } = useGetComments(Number(router.query.id));
+  const { fetchNextPage, data: comments = [], isLoading, hasNextPage } = useGetComments(Number(router.query.id));
   const { ref } = useInView({
     onChange: (inView) => {
       if (inView && hasNextPage) {
@@ -33,6 +33,7 @@ const CommentList: FC = () => {
 
   const commentList = getCommentByOrder(comments, order);
   const subTitle = `댓글과 좋아요는 Thumbs UP과 Finger님들에게\n 큰 힘이 됩니다.`;
+
   return (
     <S.Wrapper>
       <S.CommentHeader>

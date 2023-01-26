@@ -1,11 +1,11 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-import { Comment, IGetCommentsResponseData, getComments } from '@src/apis';
+import { GetCommentsResponse, getComments } from '@src/apis';
 
 import { queryKeys } from './constant';
 
 export const useGetComments = (topicId: number) => {
-  const result = useInfiniteQuery<IGetCommentsResponseData>(
+  const result = useInfiniteQuery<GetCommentsResponse>(
     [queryKeys.comment, topicId],
     ({ pageParam }) => getComments(topicId, pageParam),
     {
@@ -18,7 +18,7 @@ export const useGetComments = (topicId: number) => {
   const comments = data
     ? data.pages
         .map((page) => page.data)
-        .reduce((mergedContents: Comment[], currentContents) => [...mergedContents, ...(currentContents || [])], [])
+        .reduce((mergedContents, currentContents) => [...(mergedContents || []), ...(currentContents || [])], [])
     : [];
 
   return {

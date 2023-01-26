@@ -1,11 +1,11 @@
 import React, { MouseEvent } from 'react';
 
 import Icon from '@src/components/common/Icon';
-import { TopicOption } from '@src/types/Topic';
+import VoteOption from '@src/types/VoteOption';
 
 import * as S from './SelectOption.style';
 
-interface SelectOptionProps extends TopicOption {
+interface SelectOptionProps extends VoteOption {
   rate?: number;
   result?: boolean;
   selected?: boolean;
@@ -13,12 +13,12 @@ interface SelectOptionProps extends TopicOption {
 }
 
 const SelectOption = (props: SelectOptionProps) => {
-  const { id, text, rate = 0, result = false, selected = false, onClick } = props;
+  const { voteOptionId, text, rate = 0, result = false, selected = false, onClick } = props;
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.nativeEvent.preventDefault();
-    onClick(id, selected);
+    onClick(voteOptionId, selected);
   };
 
   return (

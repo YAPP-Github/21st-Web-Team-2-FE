@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { commentArr } from '@mocks/data/comment';
+import { COMMENT, COMMENT_LIKED } from '@mocks/data/comment';
 
 import CommentListItem from '.';
 
@@ -14,10 +14,10 @@ const Template: ComponentStory<typeof CommentListItem> = ({ ...args }) => <Comme
 
 export const Default = Template.bind({});
 Default.args = {
-  comment: commentArr[0],
+  comment: COMMENT,
 };
 
-export const 좋아요_미선택 = Template.bind({});
-좋아요_미선택.args = {
-  comment: commentArr[1],
+export const 좋아요_선택 = Template.bind({});
+좋아요_선택.args = {
+  comment: COMMENT_LIKED,
 };

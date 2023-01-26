@@ -82,10 +82,10 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
       <S.CarouselWrapper>
         <S.TopicContainer css={topicContainerStyle}>
           {carouselTopics.map((topic) => (
-            <S.TopicWrapper key={topic.id}>
-              <Link href={`/topic/${topic.id}`} passHref>
+            <S.TopicWrapper key={topic.topicId}>
+              <Link href={`/topic/${topic.topicId}`} passHref>
                 {/* TODO: badge 정책 필요 */}
-                <TopicCard key={topic.id} {...topic} type="feed" badge="참여율 TOP" />
+                <TopicCard key={topic.topicId} {...topic} type="feed" badge="참여율 TOP" />
               </Link>
             </S.TopicWrapper>
           ))}

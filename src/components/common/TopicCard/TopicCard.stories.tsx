@@ -1,6 +1,9 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { MEMBER } from '@mocks/data/member';
+import { VOTE_OPTION, VOTE_OPTION2, VOTE_OPTIONS } from '@mocks/data/voteOption';
+
 import TopicCard from '.';
 
 export default {
@@ -14,35 +17,28 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Title',
   contents: 'contents',
-  options: [
-    { id: 0, text: 'text', voters: 0 },
-    { id: 1, text: 'text', voters: 0 },
-  ],
-  member: {
-    jobCategory: '개발자',
-    nickname: '닉네임',
-    profileImage: 'https://avatars.githubusercontent.com/u/45786387?v=4',
-  },
-  comments: 0,
+  voteOptions: VOTE_OPTIONS,
+  member: MEMBER,
+  commentAmount: 0,
   type: 'feed',
 };
 
 export const 글자수_많음_2개 = Template.bind({});
 글자수_많음_2개.args = {
   ...Default.args,
-  options: [
-    { id: 0, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 10 },
-    { id: 1, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 20 },
+  voteOptions: [
+    { ...VOTE_OPTION, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 20 },
+    { ...VOTE_OPTION2, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 10 },
   ],
 };
 
 export const 글자수_많음_3개 = Template.bind({});
 글자수_많음_3개.args = {
   ...Default.args,
-  options: [
-    { id: 0, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 10 },
-    { id: 1, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 10 },
-    { id: 2, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voters: 30 },
+  voteOptions: [
+    { ...VOTE_OPTION, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 20 },
+    { ...VOTE_OPTION2, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 10 },
+    { ...VOTE_OPTION2, voteOptionId: 3, text: '일이삼사오육칠팔구십일이삼사오육칠팔구십', voteAmount: 30 },
   ],
 };
 
@@ -61,20 +57,17 @@ Detail.args = {
 export const ThreeOptions = Template.bind({});
 ThreeOptions.args = {
   ...Default.args,
-  options: [
-    { id: 0, text: 'text', voters: 10 },
-    { id: 1, text: 'text', voters: 20 },
-    { id: 2, text: 'text', voters: 4 },
+  voteOptions: [
+    ...VOTE_OPTIONS,
+    {
+      ...VOTE_OPTION,
+      voteOptionId: 3,
+    },
   ],
 };
 
 export const FourOptions = Template.bind({});
 FourOptions.args = {
   ...Default.args,
-  options: [
-    { id: 0, text: 'text', voters: 10 },
-    { id: 1, text: 'text', voters: 2 },
-    { id: 2, text: 'text', voters: 34 },
-    { id: 3, text: 'text', voters: 3 },
-  ],
+  voteOptions: [...VOTE_OPTIONS, { ...VOTE_OPTION, voteOptionId: 3 }, { ...VOTE_OPTION, voteOptionId: 4 }],
 };

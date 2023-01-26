@@ -1,6 +1,7 @@
 export default interface Member {
-  id?: number;
-  jobCategory: string;
+  memberId: number;
   nickname: string;
-  profileImage: string;
+  profileImage?: string | null;
+  jobCategory: string;
+  workingYears: number;
 }

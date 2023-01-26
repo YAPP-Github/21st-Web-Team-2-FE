@@ -2,7 +2,7 @@ import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { MEMBER } from '@mocks/data/member';
-import { TOPICS } from '@mocks/data/topics';
+import { TOPICS } from '@mocks/data/topic';
 
 import TopicCarousel from '.';
 

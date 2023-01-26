@@ -1,13 +1,15 @@
 import type { GetServerSideProps, NextPage } from 'next';
 
-import { Topic, getTopicDetail } from '@src/apis';
+import { getTopicDetail } from '@src/apis';
 import DefaultLayout from '@src/components/common/DefaultLayout';
 import TopicDetailMain from '@src/components/topic/TopicDetailMain';
 import TopicUserInfo from '@src/components/topic/TopicUserInfo';
+import Topic from '@src/types/Topic';
 
 interface Props {
   topicDetail: Topic;
 }
+
 const TopicDetail: NextPage<Props> = ({ topicDetail }) => {
   const { member, tags } = topicDetail;
 

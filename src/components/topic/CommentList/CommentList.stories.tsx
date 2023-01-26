@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { commentArr } from '@mocks/data/comment';
+import { COMMENTS } from '@mocks/data/comment';
 
 import CommentList from '.';
 
@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof CommentList> = ({ ...args }) => <CommentLi
 
 export const Default = Template.bind({});
 Default.args = {
-  comments: commentArr,
+  comments: COMMENTS,
 };
 
 export const Empty = Template.bind({});

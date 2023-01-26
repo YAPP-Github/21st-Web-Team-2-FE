@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
+import USER_DEFAULT from '@src/assets/user-default.png';
 import ShareIcon from '@src/components/common/ShareIcon';
-import Topic, { TopicOption } from '@src/types/Topic';
+import Topic from '@src/types/Topic';
+import VoteOption from '@src/types/VoteOption';
 
 import Icon from '../Icon';
 import SelectOption from './SelectOption';
@@ -9,28 +11,29 @@ import * as S from './TopicCard.style';
 
 export type TopicCardType = 'feed' | 'detail';
 
-interface TopicCardProps extends Topic {
+interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
   badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
   onClick?: () => void;
 }
 
 const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
-  const { id, title, contents, options: defaultOptions, member, comments, badge, type, onClick } = props;
-  const [options, setOptions] = useState<TopicOption[]>(defaultOptions);
-  const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null); // TODO: 초기 선택 여부 확인해야함
+  const { topicId, title, contents, voteOptions: defaultOptions, member, commentAmount, badge, type, onClick } = props;
+  const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
+  const selectedOption = options.find((option) => option.voted);
+  const [selectedOptionId, setSelectedOptionId] = useState<number | null>(selectedOption?.voteOptionId || null);
+  const votedAmount = options.reduce((prev, option) => prev + option.voteAmount, 0);
 
-  const participant = options.reduce((prev, option) => prev + option.voters, 0);
   const isFeed = type === 'feed';
 
   const handleClickOption = (id: number) => {
     const changed = options.map((option) => {
-      if (option.id === selectedOptionId) {
-        option.voters -= 1;
+      if (option.voteOptionId === selectedOptionId) {
+        option.voteAmount -= 1;
         return option;
       }
-      if (option.id === id) {
-        option.voters += 1;
+      if (option.voteOptionId === id) {
+        option.voteAmount += 1;
       }
       return option;
     });
@@ -57,17 +60,17 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             )}
             <S.Title>{title}</S.Title>
           </div>
-          {isFeed && <ShareIcon url={`${location.host}/topics/${id}`} />}
+          {isFeed && <ShareIcon url={`${location.host}/topics/${topicId}`} />}
         </S.TopicHeader>
         <S.Contents>{contents}</S.Contents>
         <S.SelectOptionContainer $odd={options.length % 2 === 1}>
           {options.map((option) => (
             <SelectOption
-              key={option.id}
+              key={option.voteOptionId}
               {...option}
-              rate={option.voters / participant}
+              rate={option.voteAmount / votedAmount}
               result={selectedOptionId !== null}
-              selected={selectedOptionId === option.id}
+              selected={selectedOptionId === option.voteOptionId}
               onClick={handleClickOption}
             />
           ))}
@@ -76,7 +79,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
       <S.TopicBottom>
         {isFeed ? (
           <S.AuthorInfo>
-            <S.Profile src={member.profileImage} alt={member.nickname} width="28" height="28" />
+            <S.Profile src={member.profileImage || USER_DEFAULT} alt={member.nickname} width="28" height="28" />
             <span>{member.nickname}</span>
           </S.AuthorInfo>
         ) : (
@@ -88,12 +91,12 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
         <S.TopicInfoContainer>
           <S.TopicInfo>
             <Icon name="HandsUp" size={16} />
-            {('00' + participant).slice(-3)}명 참여
+            {('00' + votedAmount).slice(-3)}명 참여
           </S.TopicInfo>
           ·
           <S.TopicInfo>
             <Icon name="Bubble" size={16} />
-            {('00' + comments).slice(-3)}개 댓글
+            {('00' + commentAmount).slice(-3)}개 댓글
           </S.TopicInfo>
         </S.TopicInfoContainer>
       </S.TopicBottom>
