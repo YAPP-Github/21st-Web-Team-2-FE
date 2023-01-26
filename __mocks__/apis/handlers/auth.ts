@@ -1,6 +1,6 @@
 import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
-import { GetSigninResponseData } from '@src/apis/auth';
+import { PostSigninResponseData } from '@src/apis/auth';
 import { BASE_URL } from '@src/configs/axios';
 
 const NEW_MEMBER = false;
@@ -17,7 +17,7 @@ const AUTH_DATA = {
 const signin = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
   return res(
     ctx.status(201),
-    ctx.json<GetSigninResponseData>({
+    ctx.json<PostSigninResponseData>({
       code: 'SUCCESS',
       message: '성공',
       data: AUTH_DATA,
