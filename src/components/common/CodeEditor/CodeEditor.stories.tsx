@@ -1,6 +1,8 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { CODE_BLOCK } from '@mocks/data/voteOption';
+
 import CodeEditor from '.';
 
 export default {
@@ -11,4 +13,8 @@ export default {
 const Template: ComponentStory<typeof CodeEditor> = (args) => <CodeEditor {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  language: 'js',
+  value: CODE_BLOCK?.contents,
+  disabled: false,
+};
