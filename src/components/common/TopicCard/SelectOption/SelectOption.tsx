@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
 
-import { Languages } from '@src/components/common/CodeEditor';
+import CodeEditor, { Languages } from '@src/components/common/CodeEditor';
 import Icon from '@src/components/common/Icon';
 import VoteOption from '@src/types/VoteOption';
 
@@ -37,7 +37,12 @@ const SelectOption = (props: SelectOptionProps) => {
           <S.OptionImage src={image} alt={text} fill />
         </S.ImageWrapper>
       )}
-      {codeBlock && <S.CodeBlock language={codeBlock.language as Languages} value={codeBlock.contents} disabled />}
+      {codeBlock && (
+        <S.CodeBlockWrapper>
+          <CodeEditor language={codeBlock.language as Languages} value={codeBlock.contents} disabled />
+          <S.CodeBlockGradiant />
+        </S.CodeBlockWrapper>
+      )}
     </S.Container>
   );
 };
