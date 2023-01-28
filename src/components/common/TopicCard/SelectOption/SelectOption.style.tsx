@@ -105,7 +105,7 @@ export const CodeBlockWrapper = styled.div`
 
 export const CodeBlockGradiant = styled.div`
   position: absolute;
-  width: 386px;
+  width: 100%;
   height: 200px;
   left: 0;
   bottom: 0;
