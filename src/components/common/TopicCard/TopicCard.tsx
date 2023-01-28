@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import USER_DEFAULT from '@src/assets/user-default.png';
+import ShareIcon from '@src/components/common/ShareIcon';
 import Topic from '@src/types/Topic';
 import VoteOption from '@src/types/VoteOption';
 
@@ -16,7 +18,7 @@ interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
 }
 
 const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
-  const { title, contents, voteOptions: defaultOptions, member, commentAmount, badge, type, onClick } = props;
+  const { topicId, title, contents, voteOptions: defaultOptions, member, commentAmount, badge, type, onClick } = props;
   const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
   const selectedOption = options.find((option) => option.voted);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(selectedOption?.voteOptionId || null);
@@ -58,7 +60,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             )}
             <S.Title>{title}</S.Title>
           </div>
-          {isFeed && <Icon name="Share" />}
+          {isFeed && <ShareIcon url={`${location.host}/topics/${topicId}`} />}
         </S.TopicHeader>
         <S.Contents>{contents}</S.Contents>
         <S.SelectOptionContainer $odd={options.length % 2 === 1}>
@@ -77,7 +79,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
       <S.TopicBottom>
         {isFeed ? (
           <S.AuthorInfo>
-            <S.Profile src={member.profileImage || ''} alt={member.nickname} width="28" height="28" />
+            <S.Profile src={member.profileImage || USER_DEFAULT} alt={member.nickname} width="28" height="28" />
             <span>{member.nickname}</span>
           </S.AuthorInfo>
         ) : (

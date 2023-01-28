@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import ShareIcon from '@src/components/common/ShareIcon';
 import TopicCard from '@src/components/common/TopicCard';
 import CommentForm from '@src/components/topic/CommentForm';
 import CommentList from '@src/components/topic/CommentList';
@@ -24,7 +25,9 @@ const TopicDetailMain: FC<Props> = (props) => {
   return (
     <S.Wrapper>
       <S.TopicCardWrapper>
-        <S.ShareIcon name="Share" size={24} />
+        <S.ShareIcon>
+          <ShareIcon url={location.href} />
+        </S.ShareIcon>
         <TopicCard {...topic} type="detail" />
       </S.TopicCardWrapper>
       <CommentForm placeholder="닉네임님, 댓글을 남겨보세요! 💬" onSubmit={handleAddComment} />

@@ -10,6 +10,7 @@ export { ReactComponent as Computer } from './emoji_computer.svg';
 export { ReactComponent as HandsUp } from './emoji_hands_up.svg';
 export { ReactComponent as Paint } from './emoji_paint.svg';
 export { ReactComponent as Paper } from './emoji_paper.svg';
+export { ReactComponent as Smile } from './emoji_smile.svg';
 export { ReactComponent as ThumbsUp } from './emoji_thumbs_up.svg';
 export { ReactComponent as Image } from './image.svg';
 export { ReactComponent as Logo } from './logo.svg';

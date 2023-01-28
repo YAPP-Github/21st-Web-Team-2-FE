@@ -1,7 +1,6 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import TEST_IMAGE from '@mocks/data/img.png';
 import { MEMBER } from '@mocks/data/member';
 import {
   VOTE_OPTION,
