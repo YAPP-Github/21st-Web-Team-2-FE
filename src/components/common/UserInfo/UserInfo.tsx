@@ -10,12 +10,12 @@ import * as S from './UserInfo.styles';
 // TODO-GYU: 로그인 관련해서 user api 방식에 따라 달라질 예정
 // 우선 Member 의 MockData 로 처리
 interface Props {
-  type: 'simple' | 'full';
+  type?: 'simple' | 'full';
   member?: Member;
 }
 
 const UserInfo: FC<Props> = (props) => {
-  const { type, member = MEMBER } = props;
+  const { type = 'full', member = MEMBER } = props;
 
   const size = type === 'full' ? 44 : 28;
 

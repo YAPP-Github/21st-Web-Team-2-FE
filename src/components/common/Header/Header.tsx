@@ -11,13 +11,13 @@ import UserMenu from './UserMenu';
 
 const Header: FC = () => {
   const userSession = useRecoilValue($userSession);
-  const userReset = useResetRecoilState($userSession);
+  const resetUser = useResetRecoilState($userSession);
   const [viewUserMenu, setViewUserMenu] = useState(false);
 
   const isLogin = !!userSession;
 
   const handleLogout = () => {
-    userReset();
+    resetUser();
     setViewUserMenu(false);
   };
 

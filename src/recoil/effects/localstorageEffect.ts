@@ -1,4 +1,3 @@
-// GYU-DELETE
 import { AtomEffect } from 'recoil';
 
 const localStorageEffect: <T>(key: string) => AtomEffect<T> =

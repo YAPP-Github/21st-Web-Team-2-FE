@@ -14,7 +14,7 @@ const UserMenu: FC<Props> = (props) => {
   return (
     <S.Wrapper>
       <S.UserItem>
-        <UserInfo type="full" />
+        <UserInfo />
         <Icon name="ArrowRight" size={24} />
       </S.UserItem>
       <S.MenuItem>문의하기</S.MenuItem>

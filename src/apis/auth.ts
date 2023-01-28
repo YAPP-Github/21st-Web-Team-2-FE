@@ -13,9 +13,9 @@ export interface Auth {
 /**
  * 로그인
  */
-export type PostSigninResponseData = BaseResponse<Auth>;
+export type PostSigninResponse = BaseResponse<Auth>;
 export const signin = async (authCode: string) => {
-  const res = await axios.post<PostSigninResponseData>(`/auth/signin`, null, {
+  const res = await axios.post<PostSigninResponse>(`/auth/signin`, null, {
     headers: {
       'auth-code': authCode,
     },
