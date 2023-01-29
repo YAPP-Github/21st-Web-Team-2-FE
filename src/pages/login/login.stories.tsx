@@ -1,7 +1,7 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import Login from './login';
+import Login from './';
 
 export default {
   component: Login,
