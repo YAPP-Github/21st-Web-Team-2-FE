@@ -1,7 +1,7 @@
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { RecoilRoot } from 'recoil';
 
 import '@src/styles/reset.css';
@@ -9,6 +9,7 @@ import '@src/styles/reset.css';
 import '@src/styles/common.css';
 
 import { initAxiosConfig } from '@src/configs/axios';
+import '@src/configs/recoil';
 
 import queryClient from '../configs/queryClient';
 
@@ -28,9 +29,20 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [domLoaded, setDomLoaded] = useState(false);
+
   useEffect(() => {
-    document.documentElement.setAttribute('data-color-mode', 'dark');
+    setDomLoaded(true);
   }, []);
+
+  useEffect(() => {
+    if (!domLoaded) return;
+    document.documentElement.setAttribute('data-color-mode', 'dark');
+  }, [domLoaded]);
+
+  if (!domLoaded || typeof window === 'undefined') {
+    return null;
+  }
 
   return (
     <RecoilRoot>

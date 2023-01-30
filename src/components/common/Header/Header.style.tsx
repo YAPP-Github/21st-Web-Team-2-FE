@@ -11,12 +11,12 @@ export const HeaderWrapper = styled.header`
   z-index: 1;
 
   height: 5rem;
-  color: ${theme.color.Primary1};
   background-color: ${theme.color.G1};
   border-bottom: 1px solid ${theme.color.Primary1};
 `;
 
 export const HeaderContents = styled.div`
+  position: relative;
   margin: 0 auto;
   max-width: 1200px;
   display: flex;
@@ -43,4 +43,17 @@ export const Menu = styled.li`
   font-weight: 700;
   font-size: 15px;
   line-height: 150%;
+
+  text-decoration: none;
+  color: ${theme.color.Primary1};
+`;
+
+export const UserInfoWrapper = styled.div`
+  cursor: pointer;
+`;
+
+export const UserMenuWrapper = styled.div`
+  position: absolute;
+  top: 70px;
+  right: 0;
 `;

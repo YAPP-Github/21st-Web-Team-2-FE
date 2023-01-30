@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 import * as NextImage from 'next/image';
+import { RecoilRoot } from 'recoil';
 
 import '@src/styles/reset.css';
 
@@ -16,9 +17,11 @@ initAxiosConfig();
 export const decorators = [
   mswDecorator,
   (Story) => (
-    <QueryClientProvider client={new QueryClient()}>
-      <Story />
-    </QueryClientProvider>
+    <RecoilRoot>
+      <QueryClientProvider client={new QueryClient()}>
+        <Story />
+      </QueryClientProvider>
+    </RecoilRoot>
   ),
 ];
 

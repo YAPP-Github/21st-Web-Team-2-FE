@@ -1,7 +1,9 @@
+import { authHandler } from './auth';
 import { commentHandler } from './comment';
 import { topicDetailHandler } from './topic';
 
 export const handlers = [
-  ...topicDetailHandler, //
+  ...authHandler, //
+  ...topicDetailHandler,
   ...commentHandler,
 ];

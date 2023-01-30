@@ -117,3 +117,6 @@ button {
   background-color: transparent;
   font-family: 'Pretendard-Regular', 'Noto Sans CJK KR', syne;
 }
+a {
+  text-decoration: none;
+}
