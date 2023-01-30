@@ -1,6 +1,7 @@
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
+import { useEffect } from 'react';
 import { RecoilRoot } from 'recoil';
 
 import '@src/styles/reset.css';
@@ -27,6 +28,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    document.documentElement.setAttribute('data-color-mode', 'dark');
+  }, []);
+
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>

@@ -38,3 +38,5 @@ Object.defineProperty(NextImage, 'default', {
   configurable: true,
   value: (props) => <OriginalNextImage {...props} unoptimized />,
 });
+
+document.documentElement.setAttribute('data-color-mode', 'dark');
