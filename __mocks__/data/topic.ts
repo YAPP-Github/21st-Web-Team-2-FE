@@ -1,7 +1,7 @@
 import { MEMBER } from '@mocks/data/member';
 import { VOTE_OPTIONS } from '@mocks/data/voteOption';
 
-import { GetTopicsResponseData } from '@src/apis';
+import { GetPopularTopicsResponseData, GetTopicsResponseData } from '@src/apis';
 import Topic from '@src/types/Topic';
 
 export const TOPIC: GetTopicsResponseData = {
@@ -35,6 +35,24 @@ export const TOPICS: GetTopicsResponseData[] = [
   { ...TOPIC, topicId: 17, title: '17' },
   { ...TOPIC, topicId: 18, title: '18' },
   { ...TOPIC, topicId: 19, title: '19' },
+];
+
+export const POPULAR_TOPIC: GetTopicsResponseData = {
+  topicId: 1,
+  title: 'Vote1',
+  contents: 'Content1',
+  member: MEMBER,
+  commentAmount: 2,
+  voteAmount: 0,
+  tags: [],
+  voteOptions: VOTE_OPTIONS,
+};
+
+export const POPULAR_TOPICS: GetPopularTopicsResponseData[] = [
+  POPULAR_TOPIC,
+  { ...POPULAR_TOPIC, topicId: 2, title: '두번째' },
+  { ...POPULAR_TOPIC, topicId: 3, title: '세번째' },
+  { ...POPULAR_TOPIC, topicId: 4, title: '네번째' },
 ];
 
 export const TOPIC_DETAIL: Topic = {

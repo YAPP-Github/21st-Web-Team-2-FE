@@ -1,10 +1,9 @@
 import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
-import { TOPICS, TOPIC_DETAIL } from '@mocks/data/topic';
+import { POPULAR_TOPICS, TOPICS, TOPIC_DETAIL } from '@mocks/data/topic';
 
-import { BaseResponse, GetTopicsResponse, GetTopicsResponseData } from '@src/apis/';
+import { GetPopularTopicsResponse, GetTopicDetailResponse, GetTopicsResponse, GetTopicsResponseData } from '@src/apis/';
 import { BASE_URL } from '@src/configs/axios';
-import Topic from '@src/types/Topic';
 
 const getTopics = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
   const lastOffset = req.url.searchParams.get('lastOffset');
@@ -29,10 +28,21 @@ const getTopics = (req: RestRequest, res: ResponseComposition, ctx: RestContext)
   );
 };
 
+const getPopularTopics = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
+  return res(
+    ctx.status(200),
+    ctx.json<GetPopularTopicsResponse>({
+      code: 'SUCCESS',
+      message: '성공',
+      data: POPULAR_TOPICS,
+    }),
+  );
+};
+
 const getTopic = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
   return res(
     ctx.status(200),
-    ctx.json<BaseResponse<Topic>>({
+    ctx.json<GetTopicDetailResponse>({
       code: 'SUCCESS',
       message: '성공',
       data: TOPIC_DETAIL,
@@ -42,5 +52,6 @@ const getTopic = (req: RestRequest, res: ResponseComposition, ctx: RestContext) 
 
 export const topicDetailHandler = [
   rest.get(`${BASE_URL}/topic/latest`, getTopics),
+  rest.get(`${BASE_URL}/topic/popular`, getPopularTopics),
   rest.get(`${BASE_URL}/topic/:topicId`, getTopic),
 ];

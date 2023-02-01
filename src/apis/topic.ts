@@ -25,3 +25,11 @@ export const getTopics = async (offsetId?: number) => {
 
   return res.data;
 };
+
+export type GetPopularTopicsResponseData = Omit<Topic, 'liked' | 'likeAmount'>;
+export type GetPopularTopicsResponse = BaseResponse<GetPopularTopicsResponseData[]>;
+export const getPopularTopics = async () => {
+  const res = await axios.get<GetPopularTopicsResponse>('/topic/popular');
+
+  return res.data.data;
+};
