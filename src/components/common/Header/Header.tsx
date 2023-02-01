@@ -12,7 +12,7 @@ import UserMenu from './UserMenu';
 
 const Header: FC = () => {
   const userSession = useRecoilValue($userSession);
-  const { data: member } = useProfile(userSession?.accessToken || '');
+  const { data: member } = useProfile(userSession?.accessToken);
   const resetUser = useResetRecoilState($userSession);
   const [viewUserMenu, setViewUserMenu] = useState(false);
 

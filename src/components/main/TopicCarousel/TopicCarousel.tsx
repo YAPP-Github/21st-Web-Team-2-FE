@@ -21,7 +21,7 @@ const TRANSITION = 'all 0.5s ease-in-out';
 const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) => {
   const { topics } = props;
   const tokens = useRecoilValue($userSession);
-  const { data: member } = useProfile(tokens?.accessToken || '');
+  const { data: member } = useProfile(tokens?.accessToken);
 
   const carouselTopics = [{ ...topics[topics.length - 1], topicId: -1 }, ...topics, { ...topics[0], topicId: -2 }];
   const [current, setCurrent] = useState<number>(1);
