@@ -11,11 +11,11 @@ import * as S from './UserInfo.styles';
 // 우선 Member 의 MockData 로 처리
 interface Props {
   type?: 'simple' | 'full';
-  member?: Member;
+  member: Member;
 }
 
 const UserInfo: FC<Props> = (props) => {
-  const { type = 'full', member = MEMBER } = props;
+  const { type = 'full', member } = props;
   const { nickname, jobCategory, workingYears, profileImage } = member;
 
   const size = type === 'full' ? 44 : 28;
