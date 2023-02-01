@@ -30,9 +30,15 @@ if (process.env.NODE_ENV === 'development') {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [domLoaded, setDomLoaded] = useState(false);
+
   useEffect(() => {
     setDomLoaded(true);
   }, []);
+
+  useEffect(() => {
+    if (!domLoaded) return;
+    document.documentElement.setAttribute('data-color-mode', 'dark');
+  }, [domLoaded]);
 
   if (!domLoaded || typeof window === 'undefined') {
     return null;

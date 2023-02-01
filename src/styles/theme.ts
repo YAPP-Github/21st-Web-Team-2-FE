@@ -1,4 +1,15 @@
+import { css } from '@emotion/react';
+
 const theme = {
+  font: {
+    code: css`
+      font-family: 'D2Coding';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+    `,
+  },
   color: {
     // common color
     G8: '#F8F9FA',

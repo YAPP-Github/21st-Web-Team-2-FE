@@ -7,7 +7,7 @@ import VoteOption from '@src/types/VoteOption';
 
 import Icon from '../Icon';
 import SelectOption from './SelectOption';
-import * as S from './TopicCard.style';
+import * as S from './TopicCard.styles';
 
 export type TopicCardType = 'feed' | 'detail';
 

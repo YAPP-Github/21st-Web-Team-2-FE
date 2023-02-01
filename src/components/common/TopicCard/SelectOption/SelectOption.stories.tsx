@@ -1,6 +1,9 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { TEST_IMAGE } from '@mocks/data/image';
+import { CODE_BLOCK } from '@mocks/data/voteOption';
+
 import TopicCard from '.';
 
 export default {
@@ -28,4 +31,16 @@ export const 선택안된_결과 = Template.bind({});
   text: 'Text',
   rate: 0.24,
   result: true,
+};
+
+export const 이미지 = Template.bind({});
+이미지.args = {
+  ...Default.args,
+  image: TEST_IMAGE,
+};
+
+export const 코드블록 = Template.bind({});
+코드블록.args = {
+  ...Default.args,
+  codeBlock: CODE_BLOCK,
 };
