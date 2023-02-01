@@ -5,7 +5,7 @@ import theme from '@src/styles/theme';
 export const CodeEditorWrapper = styled.div`
   ${theme.font.code}
 
-  * {
+  .w-tc-editor, * {
     ${theme.font.code}
   }
 `;
