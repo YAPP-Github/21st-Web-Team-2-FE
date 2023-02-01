@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { TOPIC } from '@mocks/data/topic';
+import { TOPIC_DETAIL } from '@mocks/data/topic';
 
 import TopicDetail from './[id]';
 
@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof TopicDetail> = ({ ...args }) => <TopicDeta
 
 export const Default = Template.bind({});
 Default.args = {
-  topicDetail: TOPIC,
+  topicDetail: TOPIC_DETAIL,
 };
 Default.parameters = {
   nextRouter: {

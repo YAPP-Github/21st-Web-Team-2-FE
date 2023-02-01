@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <DefaultLayout //
       side={<SideMenu />}
-      main={<Main member={MEMBER} popularTopics={TOPICS} topics={TOPICS} />}
+      main={<Main member={MEMBER} popularTopics={TOPICS} />}
     />
   );
 };

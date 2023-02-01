@@ -1,19 +1,24 @@
 import Link from 'next/link';
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import TopicCard from '@src/components/common/TopicCard';
-import Member from '@src/types/Member';
-import Topic from '@src/types/Topic';
+import { useGetTopics } from '@src/queires/useGetTopics';
 
 import * as S from './MainTopicList.style';
 
-export interface MainTopicListProps {
-  member?: Member;
-  topics: Topic[];
-}
+const MainTopicList: React.FC = () => {
+  const { fetchNextPage, data: topics = [], isLoading, hasNextPage } = useGetTopics();
 
-const MainTopicList: React.FC<MainTopicListProps> = (props) => {
-  const { topics } = props;
+  const { ref } = useInView({
+    onChange: (inView) => {
+      if (inView && hasNextPage) {
+        fetchNextPage();
+      }
+    },
+  });
+
+  if (isLoading) return null;
 
   return (
     <S.TopicsContainer>
@@ -22,6 +27,7 @@ const MainTopicList: React.FC<MainTopicListProps> = (props) => {
           <TopicCard {...topic} type="feed" />
         </Link>
       ))}
+      <div ref={ref} />
     </S.TopicsContainer>
   );
 };

@@ -3,15 +3,15 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 import React, { useCallback, useState } from 'react';
 
+import { GetTopicsResponseData } from '@src/apis';
 import Icon from '@src/components/common/Icon';
 import TopicCard from '@src/components/common/TopicCard';
 import Member from '@src/types/Member';
-import Topic from '@src/types/Topic';
 
 import * as S from './TopicCarousel.styles';
 
 interface TopicCarouselProps {
-  topics: Topic[];
+  topics: GetTopicsResponseData[];
   member?: Member;
 }
 
