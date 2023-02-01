@@ -1,8 +1,6 @@
 import type { NextPage } from 'next';
 import { GetServerSideProps } from 'next';
 
-import { MEMBER } from '@mocks/data/member';
-
 import { GetPopularTopicsResponseData, getPopularTopics } from '@src/apis';
 import DefaultLayout from '@src/components/common/DefaultLayout';
 import Main from '@src/components/main/Main';
@@ -16,7 +14,7 @@ const Home: NextPage<HomeProps> = ({ popularTopics }) => {
   return (
     <DefaultLayout //
       side={<SideMenu />}
-      main={<Main member={MEMBER} popularTopics={popularTopics} />}
+      main={<Main popularTopics={popularTopics} />}
     />
   );
 };
