@@ -42,9 +42,9 @@ const Header: FC = () => {
             </Link>
           )}
         </S.Menus>
-        {viewUserMenu && (
+        {member && viewUserMenu && (
           <S.UserMenuWrapper>
-            <UserMenu onLogout={handleLogout} />
+            <UserMenu member={member} onLogout={handleLogout} />
           </S.UserMenuWrapper>
         )}
       </S.HeaderContents>
