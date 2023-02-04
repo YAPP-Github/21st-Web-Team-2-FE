@@ -51,6 +51,7 @@ const WriteMain: React.FC<WriteMainProps> = (props) => {
     if (topic.tags.length >= 5) return;
 
     const { value } = event.target as HTMLInputElement;
+    if (!value) return;
     if (topic.tags.includes(value)) return;
 
     setTopic((prev) => ({ ...prev, tags: [...prev.tags, value] }));
