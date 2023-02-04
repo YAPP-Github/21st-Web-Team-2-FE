@@ -38,7 +38,7 @@ export const DropDownItem = styled.div`
   &:hover {
     background-color: ${theme.color.txtSecondary};
   }
-  &:first-child:hover {
+  &:first-of-type {
     border-radius: 4px 4px 0 0;
   }
   &:last-child:hover {
