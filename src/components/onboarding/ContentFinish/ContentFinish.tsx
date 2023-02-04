@@ -1,9 +1,16 @@
 import React, { FC } from 'react';
 
+import { Onboarding } from '@src/pages/onboarding';
+
 import * as S from './ContentFinish.styles';
 
 // GYU-TODO: 설정한 닉네임 설정해야함!
-const ContentFinish: FC = () => {
+interface Props {
+  onboardingValue: Onboarding;
+}
+const ContentFinish: FC<Props> = (props) => {
+  const { onboardingValue } = props;
+
   return (
     <S.Wrapper>
       <S.JobIcon name={getJobName('developer')} size={80} />

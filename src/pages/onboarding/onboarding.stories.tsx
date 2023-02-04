@@ -11,3 +11,9 @@ export default {
 const Template: ComponentStory<typeof Onboarding> = (args) => <Onboarding {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {
+  title: '1. 닉네임 설정',
+  currentStep: 1,
+  lastStep: 3,
+  children: <div>children</div>,
+};

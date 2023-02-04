@@ -4,7 +4,10 @@ import Input from '@src/components/common/Input';
 
 import * as S from './ContentName.styles';
 
-const ContentName: FC = () => {
+interface Props {
+  onChangeOnboardingStep: (key: 'name' | 'job' | 'year', value: string) => void;
+}
+const ContentName: FC<Props> = (props) => {
   const [name, setName] = useState('');
   const [error, setError] = useState(false);
 
@@ -14,6 +17,7 @@ const ContentName: FC = () => {
     setName(value);
   };
 
+  const { onChangeOnboardingStep } = props;
   return (
     <S.Wrapper>
       <S.Title>Hello ‘ooo’!</S.Title>
@@ -31,7 +35,8 @@ const ContentName: FC = () => {
       <S.Button
         disabled={!name}
         onClick={() => {
-          setError(true);
+          // setError(true);
+          onChangeOnboardingStep('name', name);
         }}
       >
         다음
