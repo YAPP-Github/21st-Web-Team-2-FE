@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
 `;
 export const Main = styled.main`
-  margin: 0 auto 52px;
+  margin: 80px auto 52px;
 
   display: flex;
   flex-direction: column;
