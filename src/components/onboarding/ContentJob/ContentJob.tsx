@@ -11,7 +11,7 @@ interface Props {
   onboardingValue: Onboarding;
   onChangeOnboardingStep: (key: OnboardingKey, value: string) => void;
 }
-const ContentName: FC<Props> = (props) => {
+const ContentJob: FC<Props> = (props) => {
   const [job, setJob] = useState<Job>(null);
   const [etcValue, setEtcValue] = useState('');
 
@@ -74,4 +74,4 @@ const checkDisabled = (job: Job, etc: string) => {
   return false;
 };
 
-export default ContentName;
+export default ContentJob;

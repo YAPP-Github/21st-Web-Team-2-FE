@@ -11,4 +11,10 @@ export default {
 const Template: ComponentStory<typeof ContentFinish> = ({ ...args }) => <ContentFinish {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  onboardingValue: {
+    name: 'Typing',
+    job: 'developer',
+    year: 2,
+  },
+};

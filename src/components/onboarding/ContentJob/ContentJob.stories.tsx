@@ -11,4 +11,10 @@ export default {
 const Template: ComponentStory<typeof ContentJob> = ({ ...args }) => <ContentJob {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  onboardingValue: {
+    name: 'Typing',
+    job: null,
+    year: null,
+  },
+};
