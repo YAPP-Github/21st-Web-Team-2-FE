@@ -22,11 +22,8 @@ export const 로그인 = Template.bind({});
     <RecoilRoot
       initializeState={({ set }) => {
         set($userSession, {
-          isMember: true,
-          jwtTokens: {
-            accessToken: 'access-token',
-            refreshToken: 'refresh-token',
-          },
+          accessToken: 'access-token',
+          refreshToken: 'refresh-token',
         });
       }}
     >

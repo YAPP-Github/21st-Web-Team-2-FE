@@ -1,6 +1,7 @@
 export * from './topic';
 export * from './comment';
 export * from './auth';
+export * from './member';
 
 export interface BaseResponse<T> {
   message: string;

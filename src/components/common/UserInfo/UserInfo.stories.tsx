@@ -1,5 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { MEMBER } from '@mocks/data/member';
+
 import UserInfo from './UserInfo';
 
 export default {
@@ -13,9 +15,11 @@ const Template: ComponentStory<typeof UserInfo> = ({ ...args }) => <UserInfo {..
 export const simple = Template.bind({});
 simple.args = {
   type: 'simple',
+  member: MEMBER,
 };
 
 export const full = Template.bind({});
 full.args = {
   type: 'full',
+  member: MEMBER,
 };

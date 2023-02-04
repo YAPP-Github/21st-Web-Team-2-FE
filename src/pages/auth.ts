@@ -24,7 +24,7 @@ const Auth = () => {
         // 이미 가입된 유저로 홈으로 이동
         // 로그인 성공
         // user 상태 관리!
-        setUserSession(result);
+        setUserSession(result.jwtTokens);
 
         router.push('/');
       } else {
