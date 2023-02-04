@@ -6,6 +6,7 @@ import { IconNameType } from '@src/components/common/Icon/Icon';
 import Input from '@src/components/common/Input';
 import SelectButton from '@src/components/common/SelectButton';
 import TextArea from '@src/components/common/TextArea';
+import VoteOptionInputs from '@src/components/write/WriteMain/VoteOptionInputs';
 import { TopicCategory } from '@src/types/Topic';
 
 import * as S from './WriteMain.styles';
@@ -29,7 +30,11 @@ const WriteMain: React.FC = () => {
     setTopic((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleChangTag = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeOptions = (value: PostTopicRequest['voteOptions']) => {
+    setTopic((prev) => ({ ...prev, voteOptions: value }));
+  };
+
+  const handleChangeTag = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setTag(value);
   };
@@ -81,26 +86,7 @@ const WriteMain: React.FC = () => {
           />
         </S.Label>
       </S.Section>
-      <S.Section>
-        <S.SectionTitle>토픽 항목</S.SectionTitle>
-        <S.ButtonContainer>
-          <SelectButton>텍스트</SelectButton>
-          <SelectButton>이미지 추가</SelectButton>
-          <SelectButton>코드 추가</SelectButton>
-          <SelectButton>이미지+코드 추가</SelectButton>
-        </S.ButtonContainer>
-        <S.OptionsContainer>
-          <S.Label>
-            <S.LabelText>항목1</S.LabelText>
-            <Input placeholder="항목을 입력하주세요." value="" maxLength={20} />
-          </S.Label>
-          <S.Label>
-            <S.LabelText>항목2</S.LabelText>
-            <Input placeholder="항목을 입력하주세요." value="" maxLength={20} />
-          </S.Label>
-          <S.AddOption>+ 항목 추가</S.AddOption>
-        </S.OptionsContainer>
-      </S.Section>
+      <VoteOptionInputs onChange={handleChangeOptions} />
       <S.Section>
         <S.SectionTitle>태그</S.SectionTitle>
         <S.Label>
@@ -108,7 +94,7 @@ const WriteMain: React.FC = () => {
           <Input
             placeholder="최대 5개까지 입력 가능해요!"
             value={tag}
-            onChange={handleChangTag}
+            onChange={handleChangeTag}
             onKeyUp={handleInputTag}
           />
         </S.Label>

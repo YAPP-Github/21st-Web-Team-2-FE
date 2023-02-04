@@ -70,20 +70,3 @@ export const LabelText = styled.p`
   ${theme.font.B3}
   color: ${theme.color.G7};
 `;
-
-export const OptionsContainer = styled.div`
-  margin-top: 16px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
-export const AddOption = styled.button`
-  margin-left: 164px;
-
-  width: fit-content;
-
-  ${theme.font.B2}
-  color: ${theme.color.Primary1};
-`;

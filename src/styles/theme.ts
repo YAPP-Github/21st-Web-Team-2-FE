@@ -29,6 +29,11 @@ const theme = {
       font-size: 12px;
       line-height: 150%;
     `,
+    B4: css`
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 150%;
+    `,
     T2: css`
       font-weight: 700;
       font-size: 16px;
