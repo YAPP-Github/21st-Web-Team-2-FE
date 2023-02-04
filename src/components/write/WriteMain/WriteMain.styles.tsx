@@ -70,3 +70,8 @@ export const LabelText = styled.p`
   ${theme.font.B3}
   color: ${theme.color.G7};
 `;
+
+export const TagListWrapper = styled.div`
+  margin-left: 164px;
+  width: 100%;
+`;

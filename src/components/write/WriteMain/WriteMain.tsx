@@ -5,6 +5,7 @@ import Icon from '@src/components/common/Icon';
 import { IconNameType } from '@src/components/common/Icon/Icon';
 import Input from '@src/components/common/Input';
 import SelectButton from '@src/components/common/SelectButton';
+import TagList from '@src/components/common/TagList';
 import TextArea from '@src/components/common/TextArea';
 import VoteOptionInputs from '@src/components/write/WriteMain/VoteOptionInputs';
 import { TopicCategory } from '@src/types/Topic';
@@ -41,10 +42,18 @@ const WriteMain: React.FC = () => {
 
   const handleInputTag = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key !== 'Enter') return;
+    if (topic.tags.length >= 5) return;
 
     const { value } = event.target as HTMLInputElement;
+    if (topic.tags.includes(value)) return;
+
     setTopic((prev) => ({ ...prev, tags: [...prev.tags, value] }));
     setTag('');
+  };
+
+  const handleDeleteTag = (value: string) => {
+    const tags = topic.tags.filter((tag) => tag !== value);
+    setTopic((prev) => ({ ...prev, tags }));
   };
 
   return (
@@ -98,6 +107,9 @@ const WriteMain: React.FC = () => {
             onKeyUp={handleInputTag}
           />
         </S.Label>
+        <S.TagListWrapper>
+          <TagList tags={topic.tags} type="delete" onDelete={handleDeleteTag} />
+        </S.TagListWrapper>
       </S.Section>
     </S.Container>
   );
