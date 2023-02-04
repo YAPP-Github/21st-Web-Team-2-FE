@@ -10,21 +10,15 @@ export default {
 
 const Template: ComponentStory<typeof OnboardingLayout> = ({ ...args }) => <OnboardingLayout {...args} />;
 
-export const ONE_닉네임설정 = Template.bind({});
-ONE_닉네임설정.args = {
+export const 기본 = Template.bind({});
+기본.args = {
   title: '1. 닉네임 설정',
   currentStep: 1,
   lastStep: 3,
+  children: <div>children</div>,
 };
-export const TWO_직군설정 = Template.bind({});
-TWO_직군설정.args = {
-  title: '2. 직군 설정',
-  currentStep: 2,
-  lastStep: 3,
-};
-export const THREE_연차설정 = Template.bind({});
-THREE_연차설정.args = {
-  title: '3. 연차 설정',
-  currentStep: 3,
-  lastStep: 3,
+
+export const 컨텐츠만 = Template.bind({});
+컨텐츠만.args = {
+  children: <div>children</div>,
 };

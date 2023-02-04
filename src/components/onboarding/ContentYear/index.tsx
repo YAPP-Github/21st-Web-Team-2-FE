@@ -1,1 +1,1 @@
-export { default } from './YearSelector';
+export { default } from './ContentYear';
