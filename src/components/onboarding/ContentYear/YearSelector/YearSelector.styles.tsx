@@ -20,8 +20,7 @@ export const SelectorWrapper = styled.div`
 `;
 
 export const DropDownWrapper = styled.div<{ $visible: boolean }>`
-  visibility: ${({ $visible }) => ($visible ? 'visible' : 'hidden')};
-  display: flex;
+  display: ${({ $visible }) => ($visible ? 'flex' : 'none')};
   flex-direction: column;
   height: 200px;
   border-radius: 4px;
