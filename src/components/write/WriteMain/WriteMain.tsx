@@ -12,7 +12,13 @@ import { TopicCategory } from '@src/types/Topic';
 
 import * as S from './WriteMain.styles';
 
-const WriteMain: React.FC = () => {
+interface WriteMainProps {
+  onSubmit: (topic: PostTopicRequest) => void;
+}
+
+const WriteMain: React.FC<WriteMainProps> = (props) => {
+  const { onSubmit } = props;
+
   const [topic, setTopic] = useState<PostTopicRequest>({
     topicCategory: 'CAREER',
     title: '',
@@ -56,61 +62,73 @@ const WriteMain: React.FC = () => {
     setTopic((prev) => ({ ...prev, tags }));
   };
 
+  const handleSubmit = () => {
+    onSubmit(topic);
+  };
+
   return (
     <S.Container>
-      <S.Header>
-        <S.Title>토픽 만들기</S.Title>
-        <S.Description>궁금한 것들을 토픽으로 만들어 피드에 올려보세요!</S.Description>
-      </S.Header>
-      <S.Section>
-        <S.SectionTitle>토픽 카테고리</S.SectionTitle>
-        <S.ButtonContainer>
-          {CATEGORY_BUTTONS.map(({ icon, value, text }, index) => (
-            <SelectButton key={index} $selected={topic.topicCategory === value} onClick={handleSelectCategory(value)}>
-              <Icon name={icon} /> {text}
-            </SelectButton>
-          ))}
-        </S.ButtonContainer>
-      </S.Section>
-      <S.Section>
-        <S.SectionTitle>토픽 내용</S.SectionTitle>
-        <S.Label>
-          <S.LabelText>토픽 제목</S.LabelText>
-          <Input
-            name="title"
-            placeholder="항목을 입력하주세요."
-            value={topic.title}
-            maxLength={20}
-            onChange={handleChangeInput}
-          />
-        </S.Label>
-        <S.Label>
-          <S.LabelText>토픽 설명</S.LabelText>
-          <TextArea
-            name="contents"
-            placeholder="항목을 입력하주세요."
-            value={topic.contents}
-            maxLength={20}
-            onChange={handleChangeInput}
-          />
-        </S.Label>
-      </S.Section>
-      <VoteOptionInputs onChange={handleChangeOptions} />
-      <S.Section>
-        <S.SectionTitle>태그</S.SectionTitle>
-        <S.Label>
-          <S.LabelText>태그 입력</S.LabelText>
-          <Input
-            placeholder="최대 5개까지 입력 가능해요!"
-            value={tag}
-            onChange={handleChangeTag}
-            onKeyUp={handleInputTag}
-          />
-        </S.Label>
-        <S.TagListWrapper>
-          <TagList tags={topic.tags} type="delete" onDelete={handleDeleteTag} />
-        </S.TagListWrapper>
-      </S.Section>
+      <S.Main>
+        <S.Header>
+          <S.Title>토픽 만들기</S.Title>
+          <S.Description>궁금한 것들을 토픽으로 만들어 피드에 올려보세요!</S.Description>
+        </S.Header>
+        <S.Section>
+          <S.SectionTitle>토픽 카테고리</S.SectionTitle>
+          <S.ButtonContainer>
+            {CATEGORY_BUTTONS.map(({ icon, value, text }, index) => (
+              <SelectButton key={index} $selected={topic.topicCategory === value} onClick={handleSelectCategory(value)}>
+                <Icon name={icon} /> {text}
+              </SelectButton>
+            ))}
+          </S.ButtonContainer>
+        </S.Section>
+        <S.Section>
+          <S.SectionTitle>토픽 내용</S.SectionTitle>
+          <S.Label>
+            <S.LabelText>토픽 제목</S.LabelText>
+            <Input
+              name="title"
+              placeholder="항목을 입력하주세요."
+              value={topic.title}
+              maxLength={20}
+              onChange={handleChangeInput}
+            />
+          </S.Label>
+          <S.Label>
+            <S.LabelText>토픽 설명</S.LabelText>
+            <TextArea
+              name="contents"
+              placeholder="항목을 입력하주세요."
+              value={topic.contents}
+              maxLength={20}
+              onChange={handleChangeInput}
+            />
+          </S.Label>
+        </S.Section>
+        <VoteOptionInputs onChange={handleChangeOptions} />
+        <S.Section>
+          <S.SectionTitle>태그</S.SectionTitle>
+          <S.Label>
+            <S.LabelText>태그 입력</S.LabelText>
+            <Input
+              placeholder="최대 5개까지 입력 가능해요!"
+              value={tag}
+              onChange={handleChangeTag}
+              onKeyUp={handleInputTag}
+            />
+          </S.Label>
+          <S.TagListWrapper>
+            <TagList tags={topic.tags} type="delete" onDelete={handleDeleteTag} />
+          </S.TagListWrapper>
+        </S.Section>
+      </S.Main>
+      <S.Space />
+      <S.Footer>
+        <S.FooterContents>
+          <S.SubmitBtn onClick={handleSubmit}>작성 완료</S.SubmitBtn>
+        </S.FooterContents>
+      </S.Footer>
     </S.Container>
   );
 };

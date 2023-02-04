@@ -20,3 +20,7 @@ export interface PostTopicRequest extends Pick<Topic, 'title' | 'contents' | 'ta
   voteOptions: Pick<VoteOption, 'text' | 'image' | 'codeBlock'>[];
   topicCategory: TopicCategory;
 }
+
+export const createTopic = (data: PostTopicRequest) => {
+  return axios.post('/topic', data);
+};
