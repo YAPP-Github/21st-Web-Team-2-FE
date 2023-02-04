@@ -69,7 +69,7 @@ const ContentJob: FC<Props> = (props) => {
 
 const checkDisabled = (job: Job, etc: string) => {
   if (job === null) return true;
-  if (job === 'etc' && etc.trim() === '') true;
+  if (job === 'etc' && etc.trim() === '') return true;
 
   return false;
 };

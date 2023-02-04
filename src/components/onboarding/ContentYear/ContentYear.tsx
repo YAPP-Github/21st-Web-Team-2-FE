@@ -17,7 +17,7 @@ const ContentYear: FC<Props> = (props) => {
   return (
     <S.Wrapper>
       <S.Title>Hello {name}!</S.Title>
-      <S.SubTitle>{job}일을 한지 얼마나 되셨나요?</S.SubTitle>
+      <S.SubTitle>{changeJobLabel(job as keyof Job)}일을 한지 얼마나 되셨나요?</S.SubTitle>
       <S.YearSelectorWrapper>
         <YearSelector defaultValue={year} onChangeYear={setYear} />
       </S.YearSelectorWrapper>
@@ -26,6 +26,23 @@ const ContentYear: FC<Props> = (props) => {
       </S.ButtonWrapper>
     </S.Wrapper>
   );
+};
+
+type Job = {
+  designer: '디자인';
+  developer: '개발';
+  pm: '기획';
+  [key: string]: string;
+};
+
+const changeJobLabel = (job: keyof Job) => {
+  const jobObj: Job = {
+    designer: '디자인',
+    developer: '개발',
+    pm: '기획',
+  };
+
+  return jobObj[job] ?? job;
 };
 
 export default ContentYear;
