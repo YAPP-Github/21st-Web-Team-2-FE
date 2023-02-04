@@ -3,8 +3,7 @@ import { ChangeEvent, FC, InputHTMLAttributes } from 'react';
 import * as S from './Input.styles';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
   error?: boolean;
   errorMessage?: string;
 }
@@ -14,7 +13,7 @@ const Input: FC<Props> = (props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (maxLength && e.target.value.length > maxLength) return;
 
-    onChange(e);
+    onChange && onChange(e);
   };
 
   const isError = !!error;
@@ -26,7 +25,7 @@ const Input: FC<Props> = (props) => {
         <S.Input {...rest} value={value} onChange={handleChange} maxLength={maxLength} />
         {maxLength && (
           <S.TextLength>
-            (<S.CurrentText>{value.length}</S.CurrentText>/{maxLength})
+            (<S.CurrentText>{value?.length || 0}</S.CurrentText>/{maxLength})
           </S.TextLength>
         )}
       </S.Wrapper>

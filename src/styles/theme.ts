@@ -9,6 +9,31 @@ const theme = {
       font-size: 16px;
       line-height: 130%;
     `,
+    H2: css`
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 130%;
+    `,
+    B1: css`
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+    `,
+    B2: css`
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+    `,
+    B3: css`
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 150%;
+    `,
+    T2: css`
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+    `,
   },
   color: {
     // common color

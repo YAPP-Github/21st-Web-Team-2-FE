@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import Topic from '@src/types/Topic';
+import Topic, { TopicCategory } from '@src/types/Topic';
+import VoteOption from '@src/types/VoteOption';
 
 import { BaseResponse } from './';
 
@@ -14,3 +15,8 @@ export const getTopicDetail = async (topicId: number) => {
 
   return res.data.data;
 };
+
+export interface PostTopicRequest extends Pick<Topic, 'title' | 'contents' | 'tags'> {
+  voteOptions: Pick<VoteOption, 'text' | 'image' | 'codeBlock'>[];
+  topicCategory: TopicCategory;
+}

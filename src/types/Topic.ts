@@ -14,3 +14,5 @@ export default interface Topic {
   voteOptions: VoteOption[];
   member: Member;
 }
+
+export type TopicCategory = 'CAREER' | 'DEVELOPER' | 'DESIGN' | 'PRODUCT_MANAGER';
