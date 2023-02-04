@@ -4,6 +4,7 @@ import { useRecoilValue, useResetRecoilState } from 'recoil';
 
 import Icon from '@src/components/common/Icon';
 import UserInfo from '@src/components/common/UserInfo';
+import useProfile from '@src/queires/useProfile';
 import $userSession from '@src/recoil/userSession';
 
 import * as S from './Header.style';
@@ -11,10 +12,9 @@ import UserMenu from './UserMenu';
 
 const Header: FC = () => {
   const userSession = useRecoilValue($userSession);
+  const { data: member } = useProfile(userSession?.accessToken);
   const resetUser = useResetRecoilState($userSession);
   const [viewUserMenu, setViewUserMenu] = useState(false);
-
-  const isLogin = !!userSession;
 
   const handleLogout = () => {
     resetUser();
@@ -32,9 +32,9 @@ const Header: FC = () => {
           <S.Menu>
             <Icon name="Search" size={30} />
           </S.Menu>
-          {isLogin ? (
+          {member ? (
             <S.UserInfoWrapper onClick={() => setViewUserMenu((prev) => !prev)}>
-              <UserInfo type="simple" />
+              <UserInfo type="simple" member={member} />
             </S.UserInfoWrapper>
           ) : (
             <Link href="/login">
@@ -42,9 +42,9 @@ const Header: FC = () => {
             </Link>
           )}
         </S.Menus>
-        {viewUserMenu && (
+        {member && viewUserMenu && (
           <S.UserMenuWrapper>
-            <UserMenu onLogout={handleLogout} />
+            <UserMenu member={member} onLogout={handleLogout} />
           </S.UserMenuWrapper>
         )}
       </S.HeaderContents>

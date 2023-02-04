@@ -6,8 +6,8 @@ import { Auth } from '@src/apis/auth';
 
 import localStorageEffect from './effects/localstorageEffect';
 
-const $userSession = atom<Auth | undefined>({
-  key: 'user-sesseion',
+const $userSession = atom<Auth['jwtTokens'] | undefined>({
+  key: 'user-session',
   default: undefined,
   effects: [localStorageEffect('user')],
 });

@@ -2,24 +2,28 @@
 import { css } from '@emotion/react';
 import Link from 'next/link';
 import React, { useCallback, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
+import { GetTopicsResponseData } from '@src/apis';
 import Icon from '@src/components/common/Icon';
 import TopicCard from '@src/components/common/TopicCard';
-import Member from '@src/types/Member';
-import Topic from '@src/types/Topic';
+import useProfile from '@src/queires/useProfile';
+import $userSession from '@src/recoil/userSession';
 
 import * as S from './TopicCarousel.styles';
 
 interface TopicCarouselProps {
-  topics: Topic[];
-  member?: Member;
+  topics: GetTopicsResponseData[];
 }
 
 const TRANSITION = 'all 0.5s ease-in-out';
 
 const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) => {
-  const { topics, member } = props;
-  const carouselTopics = [topics[topics.length - 1], ...topics, topics[0]];
+  const { topics } = props;
+  const tokens = useRecoilValue($userSession);
+  const { data: member } = useProfile(tokens?.accessToken);
+
+  const carouselTopics = [{ ...topics[topics.length - 1], topicId: -1 }, ...topics, { ...topics[0], topicId: -2 }];
   const [current, setCurrent] = useState<number>(1);
   const [displayCurrent, setDisplayCurrent] = useState<number>(1);
   const [transition, setTransition] = useState<string>(TRANSITION);

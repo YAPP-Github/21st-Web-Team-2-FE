@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
 
-import { MEMBER } from '@mocks/data/member';
-
-import { Member } from '@src/apis';
 import DefaultImage from '@src/assets/user-default.png';
+import Member from '@src/types/Member';
 
 import * as S from './UserInfo.styles';
 
@@ -11,20 +9,20 @@ import * as S from './UserInfo.styles';
 // 우선 Member 의 MockData 로 처리
 interface Props {
   type?: 'simple' | 'full';
-  member?: Member;
+  member: Member;
 }
 
 const UserInfo: FC<Props> = (props) => {
-  const { type = 'full', member = MEMBER } = props;
+  const { type = 'full', member } = props;
+  const { nickname, jobCategory, workingYears, profileImage } = member;
 
   const size = type === 'full' ? 44 : 28;
 
-  const { name, jobCategory, workingYears, profileImage } = member;
   return (
     <S.Wrapper>
-      <S.Profile src={profileImage ?? DefaultImage} alt={name} width={size} height={size} />
+      <S.Profile src={profileImage ?? DefaultImage} alt={nickname} width={size} height={size} />
       <S.SummaryWrapper>
-        <S.UserNickName>{name}</S.UserNickName>
+        <S.UserNickName>{nickname}</S.UserNickName>
         {type === 'full' && (
           <S.UserInfo>
             {jobCategory}·{workingYears}년차

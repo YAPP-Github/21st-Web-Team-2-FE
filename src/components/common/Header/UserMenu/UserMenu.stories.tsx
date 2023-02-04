@@ -1,5 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { MEMBER } from '@mocks/data/member';
+
 import UserMenu from './UserMenu';
 
 export default {
@@ -11,4 +13,6 @@ export default {
 const Template: ComponentStory<typeof UserMenu> = ({ ...args }) => <UserMenu {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  member: MEMBER,
+};

@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { TOPIC } from '@mocks/data/topic';
+import { TOPIC_DETAIL } from '@mocks/data/topic';
 
 import TopicDetailMain from '.';
 
@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof TopicDetailMain> = ({ ...args }) => <Topic
 
 export const Default = Template.bind({});
 Default.args = {
-  topic: TOPIC,
+  topic: TOPIC_DETAIL,
 };
 Default.decorators = [
   (Story, context) => (
