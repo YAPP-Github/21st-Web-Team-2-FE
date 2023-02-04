@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 
 import Input from '@src/components/common/Input';
+import { useCheckNickname } from '@src/queires/useCheckNickname';
 
 import * as S from './ContentName.styles';
 
@@ -11,10 +12,27 @@ const ContentName: FC<Props> = (props) => {
   const [name, setName] = useState('');
   const [error, setError] = useState(false);
 
+  const { mutateCheckNickName } = useCheckNickname();
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
+    if (value.trim() !== '' && error) setError(false);
+
     setName(value);
+  };
+
+  const handleClick = async () => {
+    mutateCheckNickName.mutate(name, {
+      onSuccess: (data) => {
+        if (data && data.isDuplicated) {
+          setError(true);
+          return;
+        }
+
+        onChangeOnboardingStep('name', name);
+      },
+    });
   };
 
   const { onChangeOnboardingStep } = props;
@@ -32,13 +50,7 @@ const ContentName: FC<Props> = (props) => {
           errorMessage="이미 있는 이름이에요 :( 새로운 이름으로 작성해주세요!"
         />
       </S.InputWrapper>
-      <S.Button
-        disabled={!name}
-        onClick={() => {
-          // setError(true);
-          onChangeOnboardingStep('name', name);
-        }}
-      >
+      <S.Button disabled={!name} onClick={handleClick}>
         다음
       </S.Button>
     </S.Wrapper>

@@ -23,3 +23,18 @@ export const signin = async (authCode: string) => {
 
   return res.data.data;
 };
+
+/**
+ * 닉네임 중복
+ */
+export interface CheckNickName {
+  isDuplicated: boolean;
+}
+export type PostCheckNickName = BaseResponse<CheckNickName>;
+export const checkNickName = async (nickName: string) => {
+  const res = await axios.post<PostCheckNickName>(`/nickname-duplication`, {
+    nickname: nickName,
+  });
+
+  return res.data.data;
+};
