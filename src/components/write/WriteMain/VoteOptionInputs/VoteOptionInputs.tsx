@@ -32,7 +32,7 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
   ]);
   const id = useRef<number>(2);
 
-  useEffect(() => onChange(options.map(({ id, ...rest }) => ({ ...rest }))), [onChange, options]);
+  useEffect(() => onChange(options.map(({ id, ...rest }) => ({ ...rest }))), [options]);
 
   const handleSelectType = (type: VoteOptionType) => () => {
     setSelected(type);
