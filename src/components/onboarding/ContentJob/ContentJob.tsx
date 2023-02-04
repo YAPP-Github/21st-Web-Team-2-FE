@@ -11,7 +11,6 @@ interface Props {
   onboardingValue: Onboarding;
   onChangeOnboardingStep: (key: OnboardingKey, value: string) => void;
 }
-// GYU-TODO: 입력시 다음 버튼 및 직업 설정 기능 구현
 const ContentName: FC<Props> = (props) => {
   const [job, setJob] = useState<Job>(null);
   const [etcValue, setEtcValue] = useState('');
