@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { Onboarding } from '@src/pages/onboarding';
+
 import { BaseResponse } from '.';
 
 export interface Auth {
@@ -20,6 +22,16 @@ export const signin = async (authCode: string) => {
       'auth-code': authCode,
     },
   });
+
+  return res.data.data;
+};
+
+/**
+ * 회원가입
+ */
+export type PostSignupResponse = BaseResponse<Auth['jwtTokens']>;
+export const signup = async (onboarding: Onboarding) => {
+  const res = await axios.post<PostSignupResponse>(`/auth/signup`, onboarding);
 
   return res.data.data;
 };

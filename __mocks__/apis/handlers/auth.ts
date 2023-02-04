@@ -1,6 +1,6 @@
 import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
-import { PostCheckNickName, PostSigninResponse } from '@src/apis/auth';
+import { PostCheckNickName, PostSigninResponse, PostSignupResponse } from '@src/apis/auth';
 import { BASE_URL } from '@src/configs/axios';
 
 const NEW_MEMBER = false;
@@ -25,6 +25,20 @@ const signin = (req: RestRequest, res: ResponseComposition, ctx: RestContext) =>
   );
 };
 
+const signup = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
+  return res(
+    ctx.status(200),
+    ctx.json<PostSignupResponse>({
+      code: 'SUCCESS',
+      message: '성공',
+      data: {
+        accessToken: 'access-token',
+        refreshToken: 'refresh-token',
+      },
+    }),
+  );
+};
+
 const checkNickName = (req: RestRequest<{ nickname: string }>, res: ResponseComposition, ctx: RestContext) => {
   const { nickname } = req.body;
 
@@ -42,5 +56,6 @@ const checkNickName = (req: RestRequest<{ nickname: string }>, res: ResponseComp
 
 export const authHandler = [
   rest.post(`${BASE_URL}/auth/signin`, signin), //
-  rest.post(`${BASE_URL}/nickname-duplication`, checkNickName), //
+  rest.post(`${BASE_URL}/auth/signup`, signup),
+  rest.post(`${BASE_URL}/nickname-duplication`, checkNickName),
 ];
