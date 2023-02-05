@@ -89,3 +89,9 @@ export const 코드블록 = Template.bind({});
   ...Default.args,
   voteOptions: [VOTE_OPTION_WITH_CODE, { ...VOTE_OPTION_WITH_CODE, voteOptionId: 99 }],
 };
+
+export const Detail_CodeBlock = Template.bind({});
+Detail_CodeBlock.args = {
+  ...코드블록.args,
+  type: 'detail',
+};

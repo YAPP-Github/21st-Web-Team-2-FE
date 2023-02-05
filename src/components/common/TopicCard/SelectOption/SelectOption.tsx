@@ -1,12 +1,14 @@
 import React, { MouseEvent } from 'react';
 
-import CodeEditor, { Languages } from '@src/components/common/CodeEditor';
+import CodeEditor from '@src/components/common/CodeEditor';
 import Icon from '@src/components/common/Icon';
+import { TopicCardType } from '@src/components/common/TopicCard';
 import VoteOption from '@src/types/VoteOption';
 
 import * as S from './SelectOption.style';
 
 interface SelectOptionProps extends VoteOption {
+  type?: TopicCardType;
   rate?: number;
   result?: boolean;
   selected?: boolean;
@@ -14,7 +16,20 @@ interface SelectOptionProps extends VoteOption {
 }
 
 const SelectOption = (props: SelectOptionProps) => {
-  const { voteOptionId, text, rate = 0, result = false, selected = false, image, language, codeBlock, onClick } = props;
+  const {
+    voteOptionId,
+    text,
+    type = 'feed',
+    rate = 0,
+    result = false,
+    selected = false,
+    image,
+    language,
+    codeBlock,
+    onClick,
+  } = props;
+
+  const isFeed = type === 'feed';
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -32,16 +47,16 @@ const SelectOption = (props: SelectOptionProps) => {
           {result && <S.Rate>{Math.round(rate * 100)}%</S.Rate>}
         </S.Info>
       </S.SelectButton>
+      {codeBlock && (
+        <S.CodeBlockWrapper $type={type}>
+          <CodeEditor language={language || 'javascript'} value={codeBlock} disabled />
+          {isFeed && <S.CodeBlockGradiant />}
+        </S.CodeBlockWrapper>
+      )}
       {image && (
         <S.ImageWrapper>
           <S.OptionImage src={image} alt={text} fill />
         </S.ImageWrapper>
-      )}
-      {codeBlock && (
-        <S.CodeBlockWrapper>
-          <CodeEditor language={language || 'javascript'} value={codeBlock} disabled />
-          <S.CodeBlockGradiant />
-        </S.CodeBlockWrapper>
       )}
     </S.Container>
   );

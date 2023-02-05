@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 
+import { TopicCardType } from '@src/components/common/TopicCard';
 import theme from '@src/styles/theme';
 
 interface ContainerProps {
@@ -96,11 +97,28 @@ export const OptionImage = styled(Image)`
   object-fit: contain;
 `;
 
-// TODO: 상세페이지에서 코드 블럭 노출 방법 논의 필요
-export const CodeBlockWrapper = styled.div`
+interface CodeBlockWrapperProps {
+  $type: TopicCardType;
+}
+
+export const CodeBlockWrapper = styled.div<CodeBlockWrapperProps>`
   position: relative;
-  height: 300px;
-  overflow: hidden;
+
+  ${({ $type }) =>
+    $type === 'feed'
+      ? css`
+          height: 300px;
+          overflow: hidden;
+        `
+      : css`
+          &:hover {
+            position: absolute;
+            width: 100%;
+            top: 72px;
+            left: 0;
+            z-index: 9;
+          }
+        `}
 `;
 
 export const CodeBlockGradiant = styled.div`

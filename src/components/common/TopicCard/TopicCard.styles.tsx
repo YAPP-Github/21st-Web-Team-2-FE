@@ -64,6 +64,7 @@ interface SelectOptionContainerProps {
 }
 
 export const SelectOptionContainer = styled.div<SelectOptionContainerProps>`
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr ${({ $odd }) => $odd && '1fr'};
   padding: 0;
