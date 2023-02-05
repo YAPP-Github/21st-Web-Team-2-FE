@@ -1,5 +1,6 @@
-import styled from '@emotion/styled';
 import React, { ChangeEvent, ReactNode, useRef } from 'react';
+
+import * as S from './ImgSelector.styles';
 
 export interface ImgSelectorProps {
   children?: ReactNode;
@@ -27,17 +28,10 @@ export default function ImgSelector(props: ImgSelectorProps): JSX.Element {
 
   return (
     <>
-      <Button type="button" onClick={handleClick}>
+      <S.Button type="button" onClick={handleClick}>
         {children}
-      </Button>
+      </S.Button>
       <input data-testid="image-input" type="file" accept="image/*" hidden ref={imgInput} onChange={handleSelectImg} />
     </>
   );
 }
-
-const Button = styled.button`
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  cursor: pointer;
-`;
