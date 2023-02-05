@@ -8,7 +8,11 @@ export default {
   title: 'common/ImgSelector',
 };
 
-const Template: ComponentStory<typeof ImgSelector> = (args) => <ImgSelector {...args} />;
+const Template: ComponentStory<typeof ImgSelector> = (args) => (
+  <div style={{ backgroundColor: 'white' }}>
+    <ImgSelector {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
