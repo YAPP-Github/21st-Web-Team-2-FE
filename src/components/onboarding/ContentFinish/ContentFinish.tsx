@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
+import { useSetRecoilState } from 'recoil';
 
 import ProfileImg from '@src/components/common/ProfileImg';
 import { Onboarding } from '@src/pages/onboarding';
 import { useSignup } from '@src/queires/useSignup';
+import $userSession from '@src/recoil/userSession';
 import { JobCategory } from '@src/types/Member';
 
 import * as S from './ContentFinish.styles';
@@ -18,13 +20,15 @@ const ContentFinish: FC<Props> = (props) => {
 
   const { signup } = useSignup(code);
   const job = onboardingValue.jobCategory as JobCategory;
+  const setUserSession = useSetRecoilState($userSession);
 
   const handleClickSignup = () => {
     const { jobCategory, nickname, workingYears } = onboardingValue;
 
     if (jobCategory === null || nickname === null || workingYears === null) return;
     signup(onboardingValue, {
-      onSuccess: () => {
+      onSuccess: (data) => {
+        setUserSession(data);
         router.push('/');
       },
     });
