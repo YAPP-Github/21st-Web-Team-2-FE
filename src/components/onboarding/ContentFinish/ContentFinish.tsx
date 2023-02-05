@@ -35,7 +35,7 @@ const ContentFinish: FC<Props> = (props) => {
 
   return (
     <S.Wrapper>
-      <ProfileImg jobCategory={job} />
+      <ProfileImg jobCategory={job} size={80} />
       <S.Title>Hello {onboardingValue.name}!</S.Title>
       <S.Title>We are Thumbs UP</S.Title>
       <S.SubTitle>궁금한 토픽을 만들고 같이 이야기 나눠봐요!</S.SubTitle>
