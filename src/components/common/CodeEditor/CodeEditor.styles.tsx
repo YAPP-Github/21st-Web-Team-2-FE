@@ -24,12 +24,12 @@ export const LanguageSelector = styled.select`
   border: none;
 
   ${theme.font.B4}
-  color: white;
+  color: ${theme.color.G8};
 
   cursor: pointer;
   outline: none;
 
-  select {
-    display: none;
+  option {
+    background: ${theme.color.G2};
   }
 `;
