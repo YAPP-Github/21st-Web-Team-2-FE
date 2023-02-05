@@ -14,20 +14,17 @@ interface Props {
 const ContentFinish: FC<Props> = (props) => {
   const { onboardingValue } = props;
   const router = useRouter();
+  const code = router.query.code as string;
 
-  const { signup } = useSignup();
-  const job = onboardingValue.job as JobCategory;
+  const { signup } = useSignup(code);
+  const job = onboardingValue.jobCategory as JobCategory;
 
   const handleClickSignup = () => {
-    const { job, name, year } = onboardingValue;
+    const { jobCategory, nickname, workingYears } = onboardingValue;
 
-    if (job === null || name === null || year === null) return;
+    if (jobCategory === null || nickname === null || workingYears === null) return;
     signup(onboardingValue, {
-      onSuccess: (data) => {
-        // GYU-TODO: 실제 API 작업할때 해당 부분 수정
-        // 현재 member 및 accessToken 부분 브랜치가 분리되어 있어
-        // dev 머지 후 추후 step에 개발
-        console.log('회원가입 완료', data);
+      onSuccess: () => {
         router.push('/');
       },
     });
@@ -36,7 +33,7 @@ const ContentFinish: FC<Props> = (props) => {
   return (
     <S.Wrapper>
       <ProfileImg jobCategory={job} size={80} />
-      <S.Title>Hello {onboardingValue.name}!</S.Title>
+      <S.Title>Hello {onboardingValue.nickname}!</S.Title>
       <S.Title>We are Thumbs UP</S.Title>
       <S.SubTitle>궁금한 토픽을 만들고 같이 이야기 나눠봐요!</S.SubTitle>
       <S.Button onClick={handleClickSignup}>시작하기</S.Button>

@@ -3,8 +3,8 @@ import { useMutation } from '@tanstack/react-query';
 import { signup } from '@src/apis';
 import { Onboarding } from '@src/pages/onboarding';
 
-export const useSignup = () => {
-  const mutation = useMutation((onboarding: Onboarding) => signup(onboarding));
+export const useSignup = (authCode: string) => {
+  const mutation = useMutation((onboarding: Onboarding) => signup(authCode, onboarding));
 
   return {
     ...mutation,

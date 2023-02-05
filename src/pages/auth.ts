@@ -29,7 +29,7 @@ const Auth = () => {
         router.push('/');
       } else {
         // onboarding 으로 이동
-        router.push('/onboarding');
+        router.push(`/onboarding?code=${result.jwtTokens.accessToken}`, '/onboarding');
       }
     };
 

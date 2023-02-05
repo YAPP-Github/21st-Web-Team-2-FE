@@ -23,20 +23,20 @@ const ContentJob: FC<Props> = (props) => {
     if (job === null) return;
 
     if (job === 'etc') {
-      onChangeOnboardingStep('job', etcValue);
+      onChangeOnboardingStep('jobCategory', etcValue);
       return;
     }
 
-    onChangeOnboardingStep('job', job);
+    onChangeOnboardingStep('jobCategory', job);
   };
 
   const { onChangeOnboardingStep, onboardingValue } = props;
 
-  const { name } = onboardingValue;
+  const { nickname } = onboardingValue;
   return (
     <S.Wrapper>
-      <S.Title>Hello {name}!</S.Title>
-      <S.SubTitle>반가워요, {name}님 : )</S.SubTitle>
+      <S.Title>Hello {nickname}!</S.Title>
+      <S.SubTitle>반가워요, {nickname}님 : )</S.SubTitle>
       <S.SubTitle>현재 어떤 일을 하고 계신가요?</S.SubTitle>
       <S.ButtonWrapper>
         <S.SelectButton onClick={() => setJob('developer')} $selected={job === 'developer'}>

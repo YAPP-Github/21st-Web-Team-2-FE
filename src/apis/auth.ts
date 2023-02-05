@@ -30,8 +30,12 @@ export const signin = async (authCode: string) => {
  * 회원가입
  */
 export type PostSignupResponse = BaseResponse<Auth['jwtTokens']>;
-export const signup = async (onboarding: Onboarding) => {
-  const res = await axios.post<PostSignupResponse>(`/auth/signup`, onboarding);
+export const signup = async (authCode: string, onboarding: Onboarding) => {
+  const res = await axios.post<PostSignupResponse>(`/auth/signup`, onboarding, {
+    headers: {
+      'auth-token': authCode,
+    },
+  });
 
   return res.data.data;
 };
