@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { PostTopicRequest } from '@src/apis';
@@ -124,7 +123,7 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
                 <ImgSelector onChange={handleUploadImg(index)}>
                   <Icon name="Image" />
                 </ImgSelector>
-                {image && <Image src={image} alt="vote option image" />}
+                {image && <S.SelectedImage src={image} alt="vote option image" width={232} height={180} />}
               </S.ImgSelectorWrapper>
             )}
           </React.Fragment>

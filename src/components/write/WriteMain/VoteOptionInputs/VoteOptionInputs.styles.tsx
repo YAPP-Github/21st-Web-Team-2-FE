@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
 import theme from '@src/styles/theme';
 
@@ -82,6 +83,7 @@ export const CodeEditorWrapper = styled.div`
 `;
 
 export const ImgSelectorWrapper = styled.div`
+  position: relative;
   margin-left: 164px;
 
   width: 232px;
@@ -89,4 +91,10 @@ export const ImgSelectorWrapper = styled.div`
 
   background-color: ${theme.color.G4};
   border-radius: 4px;
+`;
+
+export const SelectedImage = styled(Image)`
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
