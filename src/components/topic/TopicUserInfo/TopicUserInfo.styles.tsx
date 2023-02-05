@@ -16,16 +16,6 @@ export const MemberSummary = styled.div`
   border-bottom: 1px solid ${theme.color.G5};
 `;
 
-export const Profile = styled(Image)`
-  min-width: 44px;
-  min-height: 44px;
-  width: 44px;
-  height: 44px;
-  background: transparent;
-  background-color: ${theme.color.G7};
-  border-radius: 50%;
-`;
-
 export const MemberWrapper = styled.div`
   line-height: ${theme.lineHeight.B};
 `;

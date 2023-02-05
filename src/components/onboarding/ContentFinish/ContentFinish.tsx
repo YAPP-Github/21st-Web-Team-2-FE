@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 
+import ProfileImg from '@src/components/common/ProfileImg';
 import { Onboarding } from '@src/pages/onboarding';
 import { useSignup } from '@src/queires/useSignup';
+import { JobCategory } from '@src/types/Member';
 
 import * as S from './ContentFinish.styles';
 
@@ -14,7 +16,7 @@ const ContentFinish: FC<Props> = (props) => {
   const router = useRouter();
 
   const { signup } = useSignup();
-  const job = onboardingValue.job as string;
+  const job = onboardingValue.job as JobCategory;
 
   const handleClickSignup = () => {
     const { job, name, year } = onboardingValue;
@@ -33,31 +35,13 @@ const ContentFinish: FC<Props> = (props) => {
 
   return (
     <S.Wrapper>
-      <S.JobIcon name={getJobName(job) as JobImage} size={80} />
+      <ProfileImg jobCategory={job} />
       <S.Title>Hello {onboardingValue.name}!</S.Title>
       <S.Title>We are Thumbs UP</S.Title>
       <S.SubTitle>궁금한 토픽을 만들고 같이 이야기 나눠봐요!</S.SubTitle>
       <S.Button onClick={handleClickSignup}>시작하기</S.Button>
     </S.Wrapper>
   );
-};
-
-type Job = {
-  designer: 'Designer';
-  developer: 'Developer';
-  pm: 'Pm';
-  [key: string]: string;
-};
-type JobImage = 'Designer' | 'Developer' | 'Pm';
-
-const getJobName = (job: keyof Job) => {
-  const jobObj: Job = {
-    designer: 'Designer',
-    developer: 'Developer',
-    pm: 'Pm',
-  };
-
-  return jobObj[job] ?? 'Developer';
 };
 
 export default ContentFinish;

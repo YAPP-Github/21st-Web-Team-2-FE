@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
 
-import { MEMBER } from '@mocks/data/member';
-
-import DefaultImage from '@src/assets/user-default.png';
+import ProfileImg from '@src/components/common/ProfileImg';
 import Member from '@src/types/Member';
 
 import * as S from './UserInfo.styles';
@@ -22,7 +20,7 @@ const UserInfo: FC<Props> = (props) => {
 
   return (
     <S.Wrapper>
-      <S.Profile src={profileImage ?? DefaultImage} alt={nickname} width={size} height={size} />
+      <ProfileImg src={profileImage} jobCategory={jobCategory} size={size} />
       <S.SummaryWrapper>
         <S.UserNickName>{nickname}</S.UserNickName>
         {type === 'full' && (

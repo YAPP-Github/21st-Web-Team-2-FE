@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import DefaultImage from '@src/assets/user-default.png';
+import ProfileImg from '@src/components/common/ProfileImg';
 import TagList from '@src/components/common/TagList';
 import Member from '@src/types/Member';
 
@@ -18,7 +18,7 @@ const TopicUserInfo: FC<Props> = (props) => {
   return (
     <S.Wrapper>
       <S.MemberSummary>
-        <S.Profile src={profileImage ?? DefaultImage} alt={nickname} width={44} height={44} />
+        <ProfileImg size={44} src={profileImage} jobCategory={jobCategory} />
         <S.MemberWrapper>
           <S.MemberNickName>{nickname}</S.MemberNickName>
           <S.MemberInfo>

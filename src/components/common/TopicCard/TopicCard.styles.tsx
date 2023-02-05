@@ -89,18 +89,6 @@ export const AuthorInfo = styled.div`
   gap: 8px;
 `;
 
-export const Profile = styled(Image)`
-  min-width: 28px;
-  min-height: 28px;
-  width: 28px;
-  height: 28px;
-
-  font-size: 0;
-  background-color: ${theme.color.G7};
-
-  border-radius: 50%;
-`;
-
 export const LikeBtn = styled.button`
   display: flex;
   justify-content: center;

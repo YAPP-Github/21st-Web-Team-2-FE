@@ -11,12 +11,6 @@ export const Wrapper = styled.div`
   gap: 8px;
 `;
 
-export const Profile = styled(Image)`
-  background: transparent;
-  background-color: ${theme.color.G7};
-  border-radius: 50%;
-`;
-
 export const SummaryWrapper = styled.div`
   display: flex;
   flex-direction: column;

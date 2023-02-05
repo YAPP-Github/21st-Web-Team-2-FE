@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import USER_DEFAULT from '@src/assets/user-default.png';
+import ProfileImg from '@src/components/common/ProfileImg';
 import ShareIcon from '@src/components/common/ShareIcon';
 import Topic from '@src/types/Topic';
 import VoteOption from '@src/types/VoteOption';
@@ -79,7 +79,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
       <S.TopicBottom>
         {isFeed ? (
           <S.AuthorInfo>
-            <S.Profile src={member.profileImage || USER_DEFAULT} alt={member.nickname} width="28" height="28" />
+            <ProfileImg src={member.profileImage} jobCategory={member.jobCategory} />
             <span>{member.nickname}</span>
           </S.AuthorInfo>
         ) : (
