@@ -11,7 +11,7 @@ const TextAreaCodeEditor = dynamic(() => import('@uiw/react-textarea-code-editor
 });
 
 export interface CodeEditorProps extends TextareaCodeEditorProps {
-  value: string;
+  value?: string;
   language: Languages;
   onChangeLanguage?: (language: Languages) => void;
 }
