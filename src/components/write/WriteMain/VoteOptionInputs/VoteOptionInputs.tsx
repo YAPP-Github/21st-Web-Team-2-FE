@@ -49,11 +49,7 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
   const handleChangeCodeLanguage = (targetId: number) => (language: Languages) => {
     const changed = [...options];
     const index = options.findIndex(({ id }) => id === targetId);
-    const target = changed[index].codeBlock;
-    changed[index].codeBlock = {
-      language,
-      contents: target?.contents || '',
-    };
+    changed[index].language = language;
     setOptions(changed);
   };
 
@@ -61,11 +57,7 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
     const { value } = event.target;
     const index = options.findIndex(({ id }) => id === targetId);
     const changed = [...options];
-    const target = changed[index].codeBlock;
-    changed[index].codeBlock = {
-      language: target?.language || 'javascript',
-      contents: value,
-    };
+    changed[index].codeBlock = value;
     setOptions(changed);
   };
 
@@ -97,37 +89,39 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
         ))}
       </PS.ButtonContainer>
       <S.OptionsContainer>
-        {(selected === 'text' ? options : options.slice(0, 2)).map(({ id, text, image, codeBlock }, index) => (
-          <React.Fragment key={id}>
-            <S.Label>
-              <S.LabelText>항목{index + 1}</S.LabelText>
-              <Input placeholder="항목을 입력해주세요." value={text} maxLength={20} onChange={handleChangeText(id)} />
-              {selected === 'text' && options.length > 2 && (
-                <S.DeleteBtn onClick={handleDeleteOption(id)}>
-                  <Icon name="X" color="G8" size={18} />
-                </S.DeleteBtn>
+        {(selected === 'text' ? options : options.slice(0, 2)).map(
+          ({ id, text, image, language, codeBlock }, index) => (
+            <React.Fragment key={id}>
+              <S.Label>
+                <S.LabelText>항목{index + 1}</S.LabelText>
+                <Input placeholder="항목을 입력해주세요." value={text} maxLength={20} onChange={handleChangeText(id)} />
+                {selected === 'text' && options.length > 2 && (
+                  <S.DeleteBtn onClick={handleDeleteOption(id)}>
+                    <Icon name="X" color="G8" size={18} />
+                  </S.DeleteBtn>
+                )}
+              </S.Label>
+              {selected.includes('code') && (
+                <S.CodeEditorWrapper>
+                  <CodeEditor
+                    value={codeBlock || ''}
+                    language={language || 'javascript'}
+                    onChangeLanguage={handleChangeCodeLanguage(id)}
+                    onChange={handleChangeCode(id)}
+                  />
+                </S.CodeEditorWrapper>
               )}
-            </S.Label>
-            {selected.includes('code') && (
-              <S.CodeEditorWrapper>
-                <CodeEditor
-                  value={codeBlock?.contents || ''}
-                  language={codeBlock?.language || 'javascript'}
-                  onChangeLanguage={handleChangeCodeLanguage(id)}
-                  onChange={handleChangeCode(id)}
-                />
-              </S.CodeEditorWrapper>
-            )}
-            {selected.includes('img') && (
-              <S.ImgSelectorWrapper>
-                <ImgSelector onChange={handleUploadImg(index)}>
-                  <Icon name="Image" />
-                </ImgSelector>
-                {image && <S.SelectedImage src={image} alt="vote option image" width={232} height={180} />}
-              </S.ImgSelectorWrapper>
-            )}
-          </React.Fragment>
-        ))}
+              {selected.includes('img') && (
+                <S.ImgSelectorWrapper>
+                  <ImgSelector onChange={handleUploadImg(index)}>
+                    <Icon name="Image" />
+                  </ImgSelector>
+                  {image && <S.SelectedImage src={image} alt="vote option image" width={232} height={180} />}
+                </S.ImgSelectorWrapper>
+              )}
+            </React.Fragment>
+          ),
+        )}
         {selected === 'text' && options.length < 4 && <S.AddOption onClick={handleAddOption}>+ 항목 추가</S.AddOption>}
       </S.OptionsContainer>
     </PS.Section>
