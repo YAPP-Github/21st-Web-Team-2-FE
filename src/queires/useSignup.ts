@@ -4,9 +4,10 @@ import { signup } from '@src/apis';
 import { Onboarding } from '@src/pages/onboarding';
 
 export const useSignup = () => {
-  const mutateSignup = useMutation((onboarding: Onboarding) => signup(onboarding));
+  const mutation = useMutation((onboarding: Onboarding) => signup(onboarding));
 
   return {
-    mutateSignup,
+    ...mutation,
+    signup: mutation.mutate,
   };
 };

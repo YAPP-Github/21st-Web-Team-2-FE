@@ -9,6 +9,11 @@ import ContentYear from '@src/components/onboarding/ContentYear';
 import OnboardingLayout from '@src/components/onboarding/OnboardingLayout';
 
 const LAST_STEP = 3;
+const TITLES: { [key in number]: string } = {
+  1: '1. 닉네임 설정',
+  2: '2. 직군 설정',
+  3: '3. 연차 설정',
+};
 const initialState: Onboarding = {
   name: null,
   job: null,
@@ -40,20 +45,12 @@ const Onboarding: NextPage = () => {
       <OnboardingLayout
         currentStep={currentStep > 3 ? undefined : currentStep}
         lastStep={LAST_STEP}
-        title={getTitle(currentStep)}
+        title={TITLES[currentStep]}
       >
         {getContent(currentStep, handleChangeOnboarding, onboardingValue)}
       </OnboardingLayout>
     </SingleContentLayout>
   );
-};
-
-const getTitle = (currentStep: number) => {
-  if (currentStep === 1) return '1. 닉네임 설정';
-  if (currentStep === 2) return '2. 직군 설정';
-  if (currentStep === 3) return '3. 연차 설정';
-
-  return undefined;
 };
 
 const getContent = (

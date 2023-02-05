@@ -12,7 +12,7 @@ const ContentName: FC<Props> = (props) => {
   const [name, setName] = useState('');
   const [error, setError] = useState(false);
 
-  const { mutateCheckNickName } = useCheckNickname();
+  const { checkNickName } = useCheckNickname();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -23,7 +23,7 @@ const ContentName: FC<Props> = (props) => {
   };
 
   const handleClick = async () => {
-    mutateCheckNickName.mutate(name, {
+    checkNickName(name, {
       onSuccess: (data) => {
         if (data && data.isDuplicated) {
           setError(true);

@@ -13,14 +13,14 @@ const ContentFinish: FC<Props> = (props) => {
   const { onboardingValue } = props;
   const router = useRouter();
 
-  const { mutateSignup } = useSignup();
+  const { signup } = useSignup();
   const job = onboardingValue.job as string;
 
   const handleClickSignup = () => {
     const { job, name, year } = onboardingValue;
 
     if (job === null || name === null || year === null) return;
-    mutateSignup.mutate(onboardingValue, {
+    signup(onboardingValue, {
       onSuccess: (data) => {
         // GYU-TODO: 실제 API 작업할때 해당 부분 수정
         // 현재 member 및 accessToken 부분 브랜치가 분리되어 있어
