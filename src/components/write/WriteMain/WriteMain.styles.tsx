@@ -62,7 +62,8 @@ export const Label = styled.label`
   display: flex;
   align-items: start;
 
-  width: calc(100% - 38px);
+  padding-right: 38px;
+  width: 100%;
 
   input {
     height: 30px;

@@ -7,7 +7,8 @@ export const Label = styled.label`
   display: flex;
   align-items: start;
 
-  width: calc(100% - 38px);
+  padding-right: 38px;
+  width: 100%;
 
   input {
     height: 30px;
@@ -29,7 +30,7 @@ export const LabelText = styled.p`
 
 export const DeleteBtn = styled.button`
   position: absolute;
-  right: -36px;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   padding: 0;
