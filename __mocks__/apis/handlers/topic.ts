@@ -2,7 +2,7 @@ import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
 import { POPULAR_TOPICS, TOPICS, TOPIC_DETAIL } from '@mocks/data/topic';
 
-import { GetPopularTopicsResponse, GetTopicDetailResponse, GetTopicsResponse, GetTopicsResponseData } from '@src/apis';
+import { GetPopularTopicsResponse, GetTopicDetailResponse, GetTopicsResponse, GetTopicsResponseData, PostTopicRequest } from '@src/apis';
 import { BASE_URL } from '@src/configs/axios';
 
 const getTopics = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
@@ -50,8 +50,13 @@ const getTopic = (req: RestRequest, res: ResponseComposition, ctx: RestContext) 
   );
 };
 
+const createTopic = (req: RestRequest<PostTopicRequest>, res: ResponseComposition, ctx: RestContext) => {
+  return res(ctx.status(201));
+};
+
 export const topicDetailHandler = [
   rest.get(`${BASE_URL}/topic/latest`, getTopics),
   rest.get(`${BASE_URL}/topic/popular`, getPopularTopics),
   rest.get(`${BASE_URL}/topic/:topicId`, getTopic),
+  rest.post(`${BASE_URL}/topic`, createTopic),
 ];

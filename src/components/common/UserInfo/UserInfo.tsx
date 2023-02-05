@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 
-import { MEMBER } from '@mocks/data/member';
-
 import DefaultImage from '@src/assets/user-default.png';
 import Member from '@src/types/Member';
 

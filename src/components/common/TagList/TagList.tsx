@@ -12,12 +12,12 @@ export interface TagListProps {
 }
 
 const TagList: React.FC<TagListProps> = (props) => {
-  const { tags, onClick, onDelete } = props;
+  const { tags, type, onClick, onDelete } = props;
 
   return (
     <S.Container>
       {tags.map((tag, index) => (
-        <TagListItem key={index} value={tag} onClick={onClick} onDelete={onDelete} />
+        <TagListItem key={index} value={tag} type={type} onClick={onClick} onDelete={onDelete} />
       ))}
     </S.Container>
   );

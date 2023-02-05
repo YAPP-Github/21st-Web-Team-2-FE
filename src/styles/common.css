@@ -67,3 +67,7 @@ a:active {
   text-decoration: none;
   outline: none;
 }
+
+button {
+  cursor: pointer;
+}
