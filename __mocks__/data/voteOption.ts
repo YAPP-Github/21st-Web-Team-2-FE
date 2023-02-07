@@ -6,6 +6,7 @@ export const VOTE_OPTION: VoteOption = {
   voteOptionId: 1,
   text: 'Content1 OptionA',
   image: null,
+  language: null,
   codeBlock: null,
   voted: false,
   voteAmount: 1,
@@ -26,9 +27,7 @@ export const VOTE_OPTION_WITH_IMAGE: VoteOption = {
   image: TEST_IMAGE,
 };
 
-export const CODE_BLOCK: VoteOption['codeBlock'] = {
-  language: 'js',
-  contents: `
+export const CODE_BLOCK: VoteOption['codeBlock'] = `
 import React, { MouseEvent } from 'react';
 
 import { Languages } from '@src/components/common/CodeEditor';
@@ -74,12 +73,12 @@ const SelectOption = (props: SelectOptionProps) => {
 };
 
 export default SelectOption;
-    `,
-};
+`;
 
 export const VOTE_OPTION_WITH_CODE: VoteOption = {
   ...VOTE_OPTION,
   voteOptionId: 9,
   text: '코드가 있어요!',
+  language: 'javascript',
   codeBlock: CODE_BLOCK,
 };

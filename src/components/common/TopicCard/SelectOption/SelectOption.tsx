@@ -14,7 +14,7 @@ interface SelectOptionProps extends VoteOption {
 }
 
 const SelectOption = (props: SelectOptionProps) => {
-  const { voteOptionId, text, rate = 0, result = false, selected = false, image, codeBlock, onClick } = props;
+  const { voteOptionId, text, rate = 0, result = false, selected = false, image, language, codeBlock, onClick } = props;
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -39,7 +39,7 @@ const SelectOption = (props: SelectOptionProps) => {
       )}
       {codeBlock && (
         <S.CodeBlockWrapper>
-          <CodeEditor language={codeBlock.language as Languages} value={codeBlock.contents} disabled />
+          <CodeEditor language={language || 'javascript'} value={codeBlock} disabled />
           <S.CodeBlockGradiant />
         </S.CodeBlockWrapper>
       )}

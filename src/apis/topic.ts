@@ -36,11 +36,10 @@ export const getPopularTopics = async () => {
 };
 
 export interface PostTopicRequest extends Pick<Topic, 'title' | 'contents' | 'tags'> {
-  voteOptions: Pick<VoteOption, 'text' | 'image' | 'codeBlock'>[];
+  voteOptions: Pick<VoteOption, 'text' | 'image' | 'language' | 'codeBlock'>[];
   topicCategory: TopicCategory;
 }
 
 export const createTopic = (data: PostTopicRequest) => {
   return axios.post('/topic', data);
 };
-
