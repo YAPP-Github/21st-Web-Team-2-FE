@@ -12,10 +12,6 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 
-export const JobIcon = styled(Icon)`
-  border-radius: 50%;
-`;
-
 export const Title = styled.p`
   color: ${theme.color.Primary1};
   font-size: 28px;
