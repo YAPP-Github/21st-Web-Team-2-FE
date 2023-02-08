@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import Topic from '@src/types/Topic';
+import Topic, { TopicCategory } from '@src/types/Topic';
+import VoteOption from '@src/types/VoteOption';
 
 import { BasePaginationResponse, BaseResponse } from './';
 
@@ -32,4 +33,13 @@ export const getPopularTopics = async () => {
   const res = await axios.get<GetPopularTopicsResponse>('/topic/popular');
 
   return res.data.data;
+};
+
+export interface PostTopicRequest extends Pick<Topic, 'title' | 'contents' | 'tags'> {
+  voteOptions: Pick<VoteOption, 'text' | 'image' | 'language' | 'codeBlock'>[];
+  topicCategory: TopicCategory;
+}
+
+export const createTopic = (data: PostTopicRequest) => {
+  return axios.post('/topic', data);
 };

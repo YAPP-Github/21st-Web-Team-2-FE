@@ -5,8 +5,6 @@ import Member from '@src/types/Member';
 
 import * as S from './UserInfo.styles';
 
-// TODO-GYU: 로그인 관련해서 user api 방식에 따라 달라질 예정
-// 우선 Member 의 MockData 로 처리
 interface Props {
   type?: 'simple' | 'full';
   member: Member;

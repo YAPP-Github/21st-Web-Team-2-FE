@@ -1,4 +1,4 @@
-export const LANGUAGES = [
+const DEFAULT_LANGUAGES = [
   'abap',
   'aes',
   'apex',
@@ -94,6 +94,44 @@ export const LANGUAGES = [
   'vue',
   'xml',
   'yaml',
-] as const;
+];
+
+export const LANGUAGES = [
+  'javascript',
+  'html',
+  'css',
+  'scss',
+  'sql',
+  'python',
+  'typescript',
+  'java',
+  'shell',
+  'csharp',
+  'cpp',
+  'php',
+  'c',
+  'powershell',
+  'go',
+  'rust',
+  'kotlin',
+  'dart',
+  'ruby',
+  'assembly',
+  'swift',
+  'r',
+  'vba',
+  'matlab',
+  'lua',
+  'groovy',
+  'delphi',
+  'scala',
+  'objective-c',
+  'jsx',
+  'tsx',
+  'vue',
+  'json'
+]
+  .filter((lang) => DEFAULT_LANGUAGES.includes(lang))
+  .sort();
 
 export type Languages = typeof LANGUAGES[number];

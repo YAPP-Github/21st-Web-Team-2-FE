@@ -4,7 +4,6 @@ import * as S from './TextArea.styles';
 
 interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   value: string;
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const TextArea: FC<Props> = (props) => {
@@ -13,7 +12,7 @@ const TextArea: FC<Props> = (props) => {
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     if (maxLength && e.target.value.length > maxLength) return;
 
-    onChange(e);
+    onChange && onChange(e);
   };
 
   const isTyped = !!value;

@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof CodeEditor> = (args) => <CodeEditor {...ar
 
 export const Default = Template.bind({});
 Default.args = {
-  language: 'js',
-  value: CODE_BLOCK?.contents,
+  language: 'javascript',
+  value: CODE_BLOCK as string,
   disabled: false,
 };
