@@ -6,7 +6,9 @@ export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const initAxiosConfig = () => {
   axios.defaults.baseURL = BASE_URL ?? '';
+};
 
+export const interceptorsAxiosConfig = () => {
   axios.interceptors.request.use((config: AxiosRequestConfig<any>) => {
     const user = localStorage.getItem('user');
 
