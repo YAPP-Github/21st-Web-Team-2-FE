@@ -14,7 +14,8 @@ import '@src/configs/recoil';
 import queryClient from '../configs/queryClient';
 
 initAxiosConfig();
-if (process.env.NODE_ENV === 'development') {
+
+if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_MSW === 'true') {
   if (typeof window === 'undefined') {
     (async () => {
       const { server } = await import('@mocks/apis/server');
