@@ -15,14 +15,14 @@ const TITLES: { [key in number]: string } = {
   3: '3. 연차 설정',
 };
 const initialState: Onboarding = {
-  name: null,
-  job: null,
-  year: null,
+  nickname: null,
+  jobCategory: null,
+  workingYears: null,
 };
 export interface Onboarding {
-  name: string | null;
-  job: string | null;
-  year: number | null;
+  nickname: string | null;
+  jobCategory: string | null;
+  workingYears: number | null;
 }
 
 export type OnboardingKey = keyof Onboarding;

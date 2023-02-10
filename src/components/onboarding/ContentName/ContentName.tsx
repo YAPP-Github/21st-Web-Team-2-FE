@@ -1,12 +1,13 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 
 import Input from '@src/components/common/Input';
+import { OnboardingKey } from '@src/pages/onboarding';
 import { useCheckNickname } from '@src/queires/useCheckNickname';
 
 import * as S from './ContentName.styles';
 
 interface Props {
-  onChangeOnboardingStep: (key: 'name' | 'job' | 'year', value: string) => void;
+  onChangeOnboardingStep: (key: OnboardingKey, value: string) => void;
 }
 const ContentName: FC<Props> = (props) => {
   const [name, setName] = useState('');
@@ -30,7 +31,7 @@ const ContentName: FC<Props> = (props) => {
           return;
         }
 
-        onChangeOnboardingStep('name', name);
+        onChangeOnboardingStep('nickname', name);
       },
     });
   };
