@@ -5,12 +5,8 @@ import Member from '@src/types/Member';
 
 export type GetMemberResponse = BaseResponse<Member>;
 
-export const getMember = async (token: string) => {
-  const res = await axios.get<GetMemberResponse>('/member', {
-    headers: {
-      Authorization: token,
-    },
-  });
+export const getMember = async () => {
+  const res = await axios.get<GetMemberResponse>('/member');
 
   return res.data;
 };

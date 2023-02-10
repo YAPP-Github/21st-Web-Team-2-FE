@@ -9,11 +9,13 @@ import '@src/styles/reset.css';
 import '@src/styles/common.css';
 
 import { initAxiosConfig } from '@src/configs/axios';
+import queryClient from '@src/configs/queryClient';
 import '@src/configs/recoil';
+import isServer from '@src/utils/isServer';
 
-import queryClient from '../configs/queryClient';
-
-initAxiosConfig();
+if (!isServer()) {
+  initAxiosConfig();
+}
 
 if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_MSW === 'true') {
   if (typeof window === 'undefined') {
