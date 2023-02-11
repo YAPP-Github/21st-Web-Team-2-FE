@@ -33,6 +33,7 @@ jobs:
           echo "API_URL=$API_URL" >> .env
           echo "NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL" >> .env
           echo "NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID" >> .env
+          echo "NEXT_PUBLIC_MSW=$NEXT_PUBLIC_MSW" >> .env
         env:
           API_HOSTNAME: ${{ secrets.API_HOSTNAME }}
           API_PORT: ${{ secrets.API_PORT }}
@@ -40,6 +41,7 @@ jobs:
           API_URL: ${{ secrets.API_URL }}
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
           NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
+          NEXT_PUBLIC_MSW: ${{ secrets.NEXT_PUBLIC_MSW }}
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1

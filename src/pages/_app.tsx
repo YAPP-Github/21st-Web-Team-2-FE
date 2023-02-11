@@ -8,13 +8,18 @@ import '@src/styles/reset.css';
 
 import '@src/styles/common.css';
 
-import { initAxiosConfig } from '@src/configs/axios';
+import { initAxiosConfig, interceptorsAxiosConfig } from '@src/configs/axios';
+import queryClient from '@src/configs/queryClient';
 import '@src/configs/recoil';
-
-import queryClient from '../configs/queryClient';
+import isServer from '@src/utils/isServer';
 
 initAxiosConfig();
-if (process.env.NODE_ENV === 'development') {
+
+if (!isServer()) {
+  interceptorsAxiosConfig();
+}
+
+if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_MSW === 'true') {
   if (typeof window === 'undefined') {
     (async () => {
       const { server } = await import('@mocks/apis/server');

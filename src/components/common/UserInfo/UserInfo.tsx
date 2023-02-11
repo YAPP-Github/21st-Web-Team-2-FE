@@ -23,7 +23,7 @@ const UserInfo: FC<Props> = (props) => {
         <S.UserNickName>{nickname}</S.UserNickName>
         {type === 'full' && (
           <S.UserInfo>
-            {jobCategory}·{workingYears}년차
+            {jobCategory}·{workingYears}
           </S.UserInfo>
         )}
       </S.SummaryWrapper>

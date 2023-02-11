@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 import { GetTopicsResponseData } from '@src/apis';
 import Icon from '@src/components/common/Icon';
 import TopicCard from '@src/components/common/TopicCard';
-import useProfile from '@src/queires/useProfile';
+import useMember from '@src/queires/useMember';
 import $userSession from '@src/recoil/userSession';
 
 import * as S from './TopicCarousel.styles';
@@ -21,7 +21,7 @@ const TRANSITION = 'all 0.5s ease-in-out';
 const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) => {
   const { topics } = props;
   const tokens = useRecoilValue($userSession);
-  const { data: member } = useProfile(tokens?.accessToken);
+  const { data: member } = useMember(tokens?.accessToken);
 
   const carouselTopics = [{ ...topics[topics.length - 1], topicId: -1 }, ...topics, { ...topics[0], topicId: -2 }];
   const [current, setCurrent] = useState<number>(1);

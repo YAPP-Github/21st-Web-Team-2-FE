@@ -20,6 +20,6 @@ export const MEMBER_PM: Member = {
   memberId: 2,
   nickname: 'PM',
   profileImage: null,
-  jobCategory: 'product_manager',
+  jobCategory: 'pm',
   workingYears: 5,
 };

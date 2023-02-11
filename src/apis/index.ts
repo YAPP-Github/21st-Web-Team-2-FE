@@ -3,6 +3,11 @@ export * from './comment';
 export * from './auth';
 export * from './member';
 
+export interface ErrorResponse {
+  code: string;
+  message: string;
+}
+
 export interface BaseResponse<T> {
   message: string;
   code: string;

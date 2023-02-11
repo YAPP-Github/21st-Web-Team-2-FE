@@ -8,9 +8,20 @@ import Topic from '@src/types/Topic';
 
 interface Props {
   topicDetail: Topic;
+  error: boolean;
 }
 
-const TopicDetail: NextPage<Props> = ({ topicDetail }) => {
+const TopicDetail: NextPage<Props> = ({ topicDetail, error }) => {
+  // GYU-TODO: ErrorPage UI 에 따라 달라짐
+  if (error) {
+    return (
+      <DefaultLayout //
+        side={null}
+        main={<div>Error Page</div>}
+      />
+    );
+  }
+
   const { member, tags } = topicDetail;
 
   return (
@@ -24,12 +35,16 @@ const TopicDetail: NextPage<Props> = ({ topicDetail }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const topicId = Number(context.query.id);
   if (topicId) {
-    const topicDetail = await getTopicDetail(topicId);
+    try {
+      const topicDetail = await getTopicDetail(topicId);
 
-    return { props: { topicDetail } };
+      return { props: { topicDetail } };
+    } catch (error) {
+      return { props: { topicDetail: null, error: true } };
+    }
   }
 
-  return { props: {} };
+  return { props: { topicDetail: null, error: true } };
 };
 
 export default TopicDetail;
