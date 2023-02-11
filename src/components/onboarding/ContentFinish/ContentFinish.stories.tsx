@@ -13,8 +13,8 @@ const Template: ComponentStory<typeof ContentFinish> = ({ ...args }) => <Content
 export const Default = Template.bind({});
 Default.args = {
   onboardingValue: {
-    name: 'Typing',
-    job: 'developer',
-    year: 2,
+    nickname: 'Typing',
+    jobCategory: 'developer',
+    workingYears: 2,
   },
 };
