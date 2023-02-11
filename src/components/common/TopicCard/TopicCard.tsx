@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import ProfileImg from '@src/components/common/ProfileImg';
 import ShareIcon from '@src/components/common/ShareIcon';
+import { useVote } from '@src/queires/useVote';
 import Topic from '@src/types/Topic';
 import VoteOption from '@src/types/VoteOption';
 
@@ -19,6 +20,8 @@ interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
 
 const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
   const { topicId, title, contents, voteOptions: defaultOptions, member, commentAmount, badge, type, onClick } = props;
+  const { vote } = useVote();
+
   const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
   const selectedOption = options.find((option) => option.voted);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(selectedOption?.voteOptionId || null);
@@ -26,25 +29,28 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
 
   const isFeed = type === 'feed';
 
-  const handleClickOption = (id: number) => {
+  const handleClickOption = (voteOptionId: number) => {
     const changed = options.map((option) => {
       if (option.voteOptionId === selectedOptionId) {
         option.voteAmount -= 1;
         return option;
       }
-      if (option.voteOptionId === id) {
+      if (option.voteOptionId === voteOptionId) {
         option.voteAmount += 1;
       }
       return option;
     });
     setOptions(changed);
-    setSelectedOptionId(id);
+    setSelectedOptionId(voteOptionId);
 
-    if (selectedOptionId === id) {
+    if (selectedOptionId === voteOptionId) {
       setSelectedOptionId(null);
     }
 
-    // TODO: api
+    vote({
+      topicId,
+      voteOptionId,
+    });
   };
 
   return (

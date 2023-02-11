@@ -21,6 +21,7 @@ const Template: ComponentStory<typeof TopicCard> = (args) => <TopicCard {...args
 
 export const Default = Template.bind({});
 Default.args = {
+  topicId: 1,
   title: 'Title',
   contents: 'contents',
   voteOptions: VOTE_OPTIONS,

@@ -2,6 +2,7 @@ export * from './topic';
 export * from './comment';
 export * from './auth';
 export * from './member';
+export * from './vote';
 
 export interface ErrorResponse {
   code: string;
