@@ -7,6 +7,6 @@ export const useVote = () => {
 
   return {
     ...mutation,
-    vote: mutation.mutate,
+    vote: mutation.mutateAsync,
   };
 };

@@ -1,8 +1,12 @@
+import { AxiosError } from 'axios';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import ProfileImg from '@src/components/common/ProfileImg';
 import ShareIcon from '@src/components/common/ShareIcon';
 import { useVote } from '@src/queires/useVote';
+import $userSession from '@src/recoil/userSession';
 import Topic from '@src/types/Topic';
 import VoteOption from '@src/types/VoteOption';
 
@@ -20,6 +24,8 @@ interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
 
 const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
   const { topicId, title, contents, voteOptions: defaultOptions, member, commentAmount, badge, type, onClick } = props;
+  const tokens = useRecoilValue($userSession);
+  const router = useRouter();
   const { vote } = useVote();
 
   const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
@@ -29,7 +35,25 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
 
   const isFeed = type === 'feed';
 
-  const handleClickOption = (voteOptionId: number) => {
+  const handleClickOption = async (voteOptionId: number) => {
+    if (!tokens) {
+      alert('로그인이 필요합니다!');
+      await router.push('/login');
+      return;
+    }
+
+    try {
+      await vote({
+        topicId,
+        voteOptionId,
+      });
+    } catch (err) {
+      // TODO: 에러핸들링 추가 필요
+      alert('로그인이 필요합니다!');
+      await router.push('/login');
+      return;
+    }
+
     const changed = options.map((option) => {
       if (option.voteOptionId === selectedOptionId) {
         option.voteAmount -= 1;
@@ -46,11 +70,6 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
     if (selectedOptionId === voteOptionId) {
       setSelectedOptionId(null);
     }
-
-    vote({
-      topicId,
-      voteOptionId,
-    });
   };
 
   return (
