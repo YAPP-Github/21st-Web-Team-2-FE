@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
 
-import CodeEditor, { Languages } from '@src/components/common/CodeEditor';
+import CodeEditor from '@src/components/common/CodeEditor';
 import Icon from '@src/components/common/Icon';
 import VoteOption from '@src/types/VoteOption';
 

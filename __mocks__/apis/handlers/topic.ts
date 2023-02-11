@@ -2,7 +2,13 @@ import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 
 import { POPULAR_TOPICS, TOPICS, TOPIC_DETAIL } from '@mocks/data/topic';
 
-import { GetPopularTopicsResponse, GetTopicDetailResponse, GetTopicsResponse, GetTopicsResponseData, PostTopicRequest } from '@src/apis';
+import {
+  GetPopularTopicsResponse,
+  GetTopicDetailResponse,
+  GetTopicsResponse,
+  GetTopicsResponseData,
+  PostTopicRequest,
+} from '@src/apis';
 import { BASE_URL } from '@src/configs/axios';
 
 const getTopics = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
