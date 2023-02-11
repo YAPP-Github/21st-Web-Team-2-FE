@@ -27,6 +27,10 @@ export const VOTE_OPTION_WITH_IMAGE: VoteOption = {
   image: TEST_IMAGE,
 };
 
+export const SHORT_CODE: VoteOption['codeBlock'] = `
+  console.log('hi');
+`;
+
 export const CODE_BLOCK: VoteOption['codeBlock'] = `
 import React, { MouseEvent } from 'react';
 
@@ -81,4 +85,12 @@ export const VOTE_OPTION_WITH_CODE: VoteOption = {
   text: '코드가 있어요!',
   language: 'javascript',
   codeBlock: CODE_BLOCK,
+};
+
+export const VOTE_OPTION_WITH_SHORT_CODE: VoteOption = {
+  ...VOTE_OPTION,
+  voteOptionId: 10,
+  text: '코드가 있어요!',
+  language: 'javascript',
+  codeBlock: SHORT_CODE,
 };
