@@ -8,8 +8,8 @@ interface Props {
   /**
    * hex값 string 또는 color string(red, blue, ...)
    */
-  color: string;
-  size: number;
+  color?: string;
+  size?: number;
 }
 const LoadingSpinner: FC<Props> = (props) => {
   const { color = theme.color.Primary1, size = 50 } = props;
