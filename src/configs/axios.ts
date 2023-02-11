@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 import { Auth } from '@src/apis';
+import { localstorageKeys } from '@src/constants/localstorage';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -10,7 +11,7 @@ export const initAxiosConfig = () => {
 
 export const interceptorsAxiosConfig = () => {
   axios.interceptors.request.use((config: AxiosRequestConfig<any>) => {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem(localstorageKeys.user);
 
     if (!user) return config;
 
