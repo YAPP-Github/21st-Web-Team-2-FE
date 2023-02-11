@@ -19,7 +19,7 @@ const SelectButton = styled.button<SelectButtonProps>`
   font-size: ${theme.textSize.B1};
   line-height: ${theme.lineHeight.B};
   color: ${theme.color.G8};
-  
+
   cursor: pointer;
 
   &:hover {

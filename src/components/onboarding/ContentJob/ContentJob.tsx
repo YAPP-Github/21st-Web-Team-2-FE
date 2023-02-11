@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useState } from 'react';
 
 import Icon from '@src/components/common/Icon';
 import Input from '@src/components/common/Input';
-import { Onboarding, OnboardingKey } from '@src/pages/onboarding';
+import { Onboarding, OnboardingKey } from '@src/pages/onboarding/index.page';
 
 import * as S from './ContentJob.styles';
 

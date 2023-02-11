@@ -129,7 +129,7 @@ export const LANGUAGES = [
   'jsx',
   'tsx',
   'vue',
-  'json'
+  'json',
 ]
   .filter((lang) => DEFAULT_LANGUAGES.includes(lang))
   .sort();

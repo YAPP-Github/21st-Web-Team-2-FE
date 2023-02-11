@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { TOPIC_DETAIL } from '@mocks/data/topic';
 
-import TopicDetail from './[id]';
+import TopicDetail from './[id].page';
 
 export default {
   title: 'pages/TopicDetail',

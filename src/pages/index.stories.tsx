@@ -3,7 +3,7 @@ import React from 'react';
 
 import { POPULAR_TOPICS } from '@mocks/data/topic';
 
-import Home from '.';
+import Home from './index.page';
 
 export default {
   component: Home,

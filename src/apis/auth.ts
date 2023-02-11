@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { Onboarding } from '@src/pages/onboarding';
+import { Onboarding } from '@src/pages/onboarding/index.page';
 
 import { BaseResponse } from '.';
 

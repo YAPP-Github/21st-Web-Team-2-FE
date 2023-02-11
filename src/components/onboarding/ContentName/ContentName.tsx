@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 
 import Input from '@src/components/common/Input';
-import { OnboardingKey } from '@src/pages/onboarding';
+import { OnboardingKey } from '@src/pages/onboarding/index.page';
 import { useCheckNickname } from '@src/queires/useCheckNickname';
 
 import * as S from './ContentName.styles';
