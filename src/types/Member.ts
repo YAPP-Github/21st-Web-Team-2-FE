@@ -3,7 +3,7 @@ export default interface Member {
   nickname: string;
   profileImage?: string | null;
   jobCategory: JobCategory;
-  workingYears: number;
+  workingYears: string;
 }
 
 export type JobCategory = 'designer' | 'developer' | 'pm';

@@ -18,7 +18,7 @@ const CommentListItem: FC<Props> = (props) => {
         <S.UserWrapper>
           <S.UserNickName>{member.nickname}</S.UserNickName>
           <S.UserInfo>
-            {member.jobCategory}·{member.workingYears}연차
+            {member.jobCategory}·{member.workingYears}
           </S.UserInfo>
         </S.UserWrapper>
         <S.Comment>{contents}</S.Comment>

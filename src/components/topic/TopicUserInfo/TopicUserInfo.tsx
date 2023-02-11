@@ -22,7 +22,7 @@ const TopicUserInfo: FC<Props> = (props) => {
         <S.MemberWrapper>
           <S.MemberNickName>{nickname}</S.MemberNickName>
           <S.MemberInfo>
-            {jobCategory}·{workingYears}연차
+            {jobCategory}·{workingYears}
           </S.MemberInfo>
         </S.MemberWrapper>
       </S.MemberSummary>
