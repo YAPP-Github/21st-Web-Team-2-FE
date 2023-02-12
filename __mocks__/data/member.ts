@@ -5,7 +5,7 @@ export const MEMBER: Member = {
   nickname: 'Developer',
   profileImage: null,
   jobCategory: 'developer',
-  workingYears: 3,
+  workingYears: '1년 미만',
 };
 
 export const MEMBER_DESIGNER: Member = {
@@ -13,7 +13,7 @@ export const MEMBER_DESIGNER: Member = {
   nickname: 'Designer',
   profileImage: null,
   jobCategory: 'designer',
-  workingYears: 5,
+  workingYears: '5년차',
 };
 
 export const MEMBER_PM: Member = {
@@ -21,5 +21,5 @@ export const MEMBER_PM: Member = {
   nickname: 'PM',
   profileImage: null,
   jobCategory: 'pm',
-  workingYears: 5,
+  workingYears: '5년차',
 };
