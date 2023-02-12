@@ -7,9 +7,10 @@ interface Props {
   placeholder: string;
   rows?: number;
   onSubmit: (commentValue: string) => void;
+  disabled?: boolean;
 }
 const CommentForm: FC<Props> = (props) => {
-  const { placeholder, rows, onSubmit } = props;
+  const { placeholder, rows, disabled, onSubmit } = props;
 
   const [value, setValue] = useState('');
 
@@ -27,12 +28,18 @@ const CommentForm: FC<Props> = (props) => {
   };
 
   return (
-    <S.Form onSubmit={handleSubmit}>
+    <S.Form onSubmit={handleSubmit} $disabled={!!disabled}>
       <S.TextAreaWrapper>
-        <S.TextArea rows={rows ?? 3} placeholder={placeholder} value={value} onChange={handleChange} />
+        <S.TextArea
+          rows={rows ?? 3}
+          placeholder={placeholder}
+          value={value}
+          onChange={handleChange}
+          disabled={!!disabled}
+        />
       </S.TextAreaWrapper>
       <S.ButtonWrapper>
-        <S.SubmitButton disabled={!value}>등록</S.SubmitButton>
+        <S.SubmitButton disabled={!value || !!disabled}>등록</S.SubmitButton>
       </S.ButtonWrapper>
     </S.Form>
   );
