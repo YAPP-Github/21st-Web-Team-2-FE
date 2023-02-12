@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
+import LoadingSpinner from '@src/components/common/LoadingSpinner';
 import { useSignin } from '@src/queires/useSignin';
 import $userSession from '@src/recoil/userSession';
 
@@ -24,8 +25,14 @@ const Auth = () => {
           router.push(`/onboarding?code=${result?.jwtTokens.accessToken}`, '/onboarding');
         }
       },
+      onError: (error) => {
+        // GYU-TODO: 로그인 실패인 경우 UI 구현해야함!
+        console.log('error handling', error);
+      },
     });
   }, [code, router, setUserSession, signin]);
+
+  return <LoadingSpinner />;
 };
 
 export default Auth;
