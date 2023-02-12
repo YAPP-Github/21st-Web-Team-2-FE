@@ -11,7 +11,7 @@ import * as S from './TopicCard.styles';
 
 export type TopicCardType = 'feed' | 'detail';
 
-interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
+export interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
   badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
   onClick?: () => void;

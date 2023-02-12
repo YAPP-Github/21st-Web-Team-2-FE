@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil';
 
 import { GetTopicsResponseData } from '@src/apis';
 import Icon from '@src/components/common/Icon';
-import TopicCard from '@src/components/common/TopicCard';
+import PopularTopicCard from '@src/components/main/TopicCarousel/PopularTopicCard';
 import useMember from '@src/queires/useMember';
 import $userSession from '@src/recoil/userSession';
 
@@ -89,7 +89,7 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
             <S.TopicWrapper key={topic.topicId}>
               <Link href={`/topic/${topic.topicId}`} passHref>
                 {/* TODO: badge 정책 필요 */}
-                <TopicCard key={topic.topicId} {...topic} type="feed" badge="참여율 TOP" />
+                <PopularTopicCard key={topic.topicId} {...topic} />
               </Link>
             </S.TopicWrapper>
           ))}
