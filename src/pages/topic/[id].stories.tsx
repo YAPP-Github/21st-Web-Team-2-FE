@@ -2,6 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { TOPIC_DETAIL } from '@mocks/data/topic';
 
+import { localstorageKeys } from '@src/constants/localstorage';
+
 import TopicDetail from './[id].page';
 
 export default {
@@ -11,12 +13,7 @@ export default {
 } as ComponentMeta<typeof TopicDetail>;
 
 const Template: ComponentStory<typeof TopicDetail> = ({ ...args }) => <TopicDetail {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  topicDetail: TOPIC_DETAIL,
-};
-Default.parameters = {
+Template.parameters = {
   nextRouter: {
     path: '/topic/[id]',
     query: {
@@ -24,3 +21,25 @@ Default.parameters = {
     },
   },
 };
+
+export const 비로그인 = Template.bind({});
+비로그인.args = {
+  topicDetail: TOPIC_DETAIL,
+};
+비로그인.decorators = [
+  (Story) => {
+    localStorage.removeItem(localstorageKeys.user);
+    return <Story />;
+  },
+];
+
+export const 로그인 = Template.bind({});
+로그인.args = {
+  topicDetail: TOPIC_DETAIL,
+};
+로그인.decorators = [
+  (Story) => {
+    localStorage.setItem(localstorageKeys.user, JSON.stringify({ accessToken: 'token' }));
+    return <Story />;
+  },
+];
