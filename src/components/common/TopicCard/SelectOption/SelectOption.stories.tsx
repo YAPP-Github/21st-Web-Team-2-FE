@@ -2,7 +2,7 @@ import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { TEST_IMAGE } from '@mocks/data/image';
-import { CODE_BLOCK, SHORT_CODE } from '@mocks/data/voteOption';
+import { CODE_BLOCK, SHORT_CODE_BLOCK } from '@mocks/data/voteOption';
 
 import TopicCard from '.';
 
@@ -48,5 +48,5 @@ export const 코드블록 = Template.bind({});
 export const 짧은_코드블록 = Template.bind({});
 짧은_코드블록.args = {
   ...Default.args,
-  codeBlock: SHORT_CODE,
+  codeBlock: SHORT_CODE_BLOCK,
 };

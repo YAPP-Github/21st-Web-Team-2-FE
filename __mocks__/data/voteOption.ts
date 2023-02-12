@@ -27,7 +27,7 @@ export const VOTE_OPTION_WITH_IMAGE: VoteOption = {
   image: TEST_IMAGE,
 };
 
-export const SHORT_CODE: VoteOption['codeBlock'] = `
+export const SHORT_CODE_BLOCK: VoteOption['codeBlock'] = `
   console.log('hi');
 `;
 
@@ -92,5 +92,5 @@ export const VOTE_OPTION_WITH_SHORT_CODE: VoteOption = {
   voteOptionId: 10,
   text: '코드가 있어요!',
   language: 'javascript',
-  codeBlock: SHORT_CODE,
+  codeBlock: SHORT_CODE_BLOCK,
 };
