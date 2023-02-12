@@ -15,6 +15,7 @@ const nextConfig = removeImports({
     domains: ['*'], // TODO: S3 주소만 허용할 건지 논의 필요
   },
   experimental: { esmExternals: true },
+  pageExtensions: ['page.tsx'],
 });
 
 module.exports = nextConfig;

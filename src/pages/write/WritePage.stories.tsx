@@ -1,7 +1,7 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import WritePage from './';
+import WritePage from './index.page';
 
 export default {
   component: WritePage,

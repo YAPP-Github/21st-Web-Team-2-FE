@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 
-import { Onboarding, OnboardingKey } from '@src/pages/onboarding';
+import { Onboarding, OnboardingKey } from '@src/pages/onboarding/index.page';
 
 import * as S from './ContentYear.styles';
 import YearSelector from './YearSelector';

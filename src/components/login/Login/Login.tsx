@@ -24,7 +24,7 @@ const getGoogleUrl = () => {
   const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
 
   const options = {
-    redirect_uri: 'http://localhost:3000/auth',
+    redirect_uri: `${process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI}/auth`,
     scope: 'email',
     response_type: 'code',
     client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,

@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import ProfileImg from '@src/components/common/ProfileImg';
-import { Onboarding } from '@src/pages/onboarding';
+import { Onboarding } from '@src/pages/onboarding/index.page';
 import { useSignup } from '@src/queires/useSignup';
 import $userSession from '@src/recoil/userSession';
 import { JobCategory } from '@src/types/Member';

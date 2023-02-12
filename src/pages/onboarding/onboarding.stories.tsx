@@ -1,7 +1,7 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import Onboarding from './';
+import Onboarding from './index.page';
 
 export default {
   component: Onboarding,
