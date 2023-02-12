@@ -99,7 +99,10 @@ export const OptionImage = styled(Image)`
 // TODO: 상세페이지에서 코드 블럭 노출 방법 논의 필요
 export const CodeBlockWrapper = styled.div`
   position: relative;
-  height: 300px;
+  max-height: 300px;
+
+  border-radius: 8px;
+
   overflow: hidden;
 `;
 
@@ -107,8 +110,8 @@ export const CodeBlockGradiant = styled.div`
   position: absolute;
   width: 100%;
   height: 200px;
+  top: 100px;
   left: 0;
-  bottom: 0;
 
   background: linear-gradient(180deg, rgba(33, 37, 41, 0) 0%, #212529 100%);
   border-radius: 8px;

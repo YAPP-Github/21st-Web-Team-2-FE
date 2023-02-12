@@ -8,6 +8,7 @@ import {
   VOTE_OPTIONS,
   VOTE_OPTION_WITH_CODE,
   VOTE_OPTION_WITH_IMAGE,
+  VOTE_OPTION_WITH_SHORT_CODE,
 } from '@mocks/data/voteOption';
 
 import TopicCard from '.';
@@ -88,4 +89,10 @@ export const 코드블록 = Template.bind({});
 코드블록.args = {
   ...Default.args,
   voteOptions: [VOTE_OPTION_WITH_CODE, { ...VOTE_OPTION_WITH_CODE, voteOptionId: 99 }],
+};
+
+export const 비율_틀린_코드블록 = Template.bind({});
+비율_틀린_코드블록.args = {
+  ...Default.args,
+  voteOptions: [VOTE_OPTION_WITH_CODE, VOTE_OPTION_WITH_SHORT_CODE],
 };
