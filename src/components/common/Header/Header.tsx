@@ -21,7 +21,6 @@ const Header: FC = () => {
     setViewUserMenu(false);
   };
 
-  // TODO-GYU: backend 와 논의 후 user 정보를 어떻게 받아올지 처리
   return (
     <S.HeaderWrapper>
       <S.HeaderContents>

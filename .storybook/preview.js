@@ -9,10 +9,11 @@ import '@src/styles/reset.css';
 import '@src/styles/common.css';
 
 import { handlers } from '../__mocks__/apis/handlers';
-import { initAxiosConfig } from '../src/configs/axios';
+import { initAxiosConfig, interceptorsAxiosConfig } from '../src/configs/axios';
 
 initialize();
 initAxiosConfig();
+interceptorsAxiosConfig();
 
 export const decorators = [
   mswDecorator,

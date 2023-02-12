@@ -13,8 +13,8 @@ const Template: ComponentStory<typeof ContentJob> = ({ ...args }) => <ContentJob
 export const Default = Template.bind({});
 Default.args = {
   onboardingValue: {
-    name: 'Typing',
-    job: null,
-    year: null,
+    nickname: 'Typing',
+    jobCategory: null,
+    workingYears: null,
   },
 };

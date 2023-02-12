@@ -1,7 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { RecoilRoot } from 'recoil';
 
-import $userSession from '@src/recoil/userSession';
+import { localstorageKeys } from '@src/constants/localstorage';
 
 import Header from '.';
 
@@ -18,16 +17,8 @@ export const 기본 = Template.bind({});
 
 export const 로그인 = Template.bind({});
 로그인.decorators = [
-  (Story) => (
-    <RecoilRoot
-      initializeState={({ set }) => {
-        set($userSession, {
-          accessToken: 'access-token',
-          refreshToken: 'refresh-token',
-        });
-      }}
-    >
-      <Story />
-    </RecoilRoot>
-  ),
+  (Story) => {
+    localStorage.setItem(localstorageKeys.user, JSON.stringify({ accessToken: 'token' }));
+    return <Story />;
+  },
 ];
