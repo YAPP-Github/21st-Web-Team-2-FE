@@ -1,32 +1,41 @@
 import React, { useState } from 'react';
 
+import { GetTopicsQuery } from '@src/apis';
 import { IconNameType } from '@src/components/common/Icon/Icon';
 import TagList from '@src/components/common/TagList';
 
 import * as S from './SideMenu.styles';
 import SideMenuItem from './SideMenuItem';
 
-const CATEGORY_DATA: { id: number; text: string; icon: IconNameType }[] = [
-  { id: 0, text: '추천', icon: 'ThumbsUp' },
-  { id: 1, text: '커리어 생활', icon: 'Career' },
-  { id: 2, text: '개발', icon: 'Computer' },
-  { id: 3, text: '디자인', icon: 'Paint' },
-  { id: 4, text: '기획', icon: 'Paper' },
+export type MenuCategory = GetTopicsQuery['category'];
+const CATEGORY_DATA: { value: MenuCategory; text: string; icon: IconNameType }[] = [
+  { value: null, text: '추천', icon: 'ThumbsUp' },
+  { value: 'CAREER', text: '커리어 생활', icon: 'Career' },
+  { value: 'DEVELOPER', text: '개발', icon: 'Computer' },
+  { value: 'DESIGN', text: '디자인', icon: 'Paint' },
+  { value: 'PRODUCT_MANAGER', text: '기획', icon: 'Paper' },
 ];
 
+// TODO: 인기태그 api
 const TAGS = ['인기태그', '최고태그', '태그', '뭔태그', '그태그', '사랑해요', 'yapp'];
 
-const SideMenu: React.FC = () => {
-  const [selectedId, setSelectedId] = useState(0);
+interface SideMenuProps {
+  onSelectCategory: (value: MenuCategory) => void;
+}
 
-  const handleClick = (id: number) => {
-    setSelectedId(id);
+const SideMenu: React.FC<SideMenuProps> = (props: SideMenuProps) => {
+  const { onSelectCategory } = props;
+  const [selected, setSelected] = useState<MenuCategory>(null);
+
+  const handleClick = (value: MenuCategory) => {
+    setSelected(value);
+    onSelectCategory(value);
   };
 
   return (
     <S.Container>
       {CATEGORY_DATA.map((category) => (
-        <SideMenuItem key={category.id} {...category} selected={selectedId === category.id} onClick={handleClick} />
+        <SideMenuItem key={category.value} {...category} selected={selected === category.value} onClick={handleClick} />
       ))}
       <S.Tags>
         <S.TagTitle>인기태그</S.TagTitle>

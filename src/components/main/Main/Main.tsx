@@ -5,16 +5,18 @@ import { GetTopicsResponseData } from '@src/apis';
 import AddButton from '@src/components/main/AddButton';
 import FabButton from '@src/components/main/FabButton';
 import MainTopicList from '@src/components/main/MainTopicList';
+import { MenuCategory } from '@src/components/main/SideMenu/SideMenu';
 import TopicCarousel from '@src/components/main/TopicCarousel';
 
 import * as S from './Main.styles';
 
 export interface MainProps {
+  category: MenuCategory;
   popularTopics: GetTopicsResponseData[];
 }
 
 const Main: React.FC<MainProps> = (props) => {
-  const { popularTopics } = props;
+  const { category, popularTopics } = props;
   const [fabVisible, setFabVisible] = useState<boolean>(false);
   const observerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -45,7 +47,7 @@ const Main: React.FC<MainProps> = (props) => {
       {popularTopics.length ? <TopicCarousel topics={popularTopics} /> : null}
       <S.Observer ref={observerRef} />
       <AddButton onClick={handleWrite} />
-      <MainTopicList />
+      <MainTopicList category={category} />
       <FabButton onClick={handleWrite} visible={fabVisible} />
     </>
   );
