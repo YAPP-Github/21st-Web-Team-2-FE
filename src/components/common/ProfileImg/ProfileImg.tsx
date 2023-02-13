@@ -2,14 +2,13 @@ import Image from 'next/image';
 import React from 'react';
 
 import Icon from '@src/components/common/Icon';
-import { JobCategory } from '@src/types/Member';
 
 import * as S from './ProfileImg.styles';
 
 export interface ProfileImg {
   size?: number;
   src?: string | null;
-  jobCategory: JobCategory;
+  jobCategory: string;
 }
 
 const ProfileImg: React.FC<ProfileImg> = (props) => {
@@ -19,7 +18,7 @@ const ProfileImg: React.FC<ProfileImg> = (props) => {
       {src ? (
         <Image src={src} alt="profile-image" width={size} height={size} />
       ) : (
-        <Icon name={JOB_IMAGE[jobCategory] || 'Developer'} size={size} />
+        <Icon name={JOB_IMAGE[jobCategory] || 'Default'} size={size} />
       )}
     </S.Container>
   );
@@ -27,10 +26,10 @@ const ProfileImg: React.FC<ProfileImg> = (props) => {
 
 type JobImage = 'Designer' | 'Developer' | 'Pm';
 
-const JOB_IMAGE: { [keys in JobCategory]: JobImage } = {
-  designer: 'Designer',
-  developer: 'Developer',
-  pm: 'Pm',
+const JOB_IMAGE: { [keys in string]: JobImage } = {
+  디자인: 'Designer',
+  개발자: 'Developer',
+  기획: 'Pm',
 };
 
 export default ProfileImg;
