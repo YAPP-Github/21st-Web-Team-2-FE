@@ -33,8 +33,8 @@ const Main: React.FC<MainProps> = (props) => {
     observer.observe(observerRef.current);
   }, [handleObserver]);
 
-  const handleWrite = () => {
-    router.push('/write');
+  const handleWrite = async () => {
+    await router.push('/write');
   };
 
   return (
