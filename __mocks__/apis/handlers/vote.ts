@@ -9,6 +9,6 @@ const vote = (req: RestRequest<VoteRequest>, res: ResponseComposition, ctx: Rest
 
 const voteHandler = [
   rest.post(`${BASE_URL}/vote/option`, vote), //
-] as const;
+];
 
 export default voteHandler;
