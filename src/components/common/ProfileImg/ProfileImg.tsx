@@ -28,7 +28,7 @@ type JobImage = 'Designer' | 'Developer' | 'Pm';
 
 const JOB_IMAGE: { [keys in string]: JobImage } = {
   디자인: 'Designer',
-  개발자: 'Developer',
+  개발: 'Developer',
   기획: 'Pm',
 };
 
