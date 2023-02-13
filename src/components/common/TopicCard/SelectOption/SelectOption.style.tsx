@@ -104,6 +104,8 @@ interface CodeBlockWrapperProps {
 export const CodeBlockWrapper = styled.div<CodeBlockWrapperProps>`
   position: relative;
 
+  height: 300px;
+
   border-radius: 8px;
 
   overflow: hidden;
@@ -111,16 +113,22 @@ export const CodeBlockWrapper = styled.div<CodeBlockWrapperProps>`
   ${({ $type }) =>
     $type === 'feed'
       ? css`
-          height: 300px;
           overflow: hidden;
         `
       : css`
           &:hover {
             position: absolute;
+
             width: 100%;
+            height: auto;
+
             top: 72px;
             left: 0;
             z-index: 9;
+
+            .gradiant {
+              visibility: hidden;
+            }
           }
         `}
 `;

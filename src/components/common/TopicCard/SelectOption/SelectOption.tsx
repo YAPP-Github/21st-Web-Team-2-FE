@@ -29,8 +29,6 @@ const SelectOption = (props: SelectOptionProps) => {
     onClick,
   } = props;
 
-  const isFeed = type === 'feed';
-
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     e.nativeEvent.preventDefault();
@@ -50,7 +48,7 @@ const SelectOption = (props: SelectOptionProps) => {
       {codeBlock && (
         <S.CodeBlockWrapper $type={type}>
           <CodeEditor language={language || 'javascript'} value={codeBlock} disabled />
-          {isFeed && <S.CodeBlockGradiant />}
+          <S.CodeBlockGradiant className="gradiant" />
         </S.CodeBlockWrapper>
       )}
       {image && (
