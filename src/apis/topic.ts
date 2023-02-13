@@ -20,7 +20,8 @@ export type GetTopicsResponseData = Omit<Topic, 'liked' | 'likeAmount'>;
 export type GetTopicsResponse = BasePaginationResponse<GetTopicsResponseData[]>;
 
 export const getTopics = async (offsetId?: number) => {
-  const queries = new URLSearchParams({ lastOffset: offsetId?.toString() || '' });
+  const queries = new URLSearchParams();
+  offsetId && queries.set('lastOffset', offsetId.toString());
   const url = `/topic/latest?${queries.toString()}`;
   const res = await axios.get<GetTopicsResponse>(url);
 
