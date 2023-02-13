@@ -1,7 +1,9 @@
+import { AxiosError } from 'axios';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 
+import { ErrorResponse } from '@src/apis';
 import Icon from '@src/components/common/Icon';
 import UserInfo from '@src/components/common/UserInfo';
 import useMember from '@src/queires/useMember';
@@ -12,8 +14,17 @@ import UserMenu from './UserMenu';
 
 const Header: FC = () => {
   const userSession = useRecoilValue($userSession);
-  const { data: member } = useMember(userSession?.accessToken);
   const resetUser = useResetRecoilState($userSession);
+  const { data: member } = useMember(userSession?.accessToken, {
+    onError: (err) => {
+      const error = err as AxiosError<ErrorResponse>;
+      const code = error.response?.data.code;
+      if (Number(code) !== 2003) return;
+
+      resetUser();
+    },
+  });
+
   const [viewUserMenu, setViewUserMenu] = useState(false);
 
   const handleLogout = () => {
