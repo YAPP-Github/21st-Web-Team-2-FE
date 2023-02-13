@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-import { Auth } from '@src/apis';
+import { Auth, refreshToken } from '@src/apis';
 import { localstorageKeys } from '@src/constants/localstorage';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -22,4 +22,26 @@ export const interceptorsAxiosConfig = () => {
     }
     return config;
   });
+
+  axios.interceptors.response.use(
+    (res) => res,
+    async (err) => {
+      const { config, response } = err;
+      const code = response.data.code;
+
+      if (Number(code) !== 2002) {
+        return Promise.reject(err);
+      }
+
+      config.sent = true;
+      const jwtTokens = await refreshToken();
+      if (!jwtTokens) {
+        localStorage.removeItem(localstorageKeys.user);
+        return Promise.reject(err);
+      }
+      localStorage.setItem(localstorageKeys.user, JSON.stringify(jwtTokens));
+
+      return axios(config);
+    },
+  );
 };
