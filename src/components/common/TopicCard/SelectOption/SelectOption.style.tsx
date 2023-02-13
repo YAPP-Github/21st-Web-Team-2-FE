@@ -110,6 +110,10 @@ export const CodeBlockWrapper = styled.div<CodeBlockWrapperProps>`
 
   overflow: hidden;
 
+  .w-tc-editor {
+    height: 300px;
+  }
+
   ${({ $type }) =>
     $type === 'feed'
       ? css`
@@ -121,10 +125,16 @@ export const CodeBlockWrapper = styled.div<CodeBlockWrapperProps>`
 
             width: 100%;
             height: auto;
+            min-height: 300px;
 
             top: 72px;
             left: 0;
             z-index: 9;
+
+            .w-tc-editor {
+              height: auto;
+              min-height: 300px;
+            }
 
             .gradiant {
               visibility: hidden;
