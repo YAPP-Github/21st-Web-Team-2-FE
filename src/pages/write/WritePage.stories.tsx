@@ -16,3 +16,5 @@ export const Default = Template.bind({});
 Default.parameters = {
   storage: LOGGED_IN,
 };
+
+export const Without_Login = Template.bind({});
