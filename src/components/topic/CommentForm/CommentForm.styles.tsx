@@ -1,13 +1,19 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import theme from '@src/styles/theme';
 
-export const Form = styled.form`
+export const Form = styled.form<{ $disabled: boolean }>`
   border: 1px solid ${theme.color.G4};
   border-radius: 8px;
   background: ${theme.color.G1};
   display: flex;
   flex-direction: column;
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      cursor: not-allowed;
+    `}
 `;
 
 export const TextAreaWrapper = styled.div`
@@ -22,6 +28,7 @@ export const TextArea = styled.textarea`
   caret-color: ${theme.color.Primary1};
   color: ${theme.color.borderPrimary};
   font-family: ${theme.fontFamily.basic};
+  cursor: inherit;
 
   &::placeholder {
     color: ${theme.color.txtSecondary};
@@ -49,6 +56,6 @@ export const SubmitButton = styled.button`
   &:disabled {
     background-color: ${theme.color.G4};
     border-color: ${theme.color.G4};
-    cursor: auto;
+    cursor: inherit;
   }
 `;
