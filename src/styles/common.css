@@ -19,6 +19,7 @@
   box-sizing: border-box;
 }
 body {
+  min-width: 1080px;
   line-height: 1;
   background-color: #101012;
   color: #f1f3f5;
