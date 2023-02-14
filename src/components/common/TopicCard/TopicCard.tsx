@@ -1,9 +1,12 @@
+import { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
+import { ErrorResponse } from '@src/apis';
 import ProfileImg from '@src/components/common/ProfileImg';
 import ShareIcon from '@src/components/common/ShareIcon';
+import useLike from '@src/queires/useLike';
 import { useVote } from '@src/queires/useVote';
 import $userSession from '@src/recoil/userSession';
 import Topic from '@src/types/Topic';
@@ -38,6 +41,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   const tokens = useRecoilValue($userSession);
   const router = useRouter();
   const { vote } = useVote();
+  const { like: doLike } = useLike();
 
   const [like, setLike] = useState<boolean>(liked);
   const [likes, setLikes] = useState<number>(likeAmount || 0);
@@ -48,7 +52,25 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
 
   const isFeed = type === 'feed';
 
-  const handleLike = () => {
+  const handleLike = async () => {
+    if (!tokens) {
+      alert('로그인이 필요합니다!');
+      await router.push('/login');
+      return;
+    }
+
+    try {
+      await doLike({ topicId });
+    } catch (err) {
+      const error = err as AxiosError<ErrorResponse>;
+      const code = error.response?.data.code;
+      if (!code?.startsWith('2')) return;
+
+      alert('로그인이 필요합니다!');
+      await router.push('/login');
+      return;
+    }
+
     setLikes((prev) => prev + (like ? -1 : +1));
     setLike((prev) => !prev);
   };

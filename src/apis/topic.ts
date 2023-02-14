@@ -43,3 +43,16 @@ export interface PostTopicRequest extends Pick<Topic, 'title' | 'contents' | 'ta
 export const createTopic = (data: PostTopicRequest) => {
   return axios.post('/topic', data);
 };
+
+export interface LikeRequest {
+  topicId: Topic['topicId'];
+}
+export interface LikeResponseData {
+  topicId: Topic['topicId'];
+  liked: boolean;
+}
+export type LikeResponse = BaseResponse<LikeResponseData>;
+
+export const like = (data: LikeRequest) => {
+  return axios.post<LikeResponse>('/topic/likes', data);
+};
