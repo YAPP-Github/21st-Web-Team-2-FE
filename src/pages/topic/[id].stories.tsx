@@ -1,8 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { LOGGED_IN } from '@mocks/data/localStorage';
 import { TOPIC_DETAIL } from '@mocks/data/topic';
-
-import { localstorageKeys } from '@src/constants/localstorage';
 
 import TopicDetail from './[id].page';
 
@@ -22,24 +21,14 @@ Template.parameters = {
   },
 };
 
-export const 비로그인 = Template.bind({});
-비로그인.args = {
+export const Default = Template.bind({});
+Default.args = {
   topicDetail: TOPIC_DETAIL,
 };
-비로그인.decorators = [
-  (Story) => {
-    localStorage.removeItem(localstorageKeys.user);
-    return <Story />;
-  },
-];
 
-export const 로그인 = Template.bind({});
-로그인.args = {
-  topicDetail: TOPIC_DETAIL,
+export const WithLogin = Template.bind({});
+WithLogin.args = Default.args;
+WithLogin.parameters = {
+  ...Default.parameters,
+  storage: LOGGED_IN,
 };
-로그인.decorators = [
-  (Story) => {
-    localStorage.setItem(localstorageKeys.user, JSON.stringify({ accessToken: 'token' }));
-    return <Story />;
-  },
-];
