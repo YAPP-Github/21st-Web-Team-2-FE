@@ -1,22 +1,23 @@
 import React from 'react';
 
 import Icon, { IconNameType } from '@src/components/common/Icon/Icon';
+import { MenuCategory } from '@src/components/main/SideMenu/SideMenu';
 
 import * as S from './SideMenuItem.styles';
 
 interface SideMenuItemProps {
-  id: number;
+  value: MenuCategory;
   text: string;
   icon?: IconNameType;
   selected?: boolean;
-  onClick: (id: number) => void;
+  onClick: (value: MenuCategory) => void;
 }
 
 const SideMenuItem: React.FC<SideMenuItemProps> = (props: SideMenuItemProps) => {
-  const { id, text, icon, selected = false, onClick } = props;
+  const { value, text, icon, selected = false, onClick } = props;
 
   const handleClick = () => {
-    onClick(id);
+    onClick(value);
   };
 
   return (

@@ -16,11 +16,18 @@ export const getTopicDetail = async (topicId: number) => {
   return res.data.data;
 };
 
+export interface GetTopicsQuery {
+  category: TopicCategory | null;
+  offsetId?: number;
+}
 export type GetTopicsResponseData = Omit<Topic, 'liked' | 'likeAmount'>;
 export type GetTopicsResponse = BasePaginationResponse<GetTopicsResponseData[]>;
 
-export const getTopics = async (offsetId?: number) => {
-  const queries = new URLSearchParams({ lastOffset: offsetId?.toString() || '' });
+export const getTopics = async (props: GetTopicsQuery) => {
+  const { category, offsetId } = props;
+  const queries = new URLSearchParams();
+  category && queries.set('topicCategory', category);
+  offsetId && queries.set('lastOffset', offsetId.toString());
   const url = `/topic/latest?${queries.toString()}`;
   const res = await axios.get<GetTopicsResponse>(url);
 

@@ -1,13 +1,17 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-import { GetTopicsResponse, getTopics } from '@src/apis';
+import { GetTopicsQuery, GetTopicsResponse, getTopics } from '@src/apis';
 
 import { queryKeys } from './constant';
 
-export const useGetTopics = () => {
-  const result = useInfiniteQuery<GetTopicsResponse>([queryKeys.topics], ({ pageParam }) => getTopics(pageParam), {
-    getNextPageParam: (lastPage) => lastPage.offsetId ?? undefined,
-  });
+export const useGetTopics = (category: GetTopicsQuery['category']) => {
+  const result = useInfiniteQuery<GetTopicsResponse>(
+    [queryKeys.topics, category],
+    ({ pageParam }) => getTopics({ category, offsetId: pageParam }),
+    {
+      getNextPageParam: (lastPage) => lastPage.offsetId,
+    },
+  );
 
   const { data } = result;
 

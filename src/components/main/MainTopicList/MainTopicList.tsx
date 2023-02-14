@@ -3,12 +3,18 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import TopicCard from '@src/components/common/TopicCard';
+import { MenuCategory } from '@src/components/main/SideMenu/SideMenu';
 import { useGetTopics } from '@src/queires/useGetTopics';
 
 import * as S from './MainTopicList.style';
 
-const MainTopicList: React.FC = () => {
-  const { fetchNextPage, data: topics = [], isLoading, hasNextPage } = useGetTopics();
+interface MainTopicListProps {
+  category: MenuCategory;
+}
+
+const MainTopicList: React.FC<MainTopicListProps> = (props: MainTopicListProps) => {
+  const { category } = props;
+  const { fetchNextPage, data: topics = [], isLoading, hasNextPage } = useGetTopics(category);
 
   const { ref } = useInView({
     onChange: (inView) => {
