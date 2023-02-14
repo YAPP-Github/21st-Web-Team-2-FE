@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import theme from '@src/styles/theme';
@@ -8,7 +9,11 @@ export const Form = styled.form<{ $disabled: boolean }>`
   background: ${theme.color.G1};
   display: flex;
   flex-direction: column;
-  cursor: ${({ $disabled }) => $disabled && 'not-allowed'};
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      cursor: not-allowed;
+    `}
 `;
 
 export const TextAreaWrapper = styled.div`
