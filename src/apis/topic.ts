@@ -26,7 +26,7 @@ export type GetTopicsResponse = BasePaginationResponse<GetTopicsResponseData[]>;
 export const getTopics = async (props: GetTopicsQuery) => {
   const { category, offsetId } = props;
   const queries = new URLSearchParams();
-  category && queries.set('category', category);
+  category && queries.set('topicCategory', category);
   offsetId && queries.set('lastOffset', offsetId.toString());
   const url = `/topic/latest?${queries.toString()}`;
   const res = await axios.get<GetTopicsResponse>(url);
