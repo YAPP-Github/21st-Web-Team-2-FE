@@ -120,7 +120,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
           </S.AuthorInfo>
         ) : (
           <S.LikeBtn $like={liked}>
-            <Icon name="Clap" color={liked ? 'Primary1' : 'G7'} size={24} />
+            <Icon name="Clap" color={liked ? 'Primary1' : 'G7'} size={24} fill="G3" />
             <span>좋아요</span>
           </S.LikeBtn>
         )}

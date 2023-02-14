@@ -18,15 +18,17 @@ interface SVGIconProps extends SVGProps<SVGSVGElement> {
   height?: string;
   /** 디자인 시스템 기반 컬러 Name */
   color?: ThemeColor;
+  fill?: ThemeColor;
 }
 
-const Icon = ({ name, size = DEFAULT_SIZE, width, height, color, style, ...props }: SVGIconProps) => {
+const Icon = ({ name, size = DEFAULT_SIZE, width, height, color, fill, style, ...props }: SVGIconProps) => {
   const SVGIcon = icon[name];
 
   const IconStyles = css`
     &,
     path {
       ${color ? `stroke: ${colors[color]} !important;` : ''}
+      ${fill ? `fill: ${colors[fill]} !important;` : ''}
       width: ${width ?? `${size}px`};
       height: ${height ?? `${size}px`};
     }
