@@ -6,7 +6,6 @@ import ProfileImg from '@src/components/common/ProfileImg';
 import { Onboarding } from '@src/pages/onboarding/index.page';
 import { useSignup } from '@src/queires/useSignup';
 import $userSession from '@src/recoil/userSession';
-import { JobCategory } from '@src/types/Member';
 
 import * as S from './ContentFinish.styles';
 
@@ -19,7 +18,7 @@ const ContentFinish: FC<Props> = (props) => {
   const code = router.query.code as string;
 
   const { signup } = useSignup(code);
-  const job = onboardingValue.jobCategory as JobCategory;
+  const job = onboardingValue.jobCategory as string;
   const setUserSession = useSetRecoilState($userSession);
 
   const handleClickSignup = () => {

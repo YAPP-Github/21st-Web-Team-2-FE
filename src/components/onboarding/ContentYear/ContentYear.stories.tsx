@@ -14,7 +14,7 @@ export const Default = Template.bind({});
 Default.args = {
   onboardingValue: {
     nickname: 'Typing',
-    jobCategory: 'developer',
+    jobCategory: '개발',
     workingYears: null,
   },
 };
