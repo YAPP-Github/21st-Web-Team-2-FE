@@ -25,9 +25,9 @@ const Auth = () => {
           router.push(`/onboarding?code=${result?.jwtTokens.accessToken}`, '/onboarding');
         }
       },
-      onError: (error) => {
-        // GYU-TODO: 로그인 실패인 경우 UI 구현해야함!
-        console.log('error handling', error);
+      onError: async () => {
+        alert('로그인 실패! 다시 시도해주세요.');
+        await router.push('/login');
       },
     });
   }, [code, router, setUserSession, signin]);
