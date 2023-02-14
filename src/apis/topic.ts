@@ -44,17 +44,17 @@ export const createTopic = (data: PostTopicRequest) => {
   return axios.post('/topic', data);
 };
 
-export interface LikeRequest {
+export interface LikeTopicRequest {
   topicId: Topic['topicId'];
 }
-export interface LikeResponseData {
+export interface LikeTopicResponseData {
   topicId: Topic['topicId'];
   liked: boolean;
 }
-export type LikeResponse = BaseResponse<LikeResponseData>;
+export type LikeTopicResponse = BaseResponse<LikeTopicResponseData>;
 
-export const like = async (data: LikeRequest) => {
-  const res = await axios.post<LikeResponse>('/topic/likes', data);
+export const likeTopic = async (data: LikeTopicRequest) => {
+  const res = await axios.post<LikeTopicResponse>('/topic/likes', data);
 
   return res.data.data;
 };

@@ -2,11 +2,11 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
-import { LikeResponse, LikeResponseData } from '@src/apis';
+import { LikeTopicResponseData } from '@src/apis';
 import ProfileImg from '@src/components/common/ProfileImg';
 import ShareIcon from '@src/components/common/ShareIcon';
 import useAuthApi from '@src/hooks/useAuthApi';
-import useLike from '@src/queires/useLike';
+import useLikeTopic from '@src/queires/useLikeTopic';
 import { useVote } from '@src/queires/useVote';
 import $userSession from '@src/recoil/userSession';
 import Topic from '@src/types/Topic';
@@ -41,7 +41,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   const tokens = useRecoilValue($userSession);
   const router = useRouter();
   const { vote } = useVote();
-  const { like: doLike } = useLike();
+  const { likeTopic } = useLikeTopic();
   const fetchAuth = useAuthApi();
 
   const [like, setLike] = useState<boolean>(liked);
@@ -54,7 +54,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   const isFeed = type === 'feed';
 
   const handleLike = async () => {
-    const result = await fetchAuth<LikeResponseData>(async () => doLike({ topicId }));
+    const result = await fetchAuth<LikeTopicResponseData>(async () => likeTopic({ topicId }));
     if (!result) return;
 
     setLikes((prev) => prev + (result.liked ? 1 : -1));
