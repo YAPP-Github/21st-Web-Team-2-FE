@@ -93,6 +93,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             <SelectOption
               key={option.voteOptionId}
               {...option}
+              type={type}
               rate={option.voteAmount / votedAmount}
               result={selectedOptionId !== null}
               selected={selectedOptionId === option.voteOptionId}

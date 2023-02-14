@@ -97,3 +97,16 @@ export const 비율_틀린_코드블록 = Template.bind({});
   ...Default.args,
   voteOptions: [VOTE_OPTION_WITH_CODE, VOTE_OPTION_WITH_SHORT_CODE],
 };
+
+export const 상세_코드블록 = Template.bind({});
+상세_코드블록.args = {
+  ...코드블록.args,
+  type: 'detail',
+};
+
+export const 비율_틀린_상세_코드블록 = Template.bind({});
+비율_틀린_상세_코드블록.args = {
+  ...Default.args,
+  voteOptions: [VOTE_OPTION_WITH_CODE, VOTE_OPTION_WITH_SHORT_CODE],
+  type: 'detail',
+};
