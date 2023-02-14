@@ -39,12 +39,19 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   const router = useRouter();
   const { vote } = useVote();
 
+  const [like, setLike] = useState<boolean>(liked);
+  const [likes, setLikes] = useState<number>(likeAmount || 0);
   const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
   const selectedOption = options.find((option) => option.voted);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(selectedOption?.voteOptionId || null);
   const votedAmount = options.reduce((prev, option) => prev + option.voteAmount, 0);
 
   const isFeed = type === 'feed';
+
+  const handleLike = () => {
+    setLikes((prev) => prev + (like ? -1 : +1));
+    setLike((prev) => !prev);
+  };
 
   const handleClickOption = async (voteOptionId: number) => {
     if (!tokens) {
@@ -119,9 +126,9 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             <span>{member.nickname}</span>
           </S.AuthorInfo>
         ) : (
-          <S.LikeBtn $like={liked}>
-            <Icon name="Clap" color={liked ? 'Primary1' : 'G7'} size={24} fill="G3" />
-            <span>좋아요 {liked && likeAmount}</span>
+          <S.LikeBtn $like={like} onClick={handleLike}>
+            <Icon name="Clap" color={like ? 'Primary1' : 'G7'} size={24} fill="G3" />
+            <span>좋아요 {like && likes}</span>
           </S.LikeBtn>
         )}
         <S.TopicInfoContainer>
