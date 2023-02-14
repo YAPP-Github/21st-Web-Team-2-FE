@@ -16,14 +16,25 @@ import * as S from './TopicCard.styles';
 
 export type TopicCardType = 'feed' | 'detail';
 
-export interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
+export interface TopicCardProps extends Omit<Topic, 'likeAmount' | 'tags'> {
   badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
   onClick?: () => void;
 }
 
 const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
-  const { topicId, title, contents, voteOptions: defaultOptions, member, commentAmount, badge, type, onClick } = props;
+  const {
+    topicId,
+    title,
+    contents,
+    voteOptions: defaultOptions,
+    member,
+    commentAmount,
+    liked,
+    badge,
+    type,
+    onClick,
+  } = props;
   const tokens = useRecoilValue($userSession);
   const router = useRouter();
   const { vote } = useVote();
@@ -108,8 +119,8 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             <span>{member.nickname}</span>
           </S.AuthorInfo>
         ) : (
-          <S.LikeBtn>
-            <Icon name="Clap" color="G7" size={24} />
+          <S.LikeBtn $like={liked}>
+            <Icon name="Clap" color={liked ? 'Primary1' : 'G7'} size={24} />
             <span>좋아요</span>
           </S.LikeBtn>
         )}
