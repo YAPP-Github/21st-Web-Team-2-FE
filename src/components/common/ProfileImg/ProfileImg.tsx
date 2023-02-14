@@ -26,7 +26,7 @@ const ProfileImg: React.FC<ProfileImg> = (props) => {
 
 type JobImage = 'Designer' | 'Developer' | 'Pm';
 
-const JOB_IMAGE: { [keys in string]: JobImage } = {
+const JOB_IMAGE: Record<string, JobImage> = {
   디자인: 'Designer',
   개발: 'Developer',
   기획: 'Pm',
