@@ -53,6 +53,8 @@ export interface LikeResponseData {
 }
 export type LikeResponse = BaseResponse<LikeResponseData>;
 
-export const like = (data: LikeRequest) => {
-  return axios.post<LikeResponse>('/topic/likes', data);
+export const like = async (data: LikeRequest) => {
+  const res = await axios.post<LikeResponse>('/topic/likes', data);
+
+  return res.data.data;
 };
