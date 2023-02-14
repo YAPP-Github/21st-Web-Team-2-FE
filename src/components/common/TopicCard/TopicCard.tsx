@@ -5,7 +5,7 @@ import { useRecoilValue } from 'recoil';
 import { LikeTopicResponseData } from '@src/apis';
 import ProfileImg from '@src/components/common/ProfileImg';
 import ShareIcon from '@src/components/common/ShareIcon';
-import useAuthApi from '@src/hooks/useAuthApi';
+import useAuthCheck from '@src/hooks/useAuthCheck';
 import useLikeTopic from '@src/queires/useLikeTopic';
 import { useVote } from '@src/queires/useVote';
 import $userSession from '@src/recoil/userSession';
@@ -42,7 +42,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   const router = useRouter();
   const { vote } = useVote();
   const { likeTopic } = useLikeTopic();
-  const fetchAuth = useAuthApi();
+  const checkAuth = useAuthCheck();
 
   const [like, setLike] = useState<boolean>(liked);
   const [likes, setLikes] = useState<number>(likeAmount || 0);
@@ -54,7 +54,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   const isFeed = type === 'feed';
 
   const handleLike = async () => {
-    const result = await fetchAuth<LikeTopicResponseData>(async () => likeTopic({ topicId }));
+    const result = await checkAuth<LikeTopicResponseData>(() => likeTopic({ topicId }));
     if (!result) return;
 
     setLikes((prev) => prev + (result.liked ? 1 : -1));
