@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 
+import { PostTopicRequest } from '@src/apis';
 import Header from '@src/components/common/Header';
 import WriteMain from '@src/components/write/WriteMain';
 import useCreateTopic from '@src/queires/useCreateTopic';
@@ -19,10 +20,15 @@ const WritePage: NextPage = () => {
     router.push('/login');
   }, [router, tokens]);
 
+  const handleCreate = async (topic: PostTopicRequest) => {
+    await createTopic(topic);
+    await router.push('/');
+  };
+
   return (
     <>
       <Header />
-      <WriteMain onSubmit={createTopic} />
+      <WriteMain onSubmit={handleCreate} />
     </>
   );
 };
