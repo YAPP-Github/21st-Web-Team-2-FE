@@ -1,4 +1,3 @@
-import { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -16,7 +15,7 @@ import * as S from './TopicCard.styles';
 
 export type TopicCardType = 'feed' | 'detail';
 
-export interface TopicCardProps extends Omit<Topic, 'likeAmount' | 'tags'> {
+export interface TopicCardProps extends Omit<Topic, 'tags'> {
   badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
   onClick?: () => void;
@@ -31,6 +30,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
     member,
     commentAmount,
     liked,
+    likeAmount,
     badge,
     type,
     onClick,
@@ -121,7 +121,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
         ) : (
           <S.LikeBtn $like={liked}>
             <Icon name="Clap" color={liked ? 'Primary1' : 'G7'} size={24} fill="G3" />
-            <span>좋아요</span>
+            <span>좋아요 {liked && likeAmount}</span>
           </S.LikeBtn>
         )}
         <S.TopicInfoContainer>
