@@ -62,6 +62,14 @@ Detail.args = {
   type: 'detail',
 };
 
+export const DetailLiked = Template.bind({});
+DetailLiked.args = {
+  ...Default.args,
+  type: 'detail',
+  liked: true,
+  likeAmount: 1,
+};
+
 export const ThreeOptions = Template.bind({});
 ThreeOptions.args = {
   ...Default.args,

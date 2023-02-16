@@ -89,7 +89,11 @@ export const AuthorInfo = styled.div`
   gap: 8px;
 `;
 
-export const LikeBtn = styled.button`
+interface LikeBtnProps {
+  $like: boolean;
+}
+
+export const LikeBtn = styled.button<LikeBtnProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,9 +103,9 @@ export const LikeBtn = styled.button`
   height: 36px;
 
   background-color: transparent;
-  color: ${theme.color.G7};
+  color: ${({ $like }) => ($like ? theme.color.Primary1 : theme.color.G7)};
 
-  border: 1px solid ${theme.color.G5};
+  border: 1px solid ${({ $like }) => ($like ? theme.color.Primary1 : theme.color.G5)};
   border-radius: 100px;
 `;
 

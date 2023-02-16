@@ -7,6 +7,8 @@ import {
   GetTopicDetailResponse,
   GetTopicsResponse,
   GetTopicsResponseData,
+  LikeTopicRequest,
+  LikeTopicResponse,
   PostTopicRequest,
 } from '@src/apis';
 import { BASE_URL } from '@src/configs/axios';
@@ -60,9 +62,28 @@ const createTopic = (req: RestRequest<PostTopicRequest>, res: ResponseCompositio
   return res(ctx.status(201));
 };
 
+let liked = false;
+
+const likeTopic = async (req: RestRequest<LikeTopicRequest>, res: ResponseComposition, ctx: RestContext) => {
+  const { topicId } = await req.json();
+  liked = !liked;
+  return res(
+    ctx.status(200),
+    ctx.json<LikeTopicResponse>({
+      code: 'SUCCESS',
+      message: '성공',
+      data: {
+        topicId,
+        liked,
+      },
+    }),
+  );
+};
+
 export const topicDetailHandler = [
   rest.get(`${BASE_URL}/topic/latest`, getTopics),
   rest.get(`${BASE_URL}/topic/popular`, getPopularTopics),
   rest.get(`${BASE_URL}/topic/:topicId`, getTopic),
   rest.post(`${BASE_URL}/topic`, createTopic),
+  rest.post(`${BASE_URL}/topic/likes`, likeTopic),
 ];

@@ -1,10 +1,12 @@
-import { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
+import { LikeTopicResponseData } from '@src/apis';
 import ProfileImg from '@src/components/common/ProfileImg';
 import ShareIcon from '@src/components/common/ShareIcon';
+import useAuthCheck from '@src/hooks/useAuthCheck';
+import useLikeTopic from '@src/queires/useLikeTopic';
 import { useVote } from '@src/queires/useVote';
 import $userSession from '@src/recoil/userSession';
 import Topic from '@src/types/Topic';
@@ -16,24 +18,48 @@ import * as S from './TopicCard.styles';
 
 export type TopicCardType = 'feed' | 'detail';
 
-export interface TopicCardProps extends Omit<Topic, 'liked' | 'likeAmount' | 'tags'> {
+export interface TopicCardProps extends Omit<Topic, 'tags'> {
   badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
   onClick?: () => void;
 }
 
 const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
-  const { topicId, title, contents, voteOptions: defaultOptions, member, commentAmount, badge, type, onClick } = props;
+  const {
+    topicId,
+    title,
+    contents,
+    voteOptions: defaultOptions,
+    member,
+    commentAmount,
+    liked,
+    likeAmount,
+    badge,
+    type,
+    onClick,
+  } = props;
   const tokens = useRecoilValue($userSession);
   const router = useRouter();
   const { vote } = useVote();
+  const { likeTopic } = useLikeTopic();
+  const checkAuth = useAuthCheck();
 
+  const [like, setLike] = useState<boolean>(liked);
+  const [likes, setLikes] = useState<number>(likeAmount || 0);
   const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
   const selectedOption = options.find((option) => option.voted);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(selectedOption?.voteOptionId || null);
   const votedAmount = options.reduce((prev, option) => prev + option.voteAmount, 0);
 
   const isFeed = type === 'feed';
+
+  const handleLike = async () => {
+    const result = await checkAuth<LikeTopicResponseData>(() => likeTopic({ topicId }));
+    if (!result) return;
+
+    setLikes((prev) => prev + (result.liked ? 1 : -1));
+    setLike(result.liked);
+  };
 
   const handleClickOption = async (voteOptionId: number) => {
     if (!tokens) {
@@ -109,9 +135,9 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             <span>{member.nickname}</span>
           </S.AuthorInfo>
         ) : (
-          <S.LikeBtn>
-            <Icon name="Clap" color="G7" size={24} />
-            <span>좋아요</span>
+          <S.LikeBtn $like={like} onClick={handleLike}>
+            <Icon name="Clap" color={like ? 'Primary1' : 'G7'} size={24} fill="G3" />
+            <span>좋아요 {like && likes}</span>
           </S.LikeBtn>
         )}
         <S.TopicInfoContainer>
