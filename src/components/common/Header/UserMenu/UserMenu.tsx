@@ -19,8 +19,12 @@ const UserMenu: FC<Props> = (props) => {
         <UserInfo member={member} />
         <Icon name="ArrowRight" size={24} />
       </S.UserItem>
-      <S.MenuItem>문의하기</S.MenuItem>
-      <S.MenuItem onClick={onLogout}>로그아웃</S.MenuItem>
+      <a target="_blank" href="https://forms.gle/awhsLVEDGLfV4XzUA" rel="noopener noreferrer">
+        <S.MenuItem>문의하기</S.MenuItem>
+      </a>
+      <S.MenuItem onClick={onLogout} $last>
+        로그아웃
+      </S.MenuItem>
     </S.Wrapper>
   );
 };
