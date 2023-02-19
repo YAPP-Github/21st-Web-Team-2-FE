@@ -18,10 +18,7 @@ const Home: NextPage<HomeProps> = ({ popularTopics }) => {
 
   return (
     <>
-      <SEO
-        title="IT 직무 관련자들을 위한 투표 커뮤니티 웹 플랫폼 | 텀즈업"
-        description="IT 직무 관련자들을 위한 투표 커뮤니티 웹 플랫폼 | 텀즈업"
-      />
+      <SEO title="IT 직무 관련자들을 위한 투표 커뮤니티 웹 플랫폼 | 텀즈업" description="www.thumbs-up.me" />
       <DefaultLayout //
         side={<SideMenu onSelectCategory={setCategory} />}
         main={<Main category={category} popularTopics={popularTopics} />}
