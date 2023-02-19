@@ -27,7 +27,7 @@ const TopicDetail: NextPage<Props> = ({ topicDetail, error }) => {
 
   return (
     <>
-      <SEO title={`${topicDetail.title} | 텀즈업`} description={topicDetail.title} />
+      <SEO title={`${topicDetail.title} | 텀즈업`} description={topicDetail.contents} />
       <DefaultLayout //
         side={<TopicUserInfo member={member} tags={tags} />}
         main={<TopicDetailMain topic={topicDetail} />}
