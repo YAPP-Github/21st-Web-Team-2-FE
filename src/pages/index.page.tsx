@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { GetPopularTopicsResponseData, getPopularTopics } from '@src/apis';
 import DefaultLayout from '@src/components/common/DefaultLayout';
+import SEO from '@src/components/common/SEO';
 import Main from '@src/components/main/Main';
 import SideMenu from '@src/components/main/SideMenu';
 import { MenuCategory } from '@src/components/main/SideMenu/SideMenu';
@@ -16,10 +17,16 @@ const Home: NextPage<HomeProps> = ({ popularTopics }) => {
   const [category, setCategory] = useState<MenuCategory>(null);
 
   return (
-    <DefaultLayout //
-      side={<SideMenu onSelectCategory={setCategory} />}
-      main={<Main category={category} popularTopics={popularTopics} />}
-    />
+    <>
+      <SEO
+        title="IT 직무 관련자들을 위한 투표 커뮤니티 웹 플랫폼 | 텀즈업"
+        description="IT 직무 관련자들을 위한 투표 커뮤니티 웹 플랫폼 | 텀즈업"
+      />
+      <DefaultLayout //
+        side={<SideMenu onSelectCategory={setCategory} />}
+        main={<Main category={category} popularTopics={popularTopics} />}
+      />
+    </>
   );
 };
 
