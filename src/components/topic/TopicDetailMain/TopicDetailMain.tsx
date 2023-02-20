@@ -6,6 +6,7 @@ import TopicCard from '@src/components/common/TopicCard';
 import CommentForm from '@src/components/topic/CommentForm';
 import CommentList from '@src/components/topic/CommentList';
 import { useCreateComments } from '@src/queires/useCreateComment';
+import useMember from '@src/queires/useMember';
 import $userSession from '@src/recoil/userSession';
 import Topic from '@src/types/Topic';
 
@@ -20,6 +21,7 @@ const TopicDetailMain: FC<Props> = (props) => {
 
   const { mutateComment } = useCreateComments(topic.topicId);
   const userSession = useRecoilValue($userSession);
+  const { data: member } = useMember(userSession?.accessToken);
 
   const handleAddComment = (commentValue: string) => {
     mutateComment.mutate(commentValue);
@@ -36,7 +38,9 @@ const TopicDetailMain: FC<Props> = (props) => {
         <TopicCard {...topic} type="detail" />
       </S.TopicCardWrapper>
       <CommentForm
-        placeholder={isLogin ? '닉네임님, 댓글을 남겨보세요! 💬' : '유저님, 로그인하고 댓글을 남겨보세요! 💬'}
+        placeholder={
+          isLogin ? `${member?.nickname}님, 댓글을 남겨보세요! 💬` : '유저님, 로그인하고 댓글을 남겨보세요! 💬'
+        }
         onSubmit={handleAddComment}
         disabled={!isLogin}
       />
