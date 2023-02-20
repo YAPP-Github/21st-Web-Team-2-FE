@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import { localstorageKeys } from '@src/constants/localstorage';
 import { Onboarding } from '@src/pages/onboarding/index.page';
 
 import { BaseResponse } from '.';
@@ -51,6 +52,26 @@ export const checkNickName = async (nickName: string) => {
   const res = await axios.post<PostCheckNickName>(`/nickname-duplication`, {
     nickname: nickName,
   });
+
+  return res.data.data;
+};
+
+export type RefreshTokenResponse = BaseResponse<Auth['jwtTokens']>;
+export const refreshToken = async () => {
+  const user = localStorage.getItem(localstorageKeys.user);
+  if (!user) return;
+  const { refreshToken } = JSON.parse(user) as Auth['jwtTokens'];
+  if (!refreshToken) return;
+
+  const res = await axios.post<RefreshTokenResponse>(`/refresh`, null, {
+    headers: {
+      'refresh-token': refreshToken,
+    },
+  });
+  const code = res.data.code;
+  if (Number(code) === 2003 || Number(code) === 2005 || Number(code) === 2006) {
+    localStorage.removeItem(localstorageKeys.user);
+  }
 
   return res.data.data;
 };
