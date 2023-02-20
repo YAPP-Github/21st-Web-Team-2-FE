@@ -33,7 +33,11 @@ const getComments = (req: RestRequest, res: ResponseComposition, ctx: RestContex
 };
 
 const createComment = (req: RestRequest<PostCommentRequest>, res: ResponseComposition, ctx: RestContext) => {
-  const contents = req.body;
+  const { topicId, contents } = req.body;
+
+  if (!topicId || !contents) {
+    return res(ctx.status(400));
+  }
 
   const comment: Comment = {
     commentId: Math.floor(Math.random() * 100),
@@ -57,5 +61,5 @@ const createComment = (req: RestRequest<PostCommentRequest>, res: ResponseCompos
 
 export const commentHandler = [
   rest.get(`${BASE_URL}/comment/:topicId/latest`, getComments),
-  rest.post(`${BASE_URL}/comment/:topicId`, createComment),
+  rest.post(`${BASE_URL}/comment`, createComment),
 ];

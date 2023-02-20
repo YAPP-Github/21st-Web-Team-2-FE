@@ -19,12 +19,15 @@ export const getComments = async (topicId: number, offsetId?: number) => {
 /**
  * 댓글 생성
  */
-export type PostCommentRequest = Comment['contents'];
+export type PostCommentRequest = {
+  topicId: number;
+  contents: Comment['contents'];
+};
 
-export type PostCommentResponse = BaseResponse<Comment>;
+export type PostCommentResponse = BaseResponse<Pick<Comment, 'commentId' | 'contents'>>;
 
-export const createComment = async (topicId: number, data: PostCommentRequest) => {
-  const res = await axios.post<PostCommentResponse>(`/comment/${topicId}`, data);
+export const createComment = async (data: PostCommentRequest) => {
+  const res = await axios.post<PostCommentResponse>(`/comment`, data);
 
   return res.data.data;
 };

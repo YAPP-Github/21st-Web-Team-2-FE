@@ -4,13 +4,13 @@ import { PostCommentRequest, createComment } from '@src/apis';
 
 import { queryKeys } from './constant';
 
-export const useCreateComments = (topicId: number) => {
+export const useCreateComments = () => {
   const queryClient = useQueryClient();
 
   // TODO-GYU: 성공시, 실패시 등 낙관적업데이트 관련 로직 추가
-  const mutateComment = useMutation((commentContent: PostCommentRequest) => createComment(topicId, commentContent), {
-    onSuccess: () => queryClient.invalidateQueries([queryKeys.comment, topicId]),
+  const mutation = useMutation((newComment: PostCommentRequest) => createComment(newComment), {
+    onSuccess: (_, variables) => queryClient.invalidateQueries([queryKeys.comment, variables.topicId]),
   });
 
-  return { mutateComment };
+  return { ...mutation, createComments: mutation.mutate };
 };

@@ -19,12 +19,15 @@ interface Props {
 const TopicDetailMain: FC<Props> = (props) => {
   const { topic } = props;
 
-  const { mutateComment } = useCreateComments(topic.topicId);
+  const { createComments } = useCreateComments();
   const userSession = useRecoilValue($userSession);
   const { data: member } = useMember(userSession?.accessToken);
 
   const handleAddComment = (commentValue: string) => {
-    mutateComment.mutate(commentValue);
+    createComments({
+      topicId: topic.topicId,
+      contents: commentValue,
+    });
   };
 
   const isLogin = !!userSession;
