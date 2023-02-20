@@ -18,7 +18,9 @@ import * as S from './TopicCard.styles';
 
 export type TopicCardType = 'feed' | 'detail';
 
-export interface TopicCardProps extends Omit<Topic, 'tags'> {
+export interface TopicCardProps extends Omit<Topic, 'tags' | 'liked' | 'likeAmount'> {
+  liked?: boolean;
+  likeAmount?: number;
   badge?: string; // TODO: Icon등의 형태 논의 필요
   type: TopicCardType;
   onClick?: () => void;
@@ -44,7 +46,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   const { likeTopic } = useLikeTopic();
   const checkAuth = useAuthCheck();
 
-  const [like, setLike] = useState<boolean>(liked);
+  const [like, setLike] = useState<boolean>(!!liked);
   const [likes, setLikes] = useState<number>(likeAmount || 0);
   const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
   const selectedOption = options.find((option) => option.voted);
