@@ -2,6 +2,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 
 import { getTopicDetail } from '@src/apis';
 import DefaultLayout from '@src/components/common/DefaultLayout';
+import SEO from '@src/components/common/SEO';
 import TopicDetailMain from '@src/components/topic/TopicDetailMain';
 import TopicUserInfo from '@src/components/topic/TopicUserInfo';
 import Topic from '@src/types/Topic';
@@ -25,10 +26,13 @@ const TopicDetail: NextPage<Props> = ({ topicDetail, error }) => {
   const { member, tags } = topicDetail;
 
   return (
-    <DefaultLayout //
-      side={<TopicUserInfo member={member} tags={tags} />}
-      main={<TopicDetailMain topic={topicDetail} />}
-    />
+    <>
+      <SEO title={`${topicDetail.title} | 텀즈업`} description="www.thumbs-up.me" />
+      <DefaultLayout //
+        side={<TopicUserInfo member={member} tags={tags} />}
+        main={<TopicDetailMain topic={topicDetail} />}
+      />
+    </>
   );
 };
 
