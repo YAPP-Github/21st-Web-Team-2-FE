@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import theme from '@src/styles/theme';
@@ -27,7 +28,7 @@ export const UserItem = styled.div`
   }
 `;
 
-export const MenuItem = styled.div`
+export const MenuItem = styled.div<{ $last?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -39,7 +40,10 @@ export const MenuItem = styled.div`
     background: ${theme.color.G5};
     cursor: pointer;
   }
-  &:last-child {
-    border-radius: 0 0 8px 8px;
-  }
+
+  ${({ $last }) =>
+    $last &&
+    css`
+      border-radius: 0 0 8px 8px;
+    `}
 `;
