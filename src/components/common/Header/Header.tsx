@@ -20,17 +20,17 @@ const Header: FC = () => {
   const { logout } = useLogout();
 
   const handleLogout = () => {
-    if (userSession?.refreshToken) {
-      logout(userSession.refreshToken, {
-        onSuccess: () => {
-          resetUser();
-          setViewUserMenu(false);
-        },
-        onError: (error) => {
-          alert('로그아웃 실패');
-        },
-      });
-    }
+    if (!userSession?.refreshToken) return;
+
+    logout(userSession.refreshToken, {
+      onSuccess: () => {
+        resetUser();
+        setViewUserMenu(false);
+      },
+      onError: (error) => {
+        alert('로그아웃 실패');
+      },
+    });
   };
 
   return (
