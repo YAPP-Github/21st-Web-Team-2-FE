@@ -80,5 +80,5 @@ export const authHandler = [
   rest.post(`${BASE_URL}/auth/signin`, signin), //
   rest.post(`${BASE_URL}/auth/signup`, signup),
   rest.post(`${BASE_URL}/nickname-duplication`, checkNickName),
-  rest.post(`${BASE_URL}/logout`, logout),
+  rest.post(`${BASE_URL}/auth/logout`, logout),
 ];

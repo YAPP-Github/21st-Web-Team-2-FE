@@ -60,7 +60,7 @@ export const checkNickName = async (nickName: string) => {
  */
 export type PostLogout = BaseResponse<null>;
 export const logout = async (refreshToken: string) => {
-  const res = await axios.post<PostLogout>(`logout`, null, {
+  const res = await axios.post<PostLogout>(`/auth/logout`, null, {
     headers: {
       'Refresh-Token': refreshToken,
     },
