@@ -54,3 +54,17 @@ export const checkNickName = async (nickName: string) => {
 
   return res.data.data;
 };
+
+/**
+ * 로그아웃
+ */
+export type PostLogout = BaseResponse<null>;
+export const logout = async (refreshToken: string) => {
+  const res = await axios.post<PostLogout>(`/auth/logout`, null, {
+    headers: {
+      'Refresh-Token': refreshToken,
+    },
+  });
+
+  return res.data;
+};

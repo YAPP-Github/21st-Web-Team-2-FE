@@ -4,6 +4,7 @@ import { useRecoilValue, useResetRecoilState } from 'recoil';
 
 import Icon from '@src/components/common/Icon';
 import UserInfo from '@src/components/common/UserInfo';
+import { useLogout } from '@src/queires/useLogout';
 import useMember from '@src/queires/useMember';
 import $userSession from '@src/recoil/userSession';
 
@@ -16,9 +17,20 @@ const Header: FC = () => {
   const resetUser = useResetRecoilState($userSession);
   const [viewUserMenu, setViewUserMenu] = useState(false);
 
+  const { logout } = useLogout();
+
   const handleLogout = () => {
-    resetUser();
-    setViewUserMenu(false);
+    if (!userSession?.refreshToken) return;
+
+    logout(userSession.refreshToken, {
+      onSuccess: () => {
+        resetUser();
+        setViewUserMenu(false);
+      },
+      onError: (error) => {
+        alert('로그아웃 실패');
+      },
+    });
   };
 
   return (
