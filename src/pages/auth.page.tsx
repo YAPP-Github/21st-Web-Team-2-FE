@@ -18,7 +18,7 @@ const Auth = () => {
 
     signin(code, {
       onSuccess: (result) => {
-        if (result?.isMember === true) {
+        if (result?.isMember) {
           setUserSession(result.jwtTokens);
           router.push('/');
         } else {

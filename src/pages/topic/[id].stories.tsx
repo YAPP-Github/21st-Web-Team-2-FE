@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { LOGGED_IN } from '@mocks/data/localStorage';
+import { LOGGED_IN } from '@mocks/data/cookie';
 import { TOPIC_DETAIL } from '@mocks/data/topic';
 
 import TopicDetail from './[id].page';
@@ -30,5 +30,5 @@ export const WithLogin = Template.bind({});
 WithLogin.args = Default.args;
 WithLogin.parameters = {
   ...Default.parameters,
-  storage: LOGGED_IN,
+  cookie: LOGGED_IN,
 };
