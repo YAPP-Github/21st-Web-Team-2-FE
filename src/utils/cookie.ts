@@ -25,6 +25,15 @@ const cookie = {
   remove(key: string): void {
     this.set(key, '', -1);
   },
+
+  parse(cookieString?: string): { [key in string]: unknown } | undefined {
+    if (!cookieString) return;
+
+    return cookieString
+      .split('; ')
+      .map((value) => value.split('='))
+      .reduce((prev, [key, value]) => ({ ...prev, [key]: JSON.parse(value) }), {});
+  },
 };
 
 export default cookie;

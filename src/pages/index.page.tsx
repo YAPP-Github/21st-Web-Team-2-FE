@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { GetServerSidePropsContext, NextPage } from 'next';
 import { GetServerSideProps } from 'next';
 import { useState } from 'react';
 
@@ -8,6 +8,7 @@ import SEO from '@src/components/common/SEO';
 import Main from '@src/components/main/Main';
 import SideMenu from '@src/components/main/SideMenu';
 import { MenuCategory } from '@src/components/main/SideMenu/SideMenu';
+import { getTokens } from '@src/utils/auth';
 
 interface HomeProps {
   popularTopics: GetPopularTopicsResponseData[];
@@ -27,8 +28,9 @@ const Home: NextPage<HomeProps> = ({ popularTopics }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const popularTopics = await getPopularTopics();
+export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
+  const tokens = getTokens(context.req.headers.cookie);
+  const popularTopics = await getPopularTopics(tokens?.accessToken);
 
   return { props: { popularTopics } };
 };
