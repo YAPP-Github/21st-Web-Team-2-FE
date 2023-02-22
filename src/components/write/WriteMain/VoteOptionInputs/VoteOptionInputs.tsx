@@ -119,9 +119,12 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
               {selected.includes('img') && (
                 <S.ImgSelectorWrapper>
                   <ImgSelector onChange={handleUploadImg(index)}>
-                    <Icon name="Image" />
+                    {image ? (
+                      <S.SelectedImage src={image} alt="vote option image" width={232} height={180} />
+                    ) : (
+                      <Icon name="Image" />
+                    )}
                   </ImgSelector>
-                  {image && <S.SelectedImage src={image} alt="vote option image" width={232} height={180} />}
                 </S.ImgSelectorWrapper>
               )}
             </React.Fragment>
