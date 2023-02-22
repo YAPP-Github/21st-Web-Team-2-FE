@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const removeImports = require('next-remove-imports')();
 
 const nextConfig = removeImports({
@@ -12,7 +13,12 @@ const nextConfig = removeImports({
     return config;
   },
   images: {
-    domains: ['*'], // TODO: S3 주소만 허용할 건지 논의 필요
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'web2-thumbsup.s3.ap-northeast-2.amazonaws.com',
+      },
+    ],
   },
   experimental: { esmExternals: true },
   pageExtensions: ['page.tsx'],

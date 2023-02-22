@@ -3,6 +3,7 @@ export * from './comment';
 export * from './auth';
 export * from './member';
 export * from './vote';
+export * from './image';
 
 export interface ErrorResponse {
   code: string;
