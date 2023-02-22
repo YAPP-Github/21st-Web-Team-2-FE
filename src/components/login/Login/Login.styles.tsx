@@ -55,4 +55,9 @@ export const Terms = styled.p`
   line-height: ${theme.lineHeight.B};
   text-align: center;
   color: ${theme.color.G7};
+
+  a {
+    text-decoration: underline;
+    font-weight: bolder;
+  }
 `;

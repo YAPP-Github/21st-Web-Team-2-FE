@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import Icon from '@src/components/common/Icon';
+import LINK_URL from '@src/constants/link';
 
 import * as S from './Login.styles';
 
@@ -14,7 +15,17 @@ const Login: FC = () => {
         <Icon name="GoogleLogo" size={16} />
         Google 계정으로 로그인
       </S.GoogleLogin>
-      <S.Terms>로그인은 서비스 이용약관 및 개인정보 처리방침에 동의함을 의미하며,</S.Terms>
+      <S.Terms>
+        로그인은{' '}
+        <a target="_blank" href={LINK_URL.termsOfUse} rel="noreferrer">
+          서비스 이용약관
+        </a>{' '}
+        및{' '}
+        <a target="_blank" href={LINK_URL.privacyPolicy} rel="noreferrer">
+          개인정보 처리방침
+        </a>
+        에 동의함을 의미하며,
+      </S.Terms>
       <S.Terms>서비스 이용을 위해 이메일과 이름, 프로필 이미지를 수집합니다.</S.Terms>
     </S.Wrapper>
   );
