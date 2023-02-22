@@ -32,7 +32,12 @@ const cookie = {
     return cookieString
       .split('; ')
       .map((value) => value.split('='))
-      .reduce((prev, [key, value]) => ({ ...prev, [key]: JSON.parse(value) }), {});
+      .reduce((prev, [key, value]) => {
+        if (value.startsWith('{') || value.startsWith('[')) {
+          return { ...prev, [key]: JSON.parse(value) };
+        }
+        return { ...prev, [key]: value };
+      }, {});
   },
 };
 
