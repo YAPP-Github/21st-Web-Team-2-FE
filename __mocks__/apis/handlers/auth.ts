@@ -54,7 +54,7 @@ const checkNickName = (req: RestRequest<{ nickname: string }>, res: ResponseComp
   );
 };
 
-const logout = (req: RestRequest<{ nickname: string }>, res: ResponseComposition, ctx: RestContext) => {
+const logout = (req: RestRequest, res: ResponseComposition, ctx: RestContext) => {
   const refreshToken = req.headers.get('Refresh-Token');
 
   if (refreshToken) {
