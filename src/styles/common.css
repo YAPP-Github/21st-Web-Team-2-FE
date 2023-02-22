@@ -11,6 +11,12 @@
 }
 
 @font-face {
+  font-family: 'PoetsenOne-Regular';
+  src: url('../assets/fonts/Room-No.703.ttf');
+  unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
   font-family: 'D2Coding';
   src: url('../assets/fonts/D2Coding.ttf');
 }
