@@ -68,8 +68,17 @@ const TopicCarousel: React.FC<TopicCarouselProps> = (props: TopicCarouselProps) 
     <>
       <S.Header>
         <div>
-          <S.Welcome>Hello {member?.nickname || 'Fingers'}!</S.Welcome>
-          <S.SubText>{member?.nickname || '당신'}의 선택은 무엇인가요?</S.SubText>
+          {member ? (
+            <>
+              <S.Welcome>Hello {member.nickname}!</S.Welcome>
+              <S.SubText>{member.nickname}님의 선택은 무엇인가요?</S.SubText>
+            </>
+          ) : (
+            <>
+              <S.Welcome>Hello Fingers!</S.Welcome>
+              <S.SubText>당신의 선택은 무엇인가요?</S.SubText>
+            </>
+          )}
         </div>
         <S.HeaderRight>
           <S.StepText>
