@@ -6,6 +6,7 @@ import Icon from '@src/components/common/Icon';
 import ImgSelector from '@src/components/common/ImgSelector';
 import Input from '@src/components/common/Input';
 import SelectButton from '@src/components/common/SelectButton';
+import useUploadImage from '@src/queires/useUploadImage';
 
 import * as PS from '../WriteMain.styles';
 import * as S from './VoteOptionInputs.styles';
@@ -30,6 +31,8 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
     { id: 1, text: '' },
   ]);
   const id = useRef<number>(2);
+
+  const { uploadImage } = useUploadImage();
 
   useEffect(() => onChange(options.map(({ id, ...rest }) => ({ ...rest }))), [options]);
 
@@ -61,10 +64,12 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
     setOptions(changed);
   };
 
-  const handleUploadImg = (targetId: number) => (img: string) => {
+  const handleUploadImg = (targetId: number) => async (image: FormData) => {
+    const uploaded = await uploadImage(image);
+
     const index = options.findIndex(({ id }) => id === targetId);
     const changed = [...options];
-    changed[index].image = img;
+    changed[index].image = uploaded;
     setOptions(changed);
   };
 
@@ -114,9 +119,12 @@ const VoteOptionInputs: React.FC<VoteOptionInputsProps> = (props) => {
               {selected.includes('img') && (
                 <S.ImgSelectorWrapper>
                   <ImgSelector onChange={handleUploadImg(index)}>
-                    <Icon name="Image" />
+                    {image ? (
+                      <S.SelectedImage src={image} alt="vote option image" width={232} height={180} />
+                    ) : (
+                      <Icon name="Image" />
+                    )}
                   </ImgSelector>
-                  {image && <S.SelectedImage src={image} alt="vote option image" width={232} height={180} />}
                 </S.ImgSelectorWrapper>
               )}
             </React.Fragment>

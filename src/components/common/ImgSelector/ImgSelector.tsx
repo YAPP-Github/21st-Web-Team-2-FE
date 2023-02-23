@@ -4,7 +4,7 @@ import * as S from './ImgSelector.styles';
 
 export interface ImgSelectorProps {
   children?: ReactNode;
-  onChange: (img: string) => void;
+  onChange: (img: FormData) => void;
 }
 
 export default function ImgSelector(props: ImgSelectorProps): JSX.Element {
@@ -21,9 +21,10 @@ export default function ImgSelector(props: ImgSelectorProps): JSX.Element {
     if (!files[0]) {
       return;
     }
+    const formData = new FormData();
+    formData.append('file', files[0]);
 
-    const imgURL = URL.createObjectURL(files[0]);
-    onChange(imgURL);
+    onChange(formData);
   };
 
   return (
