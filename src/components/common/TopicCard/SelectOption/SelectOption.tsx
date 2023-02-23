@@ -3,6 +3,7 @@ import React, { MouseEvent } from 'react';
 import CodeEditor from '@src/components/common/CodeEditor';
 import Icon from '@src/components/common/Icon';
 import { TopicCardType } from '@src/components/common/TopicCard';
+import VoteStatistics from '@src/components/common/TopicCard/VoteStatistics';
 import VoteOption from '@src/types/VoteOption';
 
 import * as S from './SelectOption.style';
@@ -26,6 +27,7 @@ const SelectOption = (props: SelectOptionProps) => {
     image,
     language,
     codeBlock,
+    votedAmountStatistics,
     onClick,
   } = props;
 
@@ -46,16 +48,20 @@ const SelectOption = (props: SelectOptionProps) => {
         </S.Info>
       </S.SelectButton>
       {codeBlock && (
-        <S.CodeBlockWrapper $type={type}>
-          <CodeEditor language={language || 'javascript'} value={codeBlock} disabled />
-          <S.CodeBlockGradiant className="gradiant" />
-        </S.CodeBlockWrapper>
+        <>
+          <S.CodeBlockWrapper $type={type}>
+            <CodeEditor language={language || 'javascript'} value={codeBlock} disabled />
+            <S.CodeBlockGradiant className="gradiant" />
+          </S.CodeBlockWrapper>
+          <S.CodeBlockSpace/>
+        </>
       )}
       {image && (
         <S.ImageWrapper>
           <S.OptionImage src={image} alt={text} fill />
         </S.ImageWrapper>
       )}
+      {type === 'detail' && result && <VoteStatistics {...votedAmountStatistics} />}
     </S.Container>
   );
 };

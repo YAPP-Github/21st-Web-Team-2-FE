@@ -102,9 +102,11 @@ interface CodeBlockWrapperProps {
 }
 
 export const CodeBlockWrapper = styled.div<CodeBlockWrapperProps>`
-  position: relative;
+  position: absolute;
 
+  width: calc((100% - 20px) / 2);
   height: 300px;
+  top: 72px;
 
   border-radius: 8px;
 
@@ -121,13 +123,9 @@ export const CodeBlockWrapper = styled.div<CodeBlockWrapperProps>`
         `
       : css`
           &:hover {
-            position: absolute;
-
             width: 100%;
             height: auto;
             min-height: 300px;
-
-            top: 72px;
             left: 0;
             z-index: 9;
 
@@ -152,4 +150,8 @@ export const CodeBlockGradiant = styled.div`
 
   background: linear-gradient(180deg, rgba(33, 37, 41, 0) 0%, #212529 100%);
   border-radius: 8px;
+`;
+
+export const CodeBlockSpace = styled.div`
+  height: 300px;
 `;
