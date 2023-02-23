@@ -10,6 +10,12 @@ export const VOTE_OPTION: VoteOption = {
   codeBlock: null,
   voted: false,
   voteAmount: 1,
+  votedAmountStatistics: {
+    developerVoteAmount: 1,
+    designerVoteAmount: 0,
+    pmVoteAmount: 0,
+    etcVoteAmount: 0,
+  },
 };
 
 export const VOTE_OPTION2: VoteOption = {

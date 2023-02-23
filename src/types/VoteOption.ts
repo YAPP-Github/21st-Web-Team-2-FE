@@ -8,4 +8,12 @@ export default interface VoteOption {
   codeBlock?: string | null;
   voted: boolean;
   voteAmount: number;
+  votedAmountStatistics: VotedAmountStatistics;
+}
+
+export interface VotedAmountStatistics {
+  developerVoteAmount: number;
+  designerVoteAmount: number;
+  pmVoteAmount: number;
+  etcVoteAmount: number;
 }
