@@ -102,7 +102,7 @@ const WriteMain: React.FC<WriteMainProps> = (props) => {
               name="contents"
               placeholder="항목을 입력하주세요."
               value={topic.contents}
-              maxLength={20}
+              maxLength={100}
               onChange={handleChangeInput}
             />
           </S.Label>
