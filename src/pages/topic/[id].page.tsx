@@ -6,6 +6,7 @@ import SEO from '@src/components/common/SEO';
 import TopicDetailMain from '@src/components/topic/TopicDetailMain';
 import TopicUserInfo from '@src/components/topic/TopicUserInfo';
 import Topic from '@src/types/Topic';
+import { getTokens } from '@src/utils/auth';
 
 interface Props {
   topicDetail: Topic;
@@ -40,7 +41,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const topicId = Number(context.query.id);
   if (topicId) {
     try {
-      const topicDetail = await getTopicDetail(topicId);
+      const tokens = getTokens(context.req.headers.cookie);
+      const topicDetail = await getTopicDetail(topicId, tokens?.accessToken);
 
       return { props: { topicDetail } };
     } catch (error) {

@@ -1,7 +1,8 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 import { Auth } from '@src/apis';
-import { localstorageKeys } from '@src/constants/localstorage';
+import { COOKIE_KEYS } from '@src/constants';
+import cookie from '@src/utils/cookie';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -10,12 +11,11 @@ export const initAxiosConfig = () => {
 };
 
 export const interceptorsAxiosConfig = () => {
-  axios.interceptors.request.use((config: AxiosRequestConfig<any>) => {
-    const user = localStorage.getItem(localstorageKeys.user);
+  axios.interceptors.request.use((config: AxiosRequestConfig) => {
+    const tokens = cookie.get(COOKIE_KEYS.TOKENS);
+    if (!tokens) return config;
 
-    if (!user) return config;
-
-    const parsedData = JSON.parse(user) as Auth['jwtTokens'];
+    const parsedData = JSON.parse(tokens) as Auth['jwtTokens'];
     if (parsedData.accessToken) {
       config.headers = config.headers || {};
       config.headers.Authorization = `Bearer ${parsedData.accessToken}`;

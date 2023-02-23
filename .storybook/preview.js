@@ -10,14 +10,14 @@ import '@src/styles/common.css';
 
 import { handlers } from '../__mocks__/apis/handlers';
 import { initAxiosConfig, interceptorsAxiosConfig } from '../src/configs/axios';
-import localStorageDecorator from './localStorageDecorator';
+import cookieDecorator from './cookieDecorator';
 
 initialize();
 initAxiosConfig();
 interceptorsAxiosConfig();
 
 export const decorators = [
-  localStorageDecorator,
+  cookieDecorator,
   mswDecorator,
   (Story) => (
     <RecoilRoot>

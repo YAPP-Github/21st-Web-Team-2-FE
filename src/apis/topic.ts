@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import Topic, { TopicCategory } from '@src/types/Topic';
 import VoteOption from '@src/types/VoteOption';
+import { getAuthConfig } from '@src/utils/auth';
 
 import { BasePaginationResponse, BaseResponse } from './';
 
@@ -10,8 +11,8 @@ import { BasePaginationResponse, BaseResponse } from './';
  */
 export type GetTopicDetailResponse = BaseResponse<Topic>;
 
-export const getTopicDetail = async (topicId: number) => {
-  const res = await axios.get<GetTopicDetailResponse>(`/topic/${topicId}`);
+export const getTopicDetail = async (topicId: number, accessToken?: string) => {
+  const res = await axios.get<GetTopicDetailResponse>(`/topic/${topicId}`, getAuthConfig(accessToken));
 
   return res.data.data;
 };
@@ -36,8 +37,8 @@ export const getTopics = async (props: GetTopicsQuery) => {
 
 export type GetPopularTopicsResponseData = Omit<Topic, 'liked' | 'likeAmount'>;
 export type GetPopularTopicsResponse = BaseResponse<GetPopularTopicsResponseData[]>;
-export const getPopularTopics = async () => {
-  const res = await axios.get<GetPopularTopicsResponse>('/topic/popular');
+export const getPopularTopics = async (accessToken?: string) => {
+  const res = await axios.get<GetPopularTopicsResponse>('/topic/popular', getAuthConfig(accessToken));
 
   return res.data.data;
 };
