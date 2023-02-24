@@ -9,12 +9,12 @@ import '@src/styles/reset.css';
 import '@src/styles/common.css';
 
 import { handlers } from '../__mocks__/apis/handlers';
-import { initAxiosConfig, interceptorsAxiosConfig } from '../src/configs/axios';
+import { initAxiosConfig, configAxiosInterceptor } from '../src/configs/axios';
 import cookieDecorator from './cookieDecorator';
 
 initialize();
 initAxiosConfig();
-interceptorsAxiosConfig();
+configAxiosInterceptor();
 
 export const decorators = [
   cookieDecorator,

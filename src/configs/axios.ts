@@ -1,6 +1,6 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { Auth } from '@src/apis';
+import { Auth, ErrorResponse } from '@src/apis';
 import { COOKIE_KEYS } from '@src/constants';
 import cookie from '@src/utils/cookie';
 
@@ -10,7 +10,12 @@ export const initAxiosConfig = () => {
   axios.defaults.baseURL = BASE_URL ?? '';
 };
 
-export const interceptorsAxiosConfig = () => {
+export const configAxiosInterceptor = () => {
+  configRequestInterceptor();
+  configResponseInterceptor();
+};
+
+const configRequestInterceptor = () => {
   axios.interceptors.request.use((config: AxiosRequestConfig) => {
     const tokens = cookie.get(COOKIE_KEYS.TOKENS);
     if (!tokens) return config;
@@ -22,4 +27,17 @@ export const interceptorsAxiosConfig = () => {
     }
     return config;
   });
+};
+
+const configResponseInterceptor = () => {
+  axios.interceptors.response.use(
+    (res: AxiosResponse) => res,
+    (error: AxiosError<ErrorResponse>) => {
+      const code = error.response?.data.code;
+      if (!code?.startsWith('2')) return Promise.reject(error);
+
+      cookie.remove(COOKIE_KEYS.TOKENS);
+      return Promise.reject(error);
+    },
+  );
 };
