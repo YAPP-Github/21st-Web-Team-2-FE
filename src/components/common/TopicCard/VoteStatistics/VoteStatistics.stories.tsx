@@ -17,8 +17,10 @@ const Template: ComponentStory<typeof VoteStatistics> = (args) => <VoteStatistic
 
 export const Default = Template.bind({});
 Default.args = {
-  developerVoteAmount: 1,
-  designerVoteAmount: 0,
-  pmVoteAmount: 0,
-  etcVoteAmount: 0,
+  statistics: {
+    developerVoteAmount: 1,
+    designerVoteAmount: 0,
+    pmVoteAmount: 0,
+    etcVoteAmount: 0,
+  },
 };

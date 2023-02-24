@@ -8,9 +8,12 @@ import { VotedAmountStatistics } from '@src/types/VoteOption';
 
 import * as S from './VoteStatistics.style';
 
-type VoteStatisticsProps = VotedAmountStatistics;
+interface VoteStatisticsProps {
+  statistics: VotedAmountStatistics;
+}
 
 const VoteStatistics = (props: VoteStatisticsProps) => {
+  const { statistics } = props;
   const userSession = useRecoilValue($userSession);
   const { data: member } = useMember(userSession?.accessToken);
 
@@ -19,17 +22,20 @@ const VoteStatistics = (props: VoteStatisticsProps) => {
   const currentCategory = JOB_CATEGORIES[jobCategory] || JOB_CATEGORIES.ETC;
   const otherCategories = Object.values(JOB_CATEGORIES).filter((category) => category !== currentCategory);
 
+  const totalAmount = Object.values(statistics).reduce((prev, current) => prev + current, 0);
+
   return (
     <S.Container>
       <S.Main>
         <Icon name={currentCategory.icon} size={16} />
-        {currentCategory.text} {props[currentCategory.key]}명(00%)이 동의했어요!
+        {currentCategory.text} {statistics[currentCategory.key]}명(
+        {Math.floor(statistics[currentCategory.key] / totalAmount || 0)}%)이 동의했어요!
       </S.Main>
       <S.Sub>
         {otherCategories.map((category) => (
           <S.SubItem key={category.key}>
             <Icon name={category.icon} size={14} />
-            {props[category.key]}명(00%)
+            {statistics[category.key]}명({Math.floor(statistics[category.key] / totalAmount || 0)}%)
           </S.SubItem>
         ))}
       </S.Sub>

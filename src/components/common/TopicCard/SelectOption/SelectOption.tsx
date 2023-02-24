@@ -53,7 +53,7 @@ const SelectOption = (props: SelectOptionProps) => {
             <CodeEditor language={language || 'javascript'} value={codeBlock} disabled />
             <S.CodeBlockGradiant className="gradiant" />
           </S.CodeBlockWrapper>
-          <S.CodeBlockSpace/>
+          <S.CodeBlockSpace />
         </>
       )}
       {image && (
@@ -61,7 +61,7 @@ const SelectOption = (props: SelectOptionProps) => {
           <S.OptionImage src={image} alt={text} fill />
         </S.ImageWrapper>
       )}
-      {type === 'detail' && result && <VoteStatistics {...votedAmountStatistics} />}
+      {type === 'detail' && result && <VoteStatistics statistics={votedAmountStatistics} />}
     </S.Container>
   );
 };
