@@ -29,13 +29,13 @@ const VoteStatistics = (props: VoteStatisticsProps) => {
       <S.Main>
         <Icon name={currentCategory.icon} size={16} />
         {currentCategory.text} {statistics[currentCategory.key]}명(
-        {Math.floor(statistics[currentCategory.key] / totalAmount || 0)}%)이 동의했어요!
+        {Math.floor((statistics[currentCategory.key] / totalAmount) * 100 || 0)}%)이 동의했어요!
       </S.Main>
       <S.Sub>
         {otherCategories.map((category) => (
           <S.SubItem key={category.key}>
             <Icon name={category.icon} size={14} />
-            {statistics[category.key]}명({Math.floor(statistics[category.key] / totalAmount || 0)}%)
+            {statistics[category.key]}명({Math.floor((statistics[category.key] / totalAmount) * 100 || 0)}%)
           </S.SubItem>
         ))}
       </S.Sub>
