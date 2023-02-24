@@ -62,7 +62,7 @@ const JOB_CATEGORIES: {
   },
   ETC: {
     icon: 'Guitar',
-    text: '기타치는',
+    text: '기타 직군',
     key: 'etcVoteAmount',
   },
 };
