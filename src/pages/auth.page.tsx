@@ -22,7 +22,7 @@ const Auth = () => {
           setUserSession(result.jwtTokens);
           router.push('/');
         } else {
-          router.push(`/onboarding?code=${result?.jwtTokens.accessToken}`, '/onboarding');
+          router.push(`/onboarding?code=${result?.jwtTokens.accessToken}`);
         }
       },
       onError: async () => {
