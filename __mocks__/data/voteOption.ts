@@ -2,6 +2,13 @@ import { TEST_IMAGE } from '@mocks/data/image';
 
 import VoteOption from '@src/types/VoteOption';
 
+const VOTE_STATISTICS = {
+  developerVoteAmount: 1,
+  designerVoteAmount: 2,
+  pmVoteAmount: 3,
+  etcVoteAmount: 4,
+};
+
 export const VOTE_OPTION: VoteOption = {
   voteOptionId: 1,
   text: 'Content1 OptionA',
@@ -9,16 +16,18 @@ export const VOTE_OPTION: VoteOption = {
   language: null,
   codeBlock: null,
   voted: false,
-  voteAmount: 1,
+  voteAmount: 10,
+  votedAmountStatistics: { ...VOTE_STATISTICS },
 };
 
 export const VOTE_OPTION2: VoteOption = {
   ...VOTE_OPTION,
   voteOptionId: 2,
   text: 'Content1 OptionB',
+  votedAmountStatistics: { ...VOTE_STATISTICS },
 };
 
-export const VOTE_OPTIONS: VoteOption[] = [VOTE_OPTION, VOTE_OPTION2];
+export const VOTE_OPTIONS: VoteOption[] = [{ ...VOTE_OPTION }, { ...VOTE_OPTION2 }];
 
 export const VOTE_OPTION_WITH_IMAGE: VoteOption = {
   ...VOTE_OPTION,

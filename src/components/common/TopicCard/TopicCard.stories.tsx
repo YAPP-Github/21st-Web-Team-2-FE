@@ -12,7 +12,7 @@ import {
   VOTE_OPTION_WITH_SHORT_CODE,
 } from '@mocks/data/voteOption';
 
-import { localstorageKeys } from '@src/constants/localstorage';
+import { COOKIE_KEYS } from '@src/constants';
 
 import TopicCard from '.';
 
@@ -20,7 +20,7 @@ export default {
   component: TopicCard,
   title: 'common/TopicCard',
   parameters: {
-    storage: LOGGED_IN,
+    cookie: LOGGED_IN,
   },
 };
 
@@ -40,7 +40,7 @@ Default.args = {
 export const WithoutLogin = Template.bind({});
 WithoutLogin.args = Default.args;
 WithoutLogin.parameters = {
-  storage: { [localstorageKeys.user]: null },
+  cookie: { [COOKIE_KEYS.TOKENS]: null },
 };
 
 export const 글자수_많음_2개 = Template.bind({});
