@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { useRecoilValue } from 'recoil';
 
 import { LikeTopicResponseData } from '@src/apis';
 import ProfileImg from '@src/components/common/ProfileImg';
@@ -8,7 +6,6 @@ import ShareIcon from '@src/components/common/ShareIcon';
 import useAuthCheck from '@src/hooks/useAuthCheck';
 import useLikeTopic from '@src/queires/useLikeTopic';
 import { useVote } from '@src/queires/useVote';
-import $userSession from '@src/recoil/userSession';
 import Topic from '@src/types/Topic';
 import VoteOption from '@src/types/VoteOption';
 
@@ -40,8 +37,6 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
     type,
     onClick,
   } = props;
-  const tokens = useRecoilValue($userSession);
-  const router = useRouter();
   const { vote } = useVote();
   const { likeTopic } = useLikeTopic();
   const checkAuth = useAuthCheck();
@@ -64,23 +59,8 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
   };
 
   const handleClickOption = async (voteOptionId: number) => {
-    if (!tokens) {
-      alert('로그인이 필요합니다!');
-      await router.push('/login');
-      return;
-    }
-
-    try {
-      await vote({
-        topicId,
-        voteOptionId,
-      });
-    } catch (err) {
-      // TODO: 에러핸들링 추가 필요
-      alert('로그인이 필요합니다!');
-      await router.push('/login');
-      return;
-    }
+    const result = await checkAuth(() => vote({ topicId, voteOptionId }));
+    if (!result) return;
 
     const changed = options.map((option) => {
       if (option.voteOptionId === selectedOptionId) {

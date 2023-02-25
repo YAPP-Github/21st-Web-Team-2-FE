@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useRecoilValue } from 'recoil';
 
 import { GetTopicsResponseData } from '@src/apis';
 import AddButton from '@src/components/main/AddButton';
@@ -8,7 +7,7 @@ import FabButton from '@src/components/main/FabButton';
 import MainTopicList from '@src/components/main/MainTopicList';
 import { MenuCategory } from '@src/components/main/SideMenu/SideMenu';
 import TopicCarousel from '@src/components/main/TopicCarousel';
-import $userSession from '@src/recoil/userSession';
+import useAuthCheck from '@src/hooks/useAuthCheck';
 
 import * as S from './Main.styles';
 
@@ -22,7 +21,7 @@ const Main: React.FC<MainProps> = (props) => {
   const [fabVisible, setFabVisible] = useState<boolean>(false);
   const observerRef = useRef<HTMLDivElement>(null);
 
-  const tokens = useRecoilValue($userSession);
+  const checkAuth = useAuthCheck();
   const router = useRouter();
 
   const handleObserver: IntersectionObserverCallback = useCallback(
@@ -38,12 +37,7 @@ const Main: React.FC<MainProps> = (props) => {
   }, [handleObserver]);
 
   const handleWrite = async () => {
-    if (!tokens) {
-      alert('로그인이 필요합니다!');
-      await router.push('/login');
-      return;
-    }
-    await router.push('/write');
+    await checkAuth(() => router.push('/write'));
   };
 
   return (

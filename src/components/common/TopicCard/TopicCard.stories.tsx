@@ -1,6 +1,7 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { LOGGED_IN } from '@mocks/data/cookie';
 import { MEMBER } from '@mocks/data/member';
 import {
   VOTE_OPTION,
@@ -11,11 +12,16 @@ import {
   VOTE_OPTION_WITH_SHORT_CODE,
 } from '@mocks/data/voteOption';
 
+import { localstorageKeys } from '@src/constants/localstorage';
+
 import TopicCard from '.';
 
 export default {
   component: TopicCard,
   title: 'common/TopicCard',
+  parameters: {
+    storage: LOGGED_IN,
+  },
 };
 
 const Template: ComponentStory<typeof TopicCard> = (args) => <TopicCard {...args} />;
@@ -29,6 +35,12 @@ Default.args = {
   member: MEMBER,
   commentAmount: 0,
   type: 'feed',
+};
+
+export const WithoutLogin = Template.bind({});
+WithoutLogin.args = Default.args;
+WithoutLogin.parameters = {
+  storage: { [localstorageKeys.user]: null },
 };
 
 export const 글자수_많음_2개 = Template.bind({});
