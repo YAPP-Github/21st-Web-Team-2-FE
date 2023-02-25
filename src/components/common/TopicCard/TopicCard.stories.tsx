@@ -11,6 +11,7 @@ import {
   VOTE_OPTION_WITH_IMAGE,
   VOTE_OPTION_WITH_SHORT_CODE,
 } from '@mocks/data/voteOption';
+
 import { COOKIE_KEYS } from '@src/constants';
 
 import TopicCard from '.';
