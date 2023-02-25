@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import { LikeTopicResponseData } from '@src/apis';
 import ProfileImg from '@src/components/common/ProfileImg';
 import ShareIcon from '@src/components/common/ShareIcon';
+import { JOB_CATEGORIES } from '@src/components/common/TopicCard/VoteStatistics';
 import useAuthCheck from '@src/hooks/useAuthCheck';
 import useLikeTopic from '@src/queires/useLikeTopic';
+import useMember from '@src/queires/useMember';
 import { useVote } from '@src/queires/useVote';
+import $userSession from '@src/recoil/userSession';
 import Topic from '@src/types/Topic';
 import VoteOption from '@src/types/VoteOption';
 
@@ -24,26 +28,17 @@ export interface TopicCardProps extends Omit<Topic, 'tags' | 'liked' | 'likeAmou
 }
 
 const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement>) => {
-  const {
-    topicId,
-    title,
-    contents,
-    voteOptions: defaultOptions,
-    member,
-    commentAmount,
-    liked,
-    likeAmount,
-    badge,
-    type,
-    onClick,
-  } = props;
+  const { topicId, title, contents, voteOptions, member, commentAmount, liked, likeAmount, badge, type, onClick } =
+    props;
   const { vote } = useVote();
   const { likeTopic } = useLikeTopic();
   const checkAuth = useAuthCheck();
+  const userSession = useRecoilValue($userSession);
+  const { data: loginMember } = useMember(userSession?.accessToken);
 
   const [like, setLike] = useState<boolean>(!!liked);
   const [likes, setLikes] = useState<number>(likeAmount || 0);
-  const [options, setOptions] = useState<VoteOption[]>(defaultOptions);
+  const [options, setOptions] = useState<VoteOption[]>(voteOptions);
   const selectedOption = options.find((option) => option.voted);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(selectedOption?.voteOptionId || null);
   const votedAmount = options.reduce((prev, option) => prev + option.voteAmount, 0);
@@ -60,14 +55,18 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
 
   const handleClickOption = async (voteOptionId: number) => {
     const result = await checkAuth(() => vote({ topicId, voteOptionId }));
-    if (!result) return;
+    if (!result || !loginMember) return;
+
+    const currentCategory = JOB_CATEGORIES[loginMember.jobCategory].key || JOB_CATEGORIES.ETC.key;
 
     const changed = options.map((option) => {
       if (option.voteOptionId === selectedOptionId) {
+        option.votedAmountStatistics[currentCategory] -= 1;
         option.voteAmount -= 1;
         return option;
       }
       if (option.voteOptionId === voteOptionId) {
+        option.votedAmountStatistics[currentCategory] += 1;
         option.voteAmount += 1;
       }
       return option;

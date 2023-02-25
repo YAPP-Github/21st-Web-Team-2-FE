@@ -44,7 +44,7 @@ const VoteStatistics = (props: VoteStatisticsProps) => {
 };
 
 type JobCategory = '개발' | '디자인' | '기획';
-const JOB_CATEGORIES: {
+export const JOB_CATEGORIES: {
   [key in JobCategory | string]: {
     icon: IconNameType;
     key: keyof VotedAmountStatistics;
