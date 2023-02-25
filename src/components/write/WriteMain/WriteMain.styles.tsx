@@ -4,7 +4,9 @@ import theme from '@src/styles/theme';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
 `;
+
 export const Main = styled.main`
   margin: 80px auto 52px;
 
