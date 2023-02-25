@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import ProfileImg from '@src/components/common/ProfileImg';
 import Comment from '@src/types/Comment';
 
 import * as S from './CommentListItem.styles';
@@ -13,7 +14,7 @@ const CommentListItem: FC<Props> = (props) => {
 
   return (
     <S.Wrapper>
-      <S.Avatar />
+      <ProfileImg jobCategory={member.jobCategory} size={44} />
       <S.Content>
         <S.UserWrapper>
           <S.UserNickName>{member.nickname}</S.UserNickName>
