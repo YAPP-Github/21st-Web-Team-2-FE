@@ -61,12 +61,12 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
 
     const changed = options.map((option) => {
       if (option.voteOptionId === selectedOptionId) {
-        option.votedAmountStatistics[currentCategory] -= 1;
+        option.votedAmountStatistics && (option.votedAmountStatistics[currentCategory] -= 1);
         option.voteAmount -= 1;
         return option;
       }
       if (option.voteOptionId === voteOptionId) {
-        option.votedAmountStatistics[currentCategory] += 1;
+        option.votedAmountStatistics && (option.votedAmountStatistics[currentCategory] += 1);
         option.voteAmount += 1;
       }
       return option;
