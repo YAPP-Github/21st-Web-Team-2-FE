@@ -25,7 +25,9 @@ export const UserInfo = styled.p`
   font-size: ${theme.textSize.B3};
 `;
 
-export const Comment = styled.p``;
+export const Comment = styled.p`
+  word-break: break-all;
+`;
 
 export const LikeWrapper = styled.div<{ $liked: boolean }>`
   display: flex;
