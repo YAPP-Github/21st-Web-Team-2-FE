@@ -20,8 +20,9 @@ const VoteStatistics = (props: VoteStatisticsProps) => {
   if (!member) return null;
   const { jobCategory } = member;
   const currentCategory = JOB_CATEGORIES[jobCategory] || JOB_CATEGORIES.ETC;
-  const otherCategories = Object.values(JOB_CATEGORIES).filter((category) => category !== currentCategory);
-
+  const otherCategories = Object.values(JOB_CATEGORIES)
+    .filter((category) => category !== currentCategory)
+    .sort((a, b) => statistics[b.key] - statistics[a.key]);
   const totalAmount = Object.values(statistics).reduce((prev, current) => prev + current, 0);
 
   return (
