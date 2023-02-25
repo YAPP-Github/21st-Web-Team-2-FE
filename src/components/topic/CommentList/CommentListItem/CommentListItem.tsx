@@ -31,7 +31,7 @@ const CommentListItem: FC<Props> = (props) => {
 
   return (
     <S.Wrapper>
-      <ProfileImg jobCategory={member.jobCategory} size={44} />
+      <ProfileImg src={member.profileImage} jobCategory={member.jobCategory} size={44} />
       <S.Content>
         <S.UserWrapper>
           <S.UserNickName>{member.nickname}</S.UserNickName>
