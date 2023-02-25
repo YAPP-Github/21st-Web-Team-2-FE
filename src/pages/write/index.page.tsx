@@ -13,8 +13,11 @@ const WritePage: NextPage = () => {
   const checkAuth = useAuthCheck();
   const router = useRouter();
 
-  const isNotAuth = !!checkAuth();
-  if (isNotAuth) return null;
+  const isNotAuth = !checkAuth();
+  if (isNotAuth) {
+    router.push('/');
+    return null;
+  }
 
   const handleCreate = async (topic: PostTopicRequest) => {
     await createTopic(topic);

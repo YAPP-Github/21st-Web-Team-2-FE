@@ -9,14 +9,14 @@ const useAuthCheck = () => {
   const tokens = useRecoilValue($userSession);
   const router = useRouter();
 
-  return async <T>(callback?: () => Promise<T | void>): Promise<T | void> => {
+  return async <T>(callback?: () => Promise<T>): Promise<T | boolean> => {
     if (!tokens) {
       alert('로그인이 필요합니다!');
       await router.push('/login');
-      return;
+      return false;
     }
 
-    if (!callback) return;
+    if (!callback) return true;
 
     try {
       return await callback();
@@ -27,6 +27,7 @@ const useAuthCheck = () => {
 
       alert('로그인이 필요합니다!');
       await router.push('/login');
+      return false;
     }
   };
 };
