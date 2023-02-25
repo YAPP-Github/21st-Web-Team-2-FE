@@ -3,7 +3,13 @@ import { ResponseComposition, RestContext, RestRequest, rest } from 'msw';
 import { COMMENTS } from '@mocks/data/comment';
 import { MEMBER } from '@mocks/data/member';
 
-import { GetCommentsResponse, PostCommentRequest, PostCommentResponse } from '@src/apis';
+import {
+  GetCommentsResponse,
+  LikeCommentRequest,
+  LikeCommentResponse,
+  PostCommentRequest,
+  PostCommentResponse,
+} from '@src/apis';
 import { BASE_URL } from '@src/configs/axios';
 import Comment from '@src/types/Comment';
 
@@ -59,7 +65,25 @@ const createComment = (req: RestRequest<PostCommentRequest>, res: ResponseCompos
   );
 };
 
+let liked = false;
+const likeComment = async (req: RestRequest<LikeCommentRequest>, res: ResponseComposition, ctx: RestContext) => {
+  const { commentId } = await req.json();
+  liked = !liked;
+  return res(
+    ctx.status(200),
+    ctx.json<LikeCommentResponse>({
+      code: 'SUCCESS',
+      message: '성공',
+      data: {
+        commentId,
+        liked,
+      },
+    }),
+  );
+};
+
 export const commentHandler = [
   rest.get(`${BASE_URL}/comment/:topicId/latest`, getComments),
   rest.post(`${BASE_URL}/comment`, createComment),
+  rest.post(`${BASE_URL}/comment/like`, likeComment),
 ];
