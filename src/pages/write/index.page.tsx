@@ -1,20 +1,20 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { useRecoilValue } from 'recoil';
 
 import { PostTopicRequest } from '@src/apis';
 import Header from '@src/components/common/Header';
 import WriteMain from '@src/components/write/WriteMain';
-import useAuthCheck from '@src/hooks/useAuthCheck';
 import useCreateTopic from '@src/queires/useCreateTopic';
+import $userSession from '@src/recoil/userSession';
 
 const WritePage: NextPage = () => {
   const { createTopic } = useCreateTopic();
 
-  const checkAuth = useAuthCheck();
+  const tokens = useRecoilValue($userSession);
   const router = useRouter();
 
-  const isNotAuth = !checkAuth();
-  if (isNotAuth) {
+  if (!tokens) {
     router.push('/');
     return null;
   }
