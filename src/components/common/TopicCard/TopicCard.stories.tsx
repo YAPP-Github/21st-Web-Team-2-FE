@@ -1,7 +1,7 @@
 import { ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { LOGGED_IN } from '@mocks/data/localStorage';
+import { LOGGED_IN } from '@mocks/data/cookie';
 import { MEMBER } from '@mocks/data/member';
 import {
   VOTE_OPTION,
