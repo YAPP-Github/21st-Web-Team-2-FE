@@ -4,7 +4,7 @@ const cookie = {
   set(key: string, value: string, expires?: number): void {
     if (isServer()) return;
 
-    let cookieString = `${key}=${value}`;
+    let cookieString = `${key}=${value}; path=/`;
     if (expires) {
       const expiresDate = new Date();
       cookieString = `${cookieString}; expires=${expiresDate.setDate(expiresDate.getDate() + expires)}`;
