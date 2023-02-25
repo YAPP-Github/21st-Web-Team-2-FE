@@ -27,7 +27,7 @@ export const UserInfo = styled.p`
 
 export const Comment = styled.p``;
 
-export const VoteWrapper = styled.div<{ $liked: boolean }>`
+export const LikeWrapper = styled.div<{ $liked: boolean }>`
   display: flex;
   align-items: center;
   font-size: ${theme.textSize.B3};
@@ -41,7 +41,7 @@ export const VoteWrapper = styled.div<{ $liked: boolean }>`
     }`}
 `;
 
-export const VoteIcon = styled(Icon)`
+export const LikeIcon = styled(Icon)`
   &:hover {
     cursor: pointer;
   }

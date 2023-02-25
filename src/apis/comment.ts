@@ -31,3 +31,18 @@ export const createComment = async (data: PostCommentRequest) => {
 
   return res.data.data;
 };
+
+export interface LikeCommentRequest {
+  commentId: Comment['commentId'];
+}
+export interface LikeCommentResponseData {
+  commentId: Comment['commentId'];
+  liked: boolean;
+}
+export type LikeCommentResponse = BaseResponse<LikeCommentResponseData>;
+
+export const likeComment = async (data: LikeCommentRequest) => {
+  const res = await axios.post<LikeCommentResponse>('/comment/likes', data);
+
+  return res.data.data;
+};
