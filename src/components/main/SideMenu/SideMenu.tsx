@@ -17,7 +17,7 @@ const CATEGORY_DATA: { value: MenuCategory; text: string; icon: IconNameType }[]
 ];
 
 // TODO: 인기태그 api
-const TAGS = ['인기태그', '최고태그', '태그', '뭔태그', '그태그', '사랑해요', 'yapp'];
+const TAGS = ['Java', 'javascript', 'Kotlin', 'Yapp', '취업', '이직', 'Next'];
 
 interface SideMenuProps {
   onSelectCategory: (value: MenuCategory) => void;
