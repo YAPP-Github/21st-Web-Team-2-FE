@@ -26,8 +26,9 @@ const Header: FC = () => {
       onSuccess: () => {
         resetUser();
         setViewUserMenu(false);
+        location.reload();
       },
-      onError: (error) => {
+      onError: () => {
         alert('로그아웃 실패');
       },
     });
