@@ -8,7 +8,7 @@ import '@src/styles/reset.css';
 
 import '@src/styles/common.css';
 
-import { initAxiosConfig, interceptorsAxiosConfig } from '@src/configs/axios';
+import { initAxiosConfig, configAxiosInterceptor } from '@src/configs/axios';
 import queryClient from '@src/configs/queryClient';
 import '@src/configs/recoil';
 import isServer from '@src/utils/isServer';
@@ -16,7 +16,7 @@ import isServer from '@src/utils/isServer';
 initAxiosConfig();
 
 if (!isServer()) {
-  interceptorsAxiosConfig();
+  configAxiosInterceptor();
 }
 
 if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_MSW === 'true') {

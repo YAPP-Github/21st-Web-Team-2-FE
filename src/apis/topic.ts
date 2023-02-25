@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 import Topic, { TopicCategory } from '@src/types/Topic';
 import VoteOption from '@src/types/VoteOption';
 import { getAuthConfig } from '@src/utils/auth';
 
-import { BasePaginationResponse, BaseResponse } from './';
+import { BasePaginationResponse, BaseResponse, ErrorResponse } from './';
 
 /**
  * 토픽 상세 조회
@@ -12,9 +12,18 @@ import { BasePaginationResponse, BaseResponse } from './';
 export type GetTopicDetailResponse = BaseResponse<Topic>;
 
 export const getTopicDetail = async (topicId: number, accessToken?: string) => {
-  const res = await axios.get<GetTopicDetailResponse>(`/topic/${topicId}`, getAuthConfig(accessToken));
+  try {
+    const res = await axios.get<GetTopicDetailResponse>(`/topic/${topicId}`, getAuthConfig(accessToken));
 
-  return res.data.data;
+    return res.data.data;
+  } catch (err) {
+    const error = err as AxiosError<ErrorResponse>;
+    const code = error.response?.data.code;
+    if (!code?.startsWith('2')) throw error;
+
+    const res = await axios.get<GetTopicDetailResponse>(`/topic/${topicId}`);
+    return res.data.data;
+  }
 };
 
 export interface GetTopicsQuery {
@@ -38,9 +47,17 @@ export const getTopics = async (props: GetTopicsQuery) => {
 export type GetPopularTopicsResponseData = Omit<Topic, 'liked' | 'likeAmount'>;
 export type GetPopularTopicsResponse = BaseResponse<GetPopularTopicsResponseData[]>;
 export const getPopularTopics = async (accessToken?: string) => {
-  const res = await axios.get<GetPopularTopicsResponse>('/topic/popular', getAuthConfig(accessToken));
+  try {
+    const res = await axios.get<GetPopularTopicsResponse>('/topic/popular', getAuthConfig(accessToken));
+    return res.data.data;
+  } catch (err) {
+    const error = err as AxiosError<ErrorResponse>;
+    const code = error.response?.data.code;
+    if (!code?.startsWith('2')) throw error;
 
-  return res.data.data;
+    const res = await axios.get<GetPopularTopicsResponse>('/topic/popular');
+    return res.data.data;
+  }
 };
 
 export interface PostTopicRequest extends Pick<Topic, 'title' | 'contents' | 'tags'> {
