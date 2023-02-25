@@ -112,7 +112,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
       <S.TopicBottom>
         {isFeed ? (
           <S.AuthorInfo>
-            <ProfileImg src={member.profileImage} jobCategory={member.jobCategory} />
+            <ProfileImg src={member.profileImage} jobCategory={member.jobCategory} size={24} />
             <span>{member.nickname}</span>
           </S.AuthorInfo>
         ) : (

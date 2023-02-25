@@ -8,15 +8,6 @@ export const Wrapper = styled.div`
   gap: 0.5rem;
 `;
 
-export const Avatar = styled.div`
-  min-width: 44px;
-  max-width: 44px;
-  min-height: 44px;
-  max-height: 44px;
-  background: ${theme.color.G7};
-  border-radius: 50%;
-`;
-
 export const Content = styled.div`
   display: flex;
   flex-direction: column;

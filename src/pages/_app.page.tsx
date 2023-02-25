@@ -8,7 +8,7 @@ import '@src/styles/reset.css';
 
 import '@src/styles/common.css';
 
-import { initAxiosConfig, configAxiosInterceptor } from '@src/configs/axios';
+import { configAxiosInterceptor, initAxiosConfig } from '@src/configs/axios';
 import queryClient from '@src/configs/queryClient';
 import '@src/configs/recoil';
 import isServer from '@src/utils/isServer';
