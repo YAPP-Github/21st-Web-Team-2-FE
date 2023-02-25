@@ -92,7 +92,7 @@ const TopicCard = (props: TopicCardProps, ref: React.ForwardedRef<HTMLDivElement
             )}
             <S.Title>{title}</S.Title>
           </div>
-          {isFeed && <ShareIcon url={`${location.host}/topics/${topicId}`} />}
+          {isFeed && <ShareIcon url={`${location.host}/topic/${topicId}`} />}
         </S.TopicHeader>
         <S.Contents>{contents}</S.Contents>
         <S.SelectOptionContainer $odd={options.length % 2 === 1}>
